@@ -7,7 +7,10 @@
 
 #include "header.h"
 
-enemy_t **start_menu_player(void)
+player_t **start_menu_player(void)
 {
-    return NULL;
+    player_t **players = malloc(sizeof(player_t *));
+
+    players[0] = NULL;
+    return players;
 }

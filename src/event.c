@@ -9,8 +9,13 @@
 
 void handle_event(game_manager_t *gm, sfEvent event)
 {
+    gm->is_mouse_clicked = sfFalse;
     while (sfRenderWindow_pollEvent(gm->window, &event)) {
-        if (event.type == sfEvtClosed)
+        if (event.type == sfEvtClosed) {
             sfRenderWindow_close(gm->window);
+            break;
+        }
+        if (event.type == sfEvtMouseButtonPressed)
+            gm->is_mouse_clicked = sfTrue;
     }
 }

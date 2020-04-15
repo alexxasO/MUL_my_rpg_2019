@@ -25,18 +25,23 @@ CC	= gcc
 
 RM	= rm -f
 
-SRCS	=	src/main.c						\
-			src/event.c						\
-			src/draw.c						\
-			src/destroy.c					\
-			src/create/create.c 			\
-			src/create/create_window.c		\
-			src/create/create_background.c	\
-			src/create/create_button.c		\
-			src/create/create_enemy.c 		\
-			src/create/create_player.c 		\
-			src/scenes/start_menu.c 		\
-			
+SRCS	=	src/main.c										\
+			src/event.c										\
+			src/draw.c										\
+			src/destroy.c									\
+			src/create/create.c 							\
+			src/create/create_window.c						\
+			src/create/create_background.c					\
+			src/create/create_button.c						\
+			src/create/create_enemy.c 						\
+			src/create/create_player.c 						\
+			src/scenes/start_menu.c 						\
+			src/create_backgrounds/start_menu_background.c	\
+			src/create_buttons/start_menu_button.c			\
+			src/create_players/start_menu_player.c			\
+			src/create_enemies/start_menu_enemy.c			\
+			src/get_mouse_pos.c								\
+			src/is_mouse_over_button.c 						\
 
 OBJS	= $(SRCS:.c=.o)
 

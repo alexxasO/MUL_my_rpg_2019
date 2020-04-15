@@ -44,9 +44,13 @@ static void destroy_enemy(enemy_t *enemy)
 
 static void destroy_button(button_t *button)
 {
-    sfSprite_destroy(button->sprite);
-    sfTexture_destroy(button->texture);
+    for (size_t i = 0; i < 3; i++) {
+        sfSprite_destroy(button->sprite[i]);
+        sfTexture_destroy(button->texture[i]);
+    }
     free(button->pathname);
+    free(button->sprite);
+    free(button->texture);
     free(button);
 }
 
