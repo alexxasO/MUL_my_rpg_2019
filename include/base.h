@@ -1,8 +1,8 @@
 /*
 ** EPITECH PROJECT, 2019
-** Repo_name
+** MUL_my_defender_2019
 ** File description:
-** base.h
+** Basic Header
 */
 
 #ifndef BASE_H

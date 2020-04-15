@@ -1,6 +1,6 @@
 ##
 ## EPITECH PROJECT, 2019
-## PSU_minishell1_2019
+## MUL_my_rpg_2019
 ## File description:
 ## Makefile
 ##
@@ -19,13 +19,24 @@ FLASH = 	"\e[5;30m"
 BYELLOW =	"\e[1;33m"
 BMAGENTA =	"\e[1;35m"
 
-NAME	= binary_name
+NAME	= my_rpg
 
 CC	= gcc
 
 RM	= rm -f
 
-SRCS	=	src/main.c
+SRCS	=	src/main.c						\
+			src/event.c						\
+			src/draw.c						\
+			src/destroy.c					\
+			src/create/create.c 			\
+			src/create/create_window.c		\
+			src/create/create_background.c	\
+			src/create/create_button.c		\
+			src/create/create_enemy.c 		\
+			src/create/create_player.c 		\
+			src/scenes/start_menu.c 		\
+			
 
 OBJS	= $(SRCS:.c=.o)
 
@@ -33,12 +44,13 @@ LIB = lib/libmy.a
 
 CFLAGS = -I ./include/
 CFLAGS += -Wall -Wextra
-CFLAGS += -L./lib -lmy
+CFLAGS += -L./lib -lmy -g
+CSFML += -l csfml-system -l csfml-window -l csfml-graphics -l csfml-audio
 
 all: $(NAME)
 
 $(NAME): binary_name $(LIB) $(OBJS)
-	@$(CC) $(OBJS) -o $(NAME) $(CFLAGS) && \
+	@$(CC) $(OBJS) -o $(NAME) $(CFLAGS) $(CSFML) && \
 	$(ECHO) $(BGREEN) "Build Complete !" $(DEFAULT) \
 	|| $(ECHO) $(FLASH) $(BRED) "Build Failed !" $(DEFAULT)
 
