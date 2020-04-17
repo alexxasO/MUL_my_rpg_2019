@@ -17,6 +17,7 @@ int main(int ac, char **av, char **env)
     }
     sfRenderWindow_setFramerateLimit(gm->window, 60);
     while (sfRenderWindow_isOpen(gm->window)) {
+        get_mouse_pos(gm);
         handle_event(gm, gm->event);
         if (gm->scenes[gm->scene_id] != NULL) {
             gm->scenes[gm->scene_id]->func_ptr(gm);

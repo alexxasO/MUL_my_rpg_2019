@@ -44,11 +44,11 @@ enemy_t **null_enemy_func(void)
 static scene_t **create_scenes(int nb_scenes)
 {
     scene_t **scenes = malloc(sizeof(scene_t *) * (nb_scenes + 1));
-    void (*scene_func_ptr[])(game_manager_t *) = {NULL};
-    button_t **(*button_func_ptr[])(void) = {&null_button_func};
-    background_t **(*background_func_ptr[])(void) = {&null_background_func};
-    player_t **(*player_func_ptr[])(void) = {&null_player_func};
-    enemy_t **(*enemy_func_ptr[])(void) = {&null_enemy_func};
+    void (*scene_func_ptr[])(game_manager_t *) = {&start_menu_func};
+    button_t **(*button_func_ptr[])(void) = {&start_menu_button};
+    background_t **(*background_func_ptr[])(void) = {&start_menu_background};
+    player_t **(*player_func_ptr[])(void) = {&start_menu_player};
+    enemy_t **(*enemy_func_ptr[])(void) = {&start_menu_enemy};
 
     for (int i = 0; i < nb_scenes; i++) {
         scenes[i] = malloc(sizeof(scene_t));
@@ -72,10 +72,11 @@ game_manager_t *create_game_manager(void)
     size_t nb_scenes = 1;
     sfVector2f click_position = {-1.f, -1.f};
 
-    game_manager->window = create_window(1024, 768);
+    game_manager->window = create_window(1920, 1080);
     game_manager->scene_id = 0;
     game_manager->nb_scenes = nb_scenes;
     game_manager->scenes = create_scenes(nb_scenes);
-    game_manager->click_position = &click_position;
+    game_manager->click_position = click_position;
+    game_manager->is_mouse_clicked = sfFalse;
     return game_manager;
 }

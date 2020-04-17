@@ -9,5 +9,8 @@
 
 enemy_t **start_menu_enemy(void)
 {
-    return NULL;
+    enemy_t **enemies = malloc(sizeof(enemy_t *));
+
+    enemies[0] = NULL;
+    return enemies;
 }

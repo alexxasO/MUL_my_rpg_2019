@@ -46,11 +46,29 @@ static void draw_enemies(game_manager_t *gm, scene_t *scene)
     }
 }
 
+static void draw_buttons(game_manager_t *gm, scene_t *scene)
+{
+    sfSprite *sprite = NULL;
+    int state = -1;
+    sfVector2f pos;
+    
+    if (scene->buttons != NULL) {
+        for (size_t i = 0; scene->buttons[i]; i++) {
+            state = scene->buttons[i]->state;
+            sprite = scene->buttons[i]->sprite[state];
+            pos = scene->buttons[i]->pos;
+            sfSprite_setPosition(sprite, pos);
+            sfRenderWindow_drawSprite(gm->window, sprite, NULL);
+        }
+    }
+}
+
 void draw_scene(game_manager_t *gm, scene_t *scene)
 {
     draw_backgrounds(gm, scene);
     draw_players(gm, scene);
     draw_enemies(gm, scene);
+    draw_buttons(gm, scene);
     sfRenderWindow_display(gm->window);
     sfRenderWindow_clear(gm->window, sfBlack);
 }

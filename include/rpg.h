@@ -11,7 +11,7 @@
 /* CREATE */
 game_manager_t *create_game_manager(void);
 sfRenderWindow *create_window(int width, int height);
-button_t *create_button(char *pathname, sfVector2f pos,
+button_t *create_button(char **pathname, sfVector2f pos,
 void (*callback) (game_manager_t *));
 enemy_t *create_enemy(char *pathname, sfVector2f pos,
 void (*ptr_move) (struct enemy_s *, sfVector2f),
@@ -32,11 +32,22 @@ void draw_scene(game_manager_t *gm, scene_t *scene);
 void handle_event(game_manager_t *gm, sfEvent event);
 
 /* BACKGROUND */
+background_t **start_menu_background(void);
 
 /* PLAYER */
+player_t **start_menu_player(void);
 
 /* ENEMY */
+enemy_t **start_menu_enemy(void);
 
 /* BUTTON */
+button_t **start_menu_button(void);
+
+/* SCENES */
+void start_menu_func(game_manager_t *gm);
+
+/* TOOLS */
+void get_mouse_pos(game_manager_t *gm);
+sfBool is_mouse_over_button(game_manager_t *gm, button_t *button);
 
 #endif

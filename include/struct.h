@@ -13,13 +13,13 @@
 typedef struct game_manager_s game_manager_t;
 
 typedef struct button {
-    sfSprite *sprite;
-    sfTexture *texture;
+    sfSprite **sprite;
+    sfTexture **texture;
     sfVector2f pos;
     sfIntRect rect;
-    sfBool is_clicked;
+    int state;
     void (*callback) (game_manager_t *);
-    char *pathname;
+    char **pathname;
 } button_t;
 
 typedef struct enemy_s {
@@ -82,7 +82,8 @@ struct game_manager_s {
     size_t scene_id;
     sfRenderWindow *window;
     sfEvent event;
-    sfVector2f *click_position;
+    sfVector2f click_position;
+    sfBool is_mouse_clicked;
 };
 
 #endif
