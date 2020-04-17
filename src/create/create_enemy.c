@@ -23,10 +23,6 @@ void (*ptr_anim) (struct enemy_s *, sfRenderWindow *))
     enemy->clock = sfClock_create();
     enemy->ptr_move = ptr_move;
     enemy->ptr_anim = ptr_anim;
-    enemy->origin = (sfVector2f){0, 0};
     enemy->sound = NULL;
-    enemy->damage = -1;
-    enemy->speed = -1;
-    enemy->life = -1;
     return enemy;
 }

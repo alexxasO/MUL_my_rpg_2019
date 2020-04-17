@@ -23,10 +23,6 @@ void (*ptr_anim) (struct player_s *, sfRenderWindow *))
     player->clock = sfClock_create();
     player->ptr_move = ptr_move;
     player->ptr_anim = ptr_anim;
-    player->origin = (sfVector2f){0, 0};
     player->sound = NULL;
-    player->damage = -1;
-    player->speed = -1;
-    player->life = -1;
     return player;
 }

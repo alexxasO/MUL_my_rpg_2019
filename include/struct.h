@@ -28,13 +28,12 @@ typedef struct enemy_s {
     sfTexture *texture;
     sfVector2f pos;
     sfIntRect rect;
-    int speed;
     sfClock *clock;
     void (*ptr_move) (struct enemy_s *, sfVector2f);
     void (*ptr_anim) (struct enemy_s *, sfRenderWindow *);
     int life;
-    int damage;
-    sfVector2f origin;
+    size_t attack;
+    size_t defense;
     sfMusic *sound;
     sfVector2u size;
 } enemy_t;
@@ -48,10 +47,12 @@ typedef struct player_s {
     sfClock *clock;
     void (*ptr_move) (struct player_s *, sfVector2f);
     void (*ptr_anim) (struct player_s *, sfRenderWindow *);
+    size_t max_life;
     int life;
-    int damage;
-    int speed;
-    sfVector2f origin;
+    size_t attack;
+    size_t defense;
+    size_t level;
+    size_t experience;
     sfMusic *sound;
     sfVector2u size;
 } player_t;
@@ -64,7 +65,6 @@ typedef struct background_s {
     sfIntRect rect;
     sfClock *clock;
     void (*ptr_move) (struct background_s *, sfVector2f);
-    sfVector2f origin;
 } background_t;
 
 typedef struct scene_s {

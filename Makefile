@@ -40,8 +40,18 @@ SRCS	=	src/main.c										\
 			src/create_buttons/start_menu_button.c			\
 			src/create_players/start_menu_player.c			\
 			src/create_enemies/start_menu_enemy.c			\
-			src/get_mouse_pos.c								\
-			src/is_mouse_over_button.c 						\
+			src/scenes/save.c 								\
+			src/create_backgrounds/save_background.c		\
+			src/create_buttons/save_button.c				\
+			src/create_players/save_player.c				\
+			src/create_enemies/save_enemy.c					\
+			src/tools/get_mouse_pos.c						\
+			src/tools/is_mouse_over_button.c 				\
+			src/callback/quit_cb.c							\
+			src/callback/play_cb.c							\
+			src/callback/return_cb.c						\
+			src/tools/handle_buttons.c						\
+			src/tools/check_save.c							\
 
 OBJS	= $(SRCS:.c=.o)
 
