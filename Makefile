@@ -40,8 +40,8 @@ SRCS	=	src/main.c										\
 			src/create_buttons/start_menu_button.c			\
 			src/create_players/start_menu_player.c			\
 			src/create_enemies/start_menu_enemy.c			\
-			src/get_mouse_pos.c								\
-			src/is_mouse_over_button.c 						\
+			src/tools/is_mouse_over_button.c 				\
+			src/tools/get_mouse_pos.c						\
 
 OBJS	= $(SRCS:.c=.o)
 
