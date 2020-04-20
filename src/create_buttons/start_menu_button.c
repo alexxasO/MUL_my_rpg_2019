@@ -16,9 +16,9 @@ button_t **start_menu_button(void)
     "image/button/quit_over.png", "image/button/quit_clicked.png"};
 
     buttons[0] = create_button(play_pathnames,
-    (sfVector2f){320, 320}, NULL);
+    (sfVector2f){320, 320}, &play_callback);
     buttons[1] = create_button(quit_pathnames,
-    (sfVector2f){320, 546}, NULL);
+    (sfVector2f){320, 546}, &quit_callback);
     buttons[2] = NULL;
     return buttons;
 }

@@ -12,5 +12,6 @@
 #include "struct.h"
 #include "base.h"
 #include "rpg.h"
+#include "define.h"
 
 #endif

@@ -22,6 +22,5 @@ void (*ptr_move) (struct background_s *, sfVector2f))
     background->rect = (sfIntRect){0, 0, size.x, size.y};
     background->clock = sfClock_create();
     background->ptr_move = ptr_move;
-    background->origin = (sfVector2f){0, 0};
     return background;
 }

@@ -2,7 +2,7 @@
 ** EPITECH PROJECT, 2019
 ** MUL_my_rpg_2019
 ** File description:
-** Handle events
+** Get the position of the mouse
 */
 
 #include "header.h"
