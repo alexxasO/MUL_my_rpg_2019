@@ -91,6 +91,7 @@ typedef struct player_s {
     size_t level;
     size_t experience;
     int direction;
+    fighter_info_t *fighter_info;
 } player_t;
 
 typedef struct background_s {
@@ -130,6 +131,8 @@ struct game_manager_s {
     sfBool is_mouse_clicked;
     save_t **saves;
     char *key_pressed;
+    player_t **player_list;
+    enemy_t **enemy_list;
 };
 
 #endif

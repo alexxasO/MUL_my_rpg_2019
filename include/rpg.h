@@ -35,6 +35,7 @@ void handle_event(game_manager_t *gm, sfEvent event);
 background_t **start_menu_background(void);
 background_t **save_background(void);
 background_t **game_background(void);
+background_t **fight_background(void);
 
 /* PLAYER */
 player_t **start_menu_player(void);
@@ -70,6 +71,8 @@ void return_callback(game_manager_t *gm);
 
 /* FIGHT */
 void fight_func(game_manager_t *gm);
+int count_players(player_t **fighters);
+int count_enemies(enemy_t **enemies);
 
 /* ANIMATION */
 void anim_player(game_manager_t *gm, player_t *player);
