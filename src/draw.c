@@ -23,12 +23,15 @@ static void draw_players(game_manager_t *gm, scene_t *scene)
 {
     sfSprite *sprite = NULL;
     sfIntRect rect;
+    sfVector2f pos;
 
     if (scene->players != NULL) {
         for (size_t i = 0; scene->players[i]; i++) {
             sprite = scene->players[i]->sprite;
             rect = scene->players[i]->rect;
+            pos = scene->players[i]->pos;
             sfSprite_setTextureRect(sprite, rect);
+            sfSprite_setPosition(sprite, pos);
             sfRenderWindow_drawSprite(gm->window, sprite, NULL);
         }
     }

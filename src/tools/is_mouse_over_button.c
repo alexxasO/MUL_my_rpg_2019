@@ -2,7 +2,7 @@
 ** EPITECH PROJECT, 2019
 ** MUL_my_rpg_2019
 ** File description:
-** Handle events
+** Is the mouse over a button
 */
 
 #include "header.h"

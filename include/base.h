@@ -1,6 +1,6 @@
 /*
 ** EPITECH PROJECT, 2019
-** MUL_my_defender_2019
+** MUL_my_rpg_2019
 ** File description:
 ** Basic Header
 */
@@ -35,5 +35,6 @@ char **my_explode(char *str, char sep);
 char *my_strdup(char const *src);
 char *my_strcat(char *dest, char const *src);
 int str_contain(char *str_to_check, char char_to_find);
+int my_getnbr(char const *str);
 
 #endif
