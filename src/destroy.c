@@ -19,7 +19,8 @@ static void destroy_player(player_t *player)
 {
     sfSprite_destroy(player->sprite);
     sfTexture_destroy(player->texture);
-    sfClock_destroy(player->clock);
+    sfClock_destroy(player->clock_anim);
+    sfClock_destroy(player->clock_move);
     /*if (player->sound != NULL) {
         if (sfMusic_getStatus(player->sound) != sfStopped)
             sfMusic_stop(player->sound);
@@ -82,5 +83,6 @@ void destroy_game_manager(game_manager_t *game_manager)
     }
     free(game_manager->scenes);
     sfRenderWindow_destroy(game_manager->window);
+    free(game_manager->key_pressed);
     free(game_manager);
 }

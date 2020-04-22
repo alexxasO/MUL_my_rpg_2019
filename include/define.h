@@ -12,6 +12,7 @@
 
 #define START_MENU_ID 0
 #define SAVE_ID 1
-#define FIGHT_ID 2
+#define GAME_ID 2
+#define FIGHT_ID 3
 
 #endif

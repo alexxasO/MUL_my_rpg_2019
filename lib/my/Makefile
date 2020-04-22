@@ -19,15 +19,16 @@ BMAGENTA =	"\e[1;35m"
 
 SRC	=	my_putchar.c	\
 		my_put_nbr.c	\
-		my_putstr.c	\
-		my_strlen.c	\
+		my_putstr.c		\
+		my_strlen.c		\
 		starts_with.c	\
-		my_strcat.c	\
-		my_strcmp.c	\
+		my_strcat.c		\
+		my_strcmp.c		\
 		my_explode.c	\
-		my_strdup.c	\
+		my_strdup.c		\
 		str_contain.c	\
-		my_isalpha.c
+		my_isalpha.c	\
+		my_getnbr.c
 
 
 OBJ	=	$(SRC:.c=.o)

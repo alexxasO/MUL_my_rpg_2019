@@ -44,11 +44,11 @@ enemy_t **null_enemy_func(void)
 static scene_t **create_scenes(int nb_scenes)
 {
     scene_t **scenes = malloc(sizeof(scene_t *) * (nb_scenes + 1));
-    void (*scene_func_ptr[])(game_manager_t *) = {&start_menu_func, &save_func, &fight_func};
-    button_t **(*button_func_ptr[])(void) = {&start_menu_button, &save_button, &null_button_func};
-    background_t **(*background_func_ptr[])(void) = {&start_menu_background, &save_background, &null_background_func};
-    player_t **(*player_func_ptr[])(void) = {&start_menu_player, &save_player, &null_player_func};
-    enemy_t **(*enemy_func_ptr[])(void) = {&start_menu_enemy, &save_enemy, &null_enemy_func};
+    void (*scene_func_ptr[])(game_manager_t *) = {&start_menu_func, &save_func, &game_func};
+    button_t **(*button_func_ptr[])(void) = {&start_menu_button, &save_button, &game_button};
+    background_t **(*background_func_ptr[])(void) = {&start_menu_background, &save_background, &game_background};
+    player_t **(*player_func_ptr[])(void) = {&start_menu_player, &save_player, &game_player};
+    enemy_t **(*enemy_func_ptr[])(void) = {&start_menu_enemy, &save_enemy, &game_enemy};
 
     for (int i = 0; i < nb_scenes; i++) {
         scenes[i] = malloc(sizeof(scene_t));
@@ -78,5 +78,6 @@ game_manager_t *create_game_manager(void)
     game_manager->scenes = create_scenes(nb_scenes);
     game_manager->click_position = click_position;
     game_manager->is_mouse_clicked = sfFalse;
+    game_manager->key_pressed = my_strdup("none");
     return game_manager;
 }
