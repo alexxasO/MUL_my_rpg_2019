@@ -17,5 +17,18 @@ void handle_event(game_manager_t *gm, sfEvent event)
         }
         if (event.type == sfEvtMouseButtonPressed)
             gm->is_mouse_clicked = sfTrue;
+        free(gm->key_pressed);
+        if (event.type == sfEvtKeyPressed) {
+            if (event.key.code == sfKeyLeft)
+                gm->key_pressed = my_strdup("left");
+            if (event.key.code == sfKeyRight)
+                gm->key_pressed = my_strdup("right");
+            if (event.key.code == sfKeyDown)
+                gm->key_pressed = my_strdup("down");
+            if (event.key.code == sfKeyUp)
+                gm->key_pressed = my_strdup("up");
+        } else {
+            gm->key_pressed = my_strdup("none");
+        }
     }
 }

@@ -20,9 +20,11 @@ void (*ptr_anim) (struct player_s *, sfRenderWindow *))
     player->pos = pos;
     player->size = sfTexture_getSize(sfSprite_getTexture(player->sprite));
     player->rect = (sfIntRect){0, 0, player->size.x, player->size.y};
-    player->clock = sfClock_create();
+    player->clock_move = sfClock_create();
+    player->clock_anim = sfClock_create();
     player->ptr_move = ptr_move;
     player->ptr_anim = ptr_anim;
     player->sound = NULL;
+    player->direction = 2;
     return player;
 }

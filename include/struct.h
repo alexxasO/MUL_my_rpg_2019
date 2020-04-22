@@ -44,7 +44,8 @@ typedef struct player_s {
     sfTexture *texture;
     sfVector2f pos;
     sfIntRect rect;
-    sfClock *clock;
+    sfClock *clock_anim;
+    sfClock *clock_move;
     void (*ptr_move) (struct player_s *, sfVector2f);
     void (*ptr_anim) (struct player_s *, sfRenderWindow *);
     size_t max_life;
@@ -55,6 +56,7 @@ typedef struct player_s {
     size_t experience;
     sfMusic *sound;
     sfVector2u size;
+    int direction;
 } player_t;
 
 typedef struct background_s {
@@ -76,6 +78,14 @@ typedef struct scene_s {
     sfMusic *music;
 } scene_t;
 
+typedef struct save_s {
+    char *name;
+    size_t level;
+    size_t stage;
+    char *character;
+    char **inventory;
+} save_t;
+
 struct game_manager_s {
     scene_t **scenes;
     size_t nb_scenes;
@@ -84,6 +94,8 @@ struct game_manager_s {
     sfEvent event;
     sfVector2f click_position;
     sfBool is_mouse_clicked;
+    save_t **saves;
+    char *key_pressed;
 };
 
 #endif
