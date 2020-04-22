@@ -20,6 +20,7 @@
 #include <SFML/Window.h>
 #include <SFML/Graphics.h>
 #include <SFML/Audio.h>
+#include <SFML/Network.h>
 #include <SFML/System.h>
 
 #endif

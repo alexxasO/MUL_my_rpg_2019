@@ -1,0 +1,7 @@
+{
+    "files.associations": {
+        "header.h": "c",
+        "network.h": "c",
+        "stdio.h": "c"
+    }
+}
