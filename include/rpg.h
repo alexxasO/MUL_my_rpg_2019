@@ -62,4 +62,7 @@ void quit_callback(game_manager_t *gm);
 void play_callback(game_manager_t *gm);
 void return_callback(game_manager_t *gm);
 
+/* FIGHT */
+void fight_func(game_manager_t *gm);
+
 #endif

@@ -51,7 +51,7 @@ static void draw_buttons(game_manager_t *gm, scene_t *scene)
     sfSprite *sprite = NULL;
     int state = -1;
     sfVector2f pos;
-    
+
     if (scene->buttons != NULL) {
         for (size_t i = 0; scene->buttons[i]; i++) {
             state = scene->buttons[i]->state;

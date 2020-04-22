@@ -15,6 +15,7 @@ typedef struct attack {
     int speed_dmg;
     int defense_dmg;
     int damage_dmg;
+    char *path_to_icon;
     //anim ?
 } attack_t;
 
@@ -41,6 +42,7 @@ typedef struct player_object {
     int damage_boost;
     int defense_boost;
     int speed_boost;
+    char *path_to_icons;
 } inv_object_t;
 
 #endif // FIGHT
