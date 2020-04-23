@@ -70,6 +70,7 @@ typedef struct enemy_s {
     size_t defense;
     sfMusic *sound;
     sfVector2u size;
+    fighter_info_t *fighter_info;
 } enemy_t;
 
 typedef struct player_s {
@@ -88,10 +89,10 @@ typedef struct player_s {
     size_t defense;
     sfMusic *sound;
     sfVector2u size;
+    fighter_info_t *fighter_info;
     size_t level;
     size_t experience;
     int direction;
-    fighter_info_t *fighter_info;
 } player_t;
 
 typedef struct background_s {

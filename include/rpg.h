@@ -73,6 +73,8 @@ void return_callback(game_manager_t *gm);
 void fight_func(game_manager_t *gm);
 int count_players(player_t **fighters);
 int count_enemies(enemy_t **enemies);
+player_t **fight_players(void);
+enemy_t **fight_enemy(void);
 
 /* ANIMATION */
 void anim_player(game_manager_t *gm, player_t *player);

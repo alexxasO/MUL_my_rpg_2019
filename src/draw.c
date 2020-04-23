@@ -40,10 +40,16 @@ static void draw_players(game_manager_t *gm, scene_t *scene)
 static void draw_enemies(game_manager_t *gm, scene_t *scene)
 {
     sfSprite *sprite = NULL;
+    sfIntRect rect;
+    sfVector2f pos;
 
     if (scene->enemies != NULL) {
         for (size_t i = 0; scene->enemies[i]; i++) {
             sprite = scene->enemies[i]->sprite;
+            pos = scene->enemies[i]->pos;
+            rect = scene->enemies[i]->rect;
+            sfSprite_setTextureRect(sprite, rect);
+            sfSprite_setPosition(sprite, pos);
             sfRenderWindow_drawSprite(gm->window, sprite, NULL);
         }
     }

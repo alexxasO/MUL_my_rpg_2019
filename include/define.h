@@ -8,6 +8,9 @@
 #ifndef DEFINE_H
 #define DEFINE_H
 
+#define SCR_WIDTH 1920
+#define SCR_HEIGHT 1080
+
 #define NB_SCENES 4
 
 #define START_MENU_ID 0
