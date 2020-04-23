@@ -10,37 +10,35 @@
 #include "network.h"
 #include "header.h"
 
-void host_socket_and_listener(sfIpAddress ip, unsigned short port, serv_t *serv)
+int host_socket_and_listener(sfIpAddress ip, unsigned short port, serv_t *serv)
 {
     sfTcpListener *listener = sfTcpListener_create();
-    sfTime time;
 
     serv->cli_a.sok = sfTcpSocket_create();
     serv->cli_b.sok = sfTcpSocket_create();
     if (sfTcpListener_listen(listener, port, ip) != sfSocketDone) {
-        printf("error\n");
-        return;
+        printf("error 1\n");
+        return 1;
     }
     if (sfTcpListener_accept(listener, &serv->cli_a.sok) != sfSocketDone) {
-        printf("Client a connected\n");
-        return;
+        printf("error accept\n");
     }
+    printf("Client a connected\n");
     if (sfTcpListener_accept(listener, &serv->cli_b.sok) != sfSocketDone) {
-        printf("Client b connected\n");
-        return;
+        printf("error accept\n");
     }
+    printf("Client b connected\n");
+    sfTcpListener_destroy(listener);
+    return 0; 
 }
 
-sfTcpSocket *create_client_socket(sfIpAddress ip)
+void create_client_socket(client_t *client)
 {
-    sfTcpSocket *socket = sfTcpSocket_create();
-    unsigned short port = sfTcpSocket_getLocalPort(socket);
-    sfTime time;
+    sfTime time = sfSeconds(15.0);
     sfSocketStatus status;
 
-    time.microseconds = -1;
-    status = sfTcpSocket_connect(socket, ip, port, time);
-    return socket;
+    status = sfTcpSocket_connect(client->sok, client->ip, client->port, time);
+    while(1);
 }
 
 void send_packages(sfTcpSocket *client, char *pack)
@@ -66,26 +64,31 @@ void receive_packages(sfTcpSocket *client)
 
 client_t *init_socket(client_t *client)
 {
-    sfTime time;
+    sfTime time = sfSeconds(15.0);
     client->sok = sfTcpSocket_create();
-    client->ip = sfIpAddress_getPublicAddress(time);
+    //client->ip = sfIpAddress_getPublicAddress(time);
+    client->ip = sfIpAddress_LocalHost;
+    client->port = 5001;
     return client;
-
 }
 
 void launch_serv(client_t *client)
 {
     serv_t serv;
-    char *line = NULL;
-    size_t len;
+    char test[16];
 
     client = init_socket(client);
-    getline(&line, &len, stdin);
+    sfIpAddress_toString(client->ip, test);
+    printf("Welcome !\nHost the best RPG on our server\nIp : %s\nPort : %i\n", test, client->port);
     host_socket_and_listener(client->ip, client->port, &serv);
-    while (1) {
-        receive_packages(serv.cli_a.sok);
-        receive_packages(serv.cli_b.sok);
-    }
+    printf("coucou\n");
+    // while (1) {
+    //     receive_packages(serv.cli_a.sok);
+    //     receive_packages(serv.cli_b.sok);
+    // }
+    sfTcpSocket_destroy(serv.cli_a.sok);
+    sfTcpSocket_destroy(serv.cli_b.sok);
+    sfTcpSocket_destroy(client->sok);
 }
 
 int main(int ac, char **av, char **env)
@@ -99,6 +102,10 @@ int main(int ac, char **av, char **env)
             host++;
             break;
         }
+    }
+    if (host == 0) {
+        init_socket(&client);
+        create_client_socket(&client);
     }
     return 0;
 }
