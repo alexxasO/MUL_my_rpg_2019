@@ -9,21 +9,20 @@
 
 static sfBool check_limit(sfImage *limit, player_t *player, float add_x, float add_y)
 {   
-    sfVector2f player_pos = (sfVector2f){player->pos.x + add_x, player->pos.y + add_y};
+    unsigned int x = 0;
+    unsigned int y = 0;
+    float xf = player->pos.x + add_x + (player->rect.width / 2);
+    float yf = player->pos.y + add_y + player->rect.height;
     sfColor px_color;
-    sfVector2u size = sfImage_getSize(limit);
 
-    if (player_pos.x < 0 || player_pos.x > 1000 || player_pos.y < 0 || player_pos.y > 1000)
-        return sfFalse;
-    px_color = sfImage_getPixel(limit, player_pos.x, player_pos.x);
-    printf("R = %d\n", px_color.r);
-    printf("G = %d\n", px_color.g);
-    printf("B = %d\n", px_color.b);
-    printf("X = %f && Y = %f\n", player->pos.x, player->pos.y);
-    printf("SX = %u && SY = %u\n", size.x, size.y);
+    if (xf < 0 || xf > 1000 || yf < 0 || yf > 1000)
+        return sfTrue;
+    x = xf;
+    y = yf;
+    px_color = sfImage_getPixel(limit, x, y);
     if (px_color.r != sfWhite.r && px_color.g != sfWhite.g && px_color.b != sfWhite.b)
-        return sfFalse;
-    return sfTrue;
+        return sfTrue;
+    return sfFalse;
 }
 
 void move_player(game_manager_t *gm, player_t *player)
@@ -43,4 +42,5 @@ void move_player(game_manager_t *gm, player_t *player)
         }
     }
     sfClock_restart(player->clock_move);
+    sfImage_destroy(limit);
 }
