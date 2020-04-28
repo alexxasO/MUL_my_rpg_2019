@@ -2,10 +2,10 @@
 ** EPITECH PROJECT, 2020
 ** create_save.c
 ** File description:
-** create a save with the infos
+** here we go again
 */
 
-#include "../../include/header.h"
+#include "header.h"
 
 char *get_path(int slot)
 {
@@ -25,14 +25,31 @@ char *get_path(int slot)
     return path;
 }
 
+char *int_to_buf(int i)
+{
+    char *buf = malloc(sizeof(char) * 3);
+
+    buf[0] = i + '0';
+    buf[1] = '\n';
+    buf[2] = '\0';
+    return buf;
+}
+
 void create_save(save_t *save, int save_slot)
 {
-    char *save_path = get_path(save_slot);
-    FILE *fp = NULL;
-    size_t size = sizeof(save_t);
+    char *path = get_path(save_slot);
+    int fd = 0;
+    int name_len = my_strlen(save->name);
+    int char_len = my_strlen(save->character);
+//    int inventory_len = my_arraylen(save->inventory);
 
-    fp = fopen(save_path, "w");
-    fwrite(save, size, 1, fp);
-    fclose(fp);
-    fp = NULL;
+    fd = open(path, O_RDWR);
+    write(fd, (my_strcat_malloc(save->name, "\n")), name_len + 1);
+    write(fd, int_to_buf(save->level), 2);
+    write(fd, int_to_buf(save->exp), 2);
+    write(fd, int_to_buf(save->stage), 2);
+    write(fd, (my_strcat_malloc(save->character, "\n"), char_len + 1);
+    // for (int i = 0; save->inventory[i]; i++)
+    //  write(fd, save->inventory[i], (my_strlen(save->inventory[i]));
+    close(fd);
 }
