@@ -21,12 +21,13 @@ static void set_direction_and_top(game_manager_t *gm, player_t *player)
 
 static void set_left(player_t *player, float time, float framerate)
 {
-    for (float i = 0; i < time; i += framerate) {
-        if (player->rect.left + (player->size.x / 7) >= player->size.x)
-            player->rect.left = player->size.x / 7;
-        else
-            player->rect.left += player->size.x / 7;
-    }
+    /* TO FIX */
+//    for (float i = 0; i < time; i += framerate) {
+    if (player->rect.left + (player->size.x / 7) >= player->size.x)
+        player->rect.left = player->size.x / 7;
+    else
+        player->rect.left += player->size.x / 7;
+//    }
 }
 
 void anim_player(game_manager_t *gm, player_t *player)

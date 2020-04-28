@@ -36,5 +36,6 @@ char *my_strdup(char const *src);
 char *my_strcat(char *dest, char const *src);
 int str_contain(char *str_to_check, char char_to_find);
 int my_getnbr(char const *str);
+char *my_put_nbr_in_str(long long int nb);
 
 #endif

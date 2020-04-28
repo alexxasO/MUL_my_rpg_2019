@@ -21,12 +21,15 @@ void (*ptr_move) (struct player_s *, sfVector2f),
 void (*ptr_anim) (struct player_s *, sfRenderWindow *));
 background_t *create_background(char *pathname, sfVector2f pos,
 void (*ptr_move) (struct background_s *, sfVector2f));
+text_t *create_text(char *string, size_t size, sfColor color,
+sfVector2f pos);
 
 /* DESTROY */
 void destroy_game_manager(game_manager_t *game_manager);
 
 /* DRAW */
 void draw_scene(game_manager_t *gm, scene_t *scene);
+void draw_text(game_manager_t *gm, scene_t *scene);
 
 /* EVENT */
 void handle_event(game_manager_t *gm, sfEvent event);
@@ -51,6 +54,11 @@ button_t **start_menu_button(void);
 button_t **save_button(void);
 button_t **game_button(void);
 
+/* TEXT */
+text_t **start_menu_text(void);
+text_t **save_text(void);
+text_t **game_text(void);
+
 /* SCENES */
 void start_menu_func(game_manager_t *gm);
 void save_func(game_manager_t *gm);
@@ -62,16 +70,19 @@ sfBool is_mouse_over_button(game_manager_t *gm, button_t *button);
 void handle_buttons(game_manager_t *gm, scene_t *scene);
 sfBool check_save(size_t save_nb);
 sfBool is_arrow_pressed(char *key_pressed);
+save_t *get_save_data(size_t save_nb);
 
 /* CALLBACKS */
 void quit_callback(game_manager_t *gm);
 void play_callback(game_manager_t *gm);
+void game_callback(game_manager_t *gm);
 void return_callback(game_manager_t *gm);
 
 /* ANIMATION */
 void anim_player(game_manager_t *gm, player_t *player);
 
 /* MOVEMENT */
-void move_player(game_manager_t *gm, player_t *player);
+void move_player_and_background(game_manager_t *gm, player_t *player,
+background_t *background);
 
 #endif

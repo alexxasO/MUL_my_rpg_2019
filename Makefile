@@ -27,9 +27,11 @@ RM	= rm -f
 
 SRCS	=	src/main.c										\
 			src/event.c										\
-			src/draw.c										\
+			src/draw/draw.c									\
+			src/draw/draw_text.c							\
 			src/destroy.c									\
 			src/create/create.c 							\
+			src/create/create_text.c 						\
 			src/create/create_window.c						\
 			src/create/create_background.c					\
 			src/create/create_button.c						\
@@ -55,12 +57,16 @@ SRCS	=	src/main.c										\
 			src/tools/is_arrow_pressed.c 					\
 			src/callback/quit_cb.c							\
 			src/callback/play_cb.c							\
+			src/callback/game_cb.c							\
 			src/callback/return_cb.c						\
 			src/tools/handle_buttons.c						\
 			src/tools/check_save.c							\
 			src/tools/get_save_data.c						\
-			src/anim_player.c	 							\
-			src/move_player.c	 							\
+			src/anim/anim_player.c	 						\
+			src/move/move_player_and_background.c			\
+			src/create_texts/game_text.c					\
+			src/create_texts/save_text.c					\
+			src/create_texts/start_menu_text.c				\
 
 OBJS	= $(SRCS:.c=.o)
 
