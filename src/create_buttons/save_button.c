@@ -23,7 +23,7 @@ button_t **save_button(void)
             (sfVector2f){320, 64 + i * 288}, NULL);
         else
             buttons[i] = create_button(save_pathnames,
-            (sfVector2f){320, 64 + i * 288}, NULL);
+            (sfVector2f){320, 64 + i * 288}, &game_callback);
     }
     buttons[3] = create_button(return_pathnames,
     (sfVector2f){704, 928}, &return_callback);

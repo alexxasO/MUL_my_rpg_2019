@@ -9,6 +9,5 @@
 
 void return_callback(game_manager_t *gm)
 {
-    //gm->scene_id = START_MENU_ID;
-    gm->scene_id = GAME_ID;
+    gm->scene_id = START_MENU_ID;
 }

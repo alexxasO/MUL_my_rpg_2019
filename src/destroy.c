@@ -55,6 +55,14 @@ static void destroy_button(button_t *button)
     free(button);
 }
 
+static void destroy_text(text_t *text)
+{
+    sfFont_destroy(text->font);
+    sfText_destroy(text->text);
+    free(text->string);
+    free(text);
+}
+
 static void destroy_scene(scene_t *scene)
 {
     for (int i = 0; scene->backgrounds[i] != NULL; i++)
@@ -69,6 +77,9 @@ static void destroy_scene(scene_t *scene)
     for (int i = 0; scene->buttons[i] != NULL; i++)
         destroy_button(scene->buttons[i]);
     free(scene->buttons);
+    for (int i = 0; scene->texts[i] != NULL; i++)
+        destroy_text(scene->texts[i]);
+    free(scene->texts);
 //    if (sfMusic_getStatus(scene->music) != sfStopped)
 //        sfMusic_stop(scene->music);
 //    sfMusic_destroy(scene->music);

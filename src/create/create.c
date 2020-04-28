@@ -9,46 +9,32 @@
 
 const char *music[] = {NULL};
 
-button_t **null_button_func(void)
+static void get_func_ptr_and_game_object(scene_t **scenes, size_t i)
 {
-    button_t **buttons = malloc(sizeof(button_t *));
+    void (*scene_func_ptr[])(game_manager_t *) = {&start_menu_func,
+    &save_func, &game_func};
+    button_t **(*button_func_ptr[])(void) = {&start_menu_button,
+    &save_button, &game_button};
+    background_t **(*background_func_ptr[])(void) = {&start_menu_background,
+    &save_background, &game_background};
+    player_t **(*player_func_ptr[])(void) = {&start_menu_player, &save_player,
+    &game_player};
+    enemy_t **(*enemy_func_ptr[])(void) = {&start_menu_enemy, &save_enemy,
+    &game_enemy};
+    text_t **(*text_func_ptr[])(void) = {&start_menu_text, &save_text,
+    &game_text};
 
-    buttons[0] = NULL;
-    return buttons;
-}
-
-background_t **null_background_func(void)
-{
-    background_t **backgrounds = malloc(sizeof(background_t *));
-
-    backgrounds[0] = NULL;
-    return backgrounds;
-}
-
-player_t **null_player_func(void)
-{
-    player_t **players = malloc(sizeof(player_t *));
-
-    players[0] = NULL;
-    return players;
-}
-
-enemy_t **null_enemy_func(void)
-{
-    enemy_t **enemies = malloc(sizeof(enemy_t *));
-
-    enemies[0] = NULL;
-    return enemies;
+    scenes[i]->func_ptr = scene_func_ptr[i];
+    scenes[i]->buttons = button_func_ptr[i]();
+    scenes[i]->backgrounds = background_func_ptr[i]();
+    scenes[i]->players = player_func_ptr[i]();
+    scenes[i]->enemies = enemy_func_ptr[i]();
+    scenes[i]->texts = text_func_ptr[i]();
 }
 
 static scene_t **create_scenes(int nb_scenes)
 {
     scene_t **scenes = malloc(sizeof(scene_t *) * (nb_scenes + 1));
-    void (*scene_func_ptr[])(game_manager_t *) = {&start_menu_func, &save_func, &game_func};
-    button_t **(*button_func_ptr[])(void) = {&start_menu_button, &save_button, &game_button};
-    background_t **(*background_func_ptr[])(void) = {&start_menu_background, &save_background, &game_background};
-    player_t **(*player_func_ptr[])(void) = {&start_menu_player, &save_player, &game_player};
-    enemy_t **(*enemy_func_ptr[])(void) = {&start_menu_enemy, &save_enemy, &game_enemy};
 
     for (int i = 0; i < nb_scenes; i++) {
         scenes[i] = malloc(sizeof(scene_t));
@@ -56,14 +42,21 @@ static scene_t **create_scenes(int nb_scenes)
             scenes[i]->music = sfMusic_createFromFile(music[i]);
             sfMusic_setLoop(scenes[i]->music, sfTrue);
         }
-        scenes[i]->func_ptr = scene_func_ptr[i];
-        scenes[i]->buttons = button_func_ptr[i]();
-        scenes[i]->backgrounds = background_func_ptr[i]();
-        scenes[i]->players = player_func_ptr[i]();
-        scenes[i]->enemies = enemy_func_ptr[i]();
+        get_func_ptr_and_game_object(scenes, i);
     }
     scenes[nb_scenes] = NULL;
     return scenes;
+}
+
+static save_t **get_all_save(void)
+{
+    save_t **saves = malloc(sizeof(save_t *) * 3);
+
+    for (size_t i = 0; i < 3; i++) {
+        if (check_save(i) == sfTrue)
+            saves[i] = get_save_data(i);
+    }
+    return saves;
 }
 
 game_manager_t *create_game_manager(void)
@@ -79,5 +72,7 @@ game_manager_t *create_game_manager(void)
     game_manager->click_position = click_position;
     game_manager->is_mouse_clicked = sfFalse;
     game_manager->key_pressed = my_strdup("none");
+    game_manager->saves = get_all_save();
+    game_manager->save_id = 0;
     return game_manager;
 }

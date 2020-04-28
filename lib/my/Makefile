@@ -13,7 +13,7 @@ TEAL =		"\033[1;36m"
 ORANGE =	"\e[1;33m"
 RED =		"\033[0;31m"
 BRED =		"\033[1;31m"
-FLASH = 	"\e[5;30m"
+FLASH =		"\e[5;30m"
 BYELLOW =	"\e[1;33m"
 BMAGENTA =	"\e[1;35m"
 
@@ -28,7 +28,8 @@ SRC	=	my_putchar.c	\
 		my_strdup.c		\
 		str_contain.c	\
 		my_isalpha.c	\
-		my_getnbr.c
+		my_getnbr.c		\
+		my_put_nbr_in_str.c
 
 
 OBJ	=	$(SRC:.c=.o)

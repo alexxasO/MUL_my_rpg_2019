@@ -18,7 +18,8 @@ void (*callback) (game_manager_t *))
     button->sprite = malloc(sizeof(sfSprite *) * 3);
     for (size_t i = 0; i < 3; i++) {
         button->pathname[i] = pathname[i];
-        button->texture[i] = sfTexture_createFromFile(button->pathname[i], NULL);
+        button->texture[i] = sfTexture_createFromFile(button->pathname[i],
+        NULL);
         button->sprite[i] = sfSprite_create();
         sfSprite_setTexture(button->sprite[i], button->texture[i], sfFalse);
     }

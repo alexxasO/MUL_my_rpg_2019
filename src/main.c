@@ -7,7 +7,7 @@
 
 #include "header.h"
 
-int main(int ac, char **av, char **env)
+int main(int ac, UN char **av, UN char **env)
 {
     game_manager_t *gm = create_game_manager();
 

@@ -69,11 +69,21 @@ typedef struct background_s {
     void (*ptr_move) (struct background_s *, sfVector2f);
 } background_t;
 
+typedef struct text_s {
+    char *string;
+    sfText *text;
+    sfFont *font;
+    size_t size;
+    sfColor color;
+    sfVector2f pos;
+} text_t;
+
 typedef struct scene_s {
     background_t **backgrounds;
     player_t **players;
     enemy_t **enemies;
     button_t **buttons;
+    text_t **texts;
     void (*func_ptr)(game_manager_t *);
     sfMusic *music;
 } scene_t;
@@ -81,6 +91,7 @@ typedef struct scene_s {
 typedef struct save_s {
     char *name;
     size_t level;
+    size_t exp;
     size_t stage;
     char *character;
     char **inventory;
@@ -95,6 +106,7 @@ struct game_manager_s {
     sfVector2f click_position;
     sfBool is_mouse_clicked;
     save_t **saves;
+    size_t save_id;
     char *key_pressed;
 };
 
