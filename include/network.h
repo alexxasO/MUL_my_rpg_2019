@@ -5,12 +5,16 @@
 ** networking
 */
 
-#ifndef NET
-#define NET
+#ifndef NET_H_
+#define NET_H_
 #include "includes.h"
+
+#define REC_SIZE 20
+#define PORT 4998
 
 typedef struct {
     sfIpAddress ip;
+    char *ip_s;
     unsigned short port;
     sfTcpSocket *sok;
 } client_t;
