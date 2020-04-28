@@ -1,5 +1,7 @@
+my_rpg
+.gdb*
 .vscode
-.gdb_history
+vgcore.*
 # Prerequisites
 *.d
 
