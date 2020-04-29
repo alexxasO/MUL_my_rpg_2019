@@ -7,8 +7,10 @@
 
 #include "header.h"
 
-static char *get_key_pressed(sfEvent event)
+static char *get_key_pressed(game_manager_t *gm, sfEvent event)
 {
+    if (gm->scene_id == NEW_ID)
+        write_save_name(gm, event);
     if (event.key.code == sfKeyLeft)
         return my_strdup("left");
     if (event.key.code == sfKeyRight)
@@ -36,7 +38,7 @@ void handle_event(game_manager_t *gm, sfEvent event)
             gm->is_mouse_clicked = sfTrue;
         free(gm->key_pressed);
         if (event.type == sfEvtKeyPressed)
-            gm->key_pressed = get_key_pressed(event);
+            gm->key_pressed = get_key_pressed(gm, event);
         else
             gm->key_pressed = my_strdup("none");
     }

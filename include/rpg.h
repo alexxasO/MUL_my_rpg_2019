@@ -83,6 +83,7 @@ void handle_buttons(game_manager_t *gm, scene_t *scene);
 sfBool check_save(size_t save_nb);
 sfBool is_arrow_pressed(char *key_pressed);
 save_t *get_save_data(size_t save_nb);
+void write_save_name(game_manager_t *gm, sfEvent event);
 
 /* CALLBACKS */
 void quit_callback(game_manager_t *gm);
