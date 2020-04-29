@@ -9,9 +9,9 @@
 
 static char *get_key_pressed(sfEvent event)
 {
-    if (event.key.code == sfKeyLeft)
+    if (event.key.code == sfKeyB)
         return my_strdup("left");
-    if (event.key.code == sfKeyRight)
+    if (event.key.code == sfKeyA)
         return my_strdup("right");
     if (event.key.code == sfKeyDown)
         return my_strdup("down");
