@@ -61,6 +61,7 @@ static scene_t **create_scenes(int nb_scenes)
         scenes[i]->backgrounds = background_func_ptr[i]();
         scenes[i]->players = player_func_ptr[i]();
         scenes[i]->enemies = enemy_func_ptr[i]();
+        scenes[i]->texts = NULL;
     }
     scenes[nb_scenes] = NULL;
     return scenes;

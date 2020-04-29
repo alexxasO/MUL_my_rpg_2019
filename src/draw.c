@@ -72,12 +72,25 @@ static void draw_buttons(game_manager_t *gm, scene_t *scene)
     }
 }
 
+static void draw_text(game_manager_t *gm, scene_t *scene)
+{
+    sfText *text = NULL;
+
+    if (scene->texts != NULL) {
+        for (size_t i = 0; scene->texts[i]; i++) {
+            text = scene->texts[i];
+            sfRenderWindow_drawText(gm->window, text, NULL);
+        }
+    }
+}
+
 void draw_scene(game_manager_t *gm, scene_t *scene)
 {
     draw_backgrounds(gm, scene);
     draw_players(gm, scene);
     draw_enemies(gm, scene);
     draw_buttons(gm, scene);
+    draw_text(gm, scene);
     sfRenderWindow_display(gm->window);
     sfRenderWindow_clear(gm->window, sfBlack);
 }

@@ -10,4 +10,17 @@
 #if !defined(FIGHT)
 #define FIGHT
 
+typedef struct menubar
+{
+    enum modes {DEFAULT, ATTACK, ITEM} mode;
+} menubar_t;
+
+typedef struct infobar
+{
+    player_t **players;
+    menubar_t *menu;
+    enemy_t **enemies;
+} infobar_t;
+
+
 #endif // FIGHT

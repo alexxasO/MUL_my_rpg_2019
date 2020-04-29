@@ -110,6 +110,7 @@ typedef struct scene_s {
     player_t **players;
     enemy_t **enemies;
     button_t **buttons;
+    sfText **texts;
     void (*func_ptr)(game_manager_t *);
     sfMusic *music;
 } scene_t;
