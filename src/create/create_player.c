@@ -26,5 +26,6 @@ void (*ptr_anim) (struct player_s *, sfRenderWindow *))
     player->ptr_anim = ptr_anim;
     player->sound = NULL;
     player->direction = 2;
+    player->fighter_info = malloc(sizeof(fighter_info_t));
     return player;
 }

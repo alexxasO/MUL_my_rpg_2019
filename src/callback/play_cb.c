@@ -10,4 +10,5 @@
 void play_callback(game_manager_t *gm)
 {
     gm->scene_id = SAVE_ID;
+    // gm->scene_id = FIGHT_ID;
 }
