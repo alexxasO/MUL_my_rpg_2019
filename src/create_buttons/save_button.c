@@ -20,13 +20,13 @@ button_t **save_button(void)
     for (size_t i = 0; i < 3; i++) {
         if (check_save(i) == sfFalse)
             buttons[i] = create_button(no_save_pathnames,
-            (sfVector2f){320, 64 + i * 288}, NULL);
+            (sfVector2f){320, 32 + i * 288}, &new_callback);
         else
             buttons[i] = create_button(save_pathnames,
-            (sfVector2f){320, 64 + i * 288}, &game_callback);
+            (sfVector2f){320, 32 + i * 288}, &game_callback);
     }
     buttons[3] = create_button(return_pathnames,
-    (sfVector2f){704, 928}, &return_callback);
+    (sfVector2f){704, 896}, &return_callback);
     buttons[4] = NULL;
     return buttons;
 }

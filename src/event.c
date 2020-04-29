@@ -17,6 +17,10 @@ static char *get_key_pressed(sfEvent event)
         return my_strdup("down");
     if (event.key.code == sfKeyUp)
         return my_strdup("up");
+    if (event.key.code == sfKeyI)
+        return my_strdup("i");
+    if (event.key.code == sfKeyEscape)
+        return my_strdup("esc");
     return my_strdup("none");
 }
 

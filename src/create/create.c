@@ -12,17 +12,17 @@ const char *music[] = {NULL};
 static void get_func_ptr_and_game_object(scene_t **scenes, size_t i)
 {
     void (*scene_func_ptr[])(game_manager_t *) = {&start_menu_func,
-    &save_func, &game_func};
+    &save_func, &game_func, &new_func};
     button_t **(*button_func_ptr[])(void) = {&start_menu_button,
-    &save_button, &game_button};
+    &save_button, &game_button, &new_button};
     background_t **(*background_func_ptr[])(void) = {&start_menu_background,
-    &save_background, &game_background};
+    &save_background, &game_background, &new_background};
     player_t **(*player_func_ptr[])(void) = {&start_menu_player, &save_player,
-    &game_player};
+    &game_player, &new_player};
     enemy_t **(*enemy_func_ptr[])(void) = {&start_menu_enemy, &save_enemy,
-    &game_enemy};
+    &game_enemy, &new_enemy};
     text_t **(*text_func_ptr[])(void) = {&start_menu_text, &save_text,
-    &game_text};
+    &game_text, &new_text};
 
     scenes[i]->func_ptr = scene_func_ptr[i];
     scenes[i]->buttons = button_func_ptr[i]();

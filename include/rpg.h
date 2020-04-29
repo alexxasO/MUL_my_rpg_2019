@@ -38,31 +38,37 @@ void handle_event(game_manager_t *gm, sfEvent event);
 background_t **start_menu_background(void);
 background_t **save_background(void);
 background_t **game_background(void);
+background_t **new_background(void);
 
 /* PLAYER */
 player_t **start_menu_player(void);
 player_t **save_player(void);
 player_t **game_player(void);
+player_t **new_player(void);
 
 /* ENEMY */
 enemy_t **start_menu_enemy(void);
 enemy_t **save_enemy(void);
 enemy_t **game_enemy(void);
+enemy_t **new_enemy(void);
 
 /* BUTTON */
 button_t **start_menu_button(void);
 button_t **save_button(void);
 button_t **game_button(void);
+button_t **new_button(void);
 
 /* TEXT */
 text_t **start_menu_text(void);
 text_t **save_text(void);
 text_t **game_text(void);
+text_t **new_text(void);
 
 /* SCENES */
 void start_menu_func(game_manager_t *gm);
 void save_func(game_manager_t *gm);
 void game_func(game_manager_t *gm);
+void new_func(game_manager_t *gm);
 
 /* TOOLS */
 void get_mouse_pos(game_manager_t *gm);
@@ -77,6 +83,7 @@ void quit_callback(game_manager_t *gm);
 void play_callback(game_manager_t *gm);
 void game_callback(game_manager_t *gm);
 void return_callback(game_manager_t *gm);
+void new_callback(game_manager_t *gm);
 
 /* ANIMATION */
 void anim_player(game_manager_t *gm, player_t *player);

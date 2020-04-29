@@ -59,6 +59,7 @@ SRCS	=	src/main.c										\
 			src/callback/play_cb.c							\
 			src/callback/game_cb.c							\
 			src/callback/return_cb.c						\
+			src/callback/new_cb.c							\
 			src/tools/handle_buttons.c						\
 			src/tools/check_save.c							\
 			src/tools/get_save_data.c						\
@@ -67,6 +68,12 @@ SRCS	=	src/main.c										\
 			src/create_texts/game_text.c					\
 			src/create_texts/save_text.c					\
 			src/create_texts/start_menu_text.c				\
+			src/scenes/new.c 								\
+			src/create_backgrounds/new_background.c			\
+			src/create_buttons/new_button.c					\
+			src/create_players/new_player.c					\
+			src/create_enemies/new_enemy.c					\
+			src/create_texts/new_text.c						\
 
 OBJS	= $(SRCS:.c=.o)
 
