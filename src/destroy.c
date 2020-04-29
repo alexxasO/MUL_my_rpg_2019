@@ -34,7 +34,7 @@ static void destroy_enemy(enemy_t *enemy)
     sfSprite_destroy(enemy->sprite);
     sfTexture_destroy(enemy->texture);
     sfClock_destroy(enemy->clock);
-    free(enemy->pathname);
+//    free(enemy->pathname);
     if (enemy->sound != NULL) {
         if (sfMusic_getStatus(enemy->sound) != sfStopped)
             sfMusic_stop(enemy->sound);
