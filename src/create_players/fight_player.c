@@ -7,7 +7,7 @@
 
 #include "header.h"
 
-player_t **fight_players(void)
+player_t **fight_player(void)
 {
     player_t **players = malloc(sizeof(player_t *) * 3);
 
