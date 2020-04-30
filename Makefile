@@ -96,6 +96,7 @@ SRCS	=	src/main.c										\
 			src/callback/help_cb.c							\
 			src/callback/resume_cb.c						\
 			src/create_texts/fight_text.c					\
+			src/tools/random_generator.c 					\
 
 OBJS	= $(SRCS:.c=.o)
 
