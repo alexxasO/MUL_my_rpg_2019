@@ -12,7 +12,7 @@ static void print_char_infos_ply(int id, char *name, scene_t *scene)
     sfText *text = sfText_create();
     sfText **scene_texts = scene->sftexts;
     sfText **new_scene_texts =  malloc(sizeof(sfText *) * (id + 2));
-    sfFont *font = sfFont_createFromFile("font/Comic Book.otf");
+    sfFont *font = sfFont_createFromFile("font/Astrolab.ttf");
 
     if (scene_texts == NULL) {
         scene_texts = malloc(sizeof(sfText *) * 1);
