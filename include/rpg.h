@@ -85,7 +85,8 @@ int count_players(player_t **fighters);
 int count_enemies(enemy_t **enemies);
 player_t **fight_players(void);
 enemy_t **fight_enemy(void);
-void place_infobar(player_t **players, enemy_t **enemies, game_manager_t *gm);
+void place_info_ply(player_t **players, game_manager_t *gm);
+void place_info_enemies(enemy_t **enemies, game_manager_t *gm);
 button_t **fight_button(void);
 text_t **fight_text(void);
 

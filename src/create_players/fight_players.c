@@ -16,11 +16,13 @@ player_t **fight_players(void)
     players[0]->rect = (sfIntRect){0, 0, players[0]->size.x / 7,
     players[0]->size.y / 4};
     players[0]->fighter_info->sprite = players[0]->sprite;
+    players[0]->life = 100;
     players[1] = create_player("image/player/axel.png",
     (sfVector2f){100, 500}, NULL, NULL);
     players[1]->rect = (sfIntRect){0, 0, players[0]->size.x / 7,
     players[1]->size.y / 4};
     players[1]->fighter_info->sprite = players[0]->sprite;
+    players[1]->life = 48;
     players[2] = NULL;
     return players;
 }

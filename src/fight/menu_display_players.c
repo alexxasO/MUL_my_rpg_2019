@@ -7,7 +7,7 @@
 
 #include "header.h"
 
-static void print_char_infos(int id, char *name, UN int life, scene_t *scene)
+static void print_char_infos_ply(int id, char *name, scene_t *scene)
 {
     sfText *text = sfText_create();
     sfText **scene_texts = scene->sftexts;
@@ -24,29 +24,43 @@ static void print_char_infos(int id, char *name, UN int life, scene_t *scene)
     sfText_setFont(text, font);
     for (int j = 0; scene_texts[j]; j++)
         new_scene_texts[j] = scene_texts[j];
-    sfText_setPosition(text, (sfVector2f){50, SCR_HEIGHT - 160 + (25 * id)});
+    sfText_setPosition(text, (sfVector2f){50,
+    SCR_HEIGHT - 160 + (25 * id)});
     new_scene_texts[id] = text;
     new_scene_texts[id + 1] = NULL;
     scene->sftexts = new_scene_texts;
     free(scene_texts);
 }
 
-void show_char_info(player_t **players, game_manager_t *gm)
+static char *get_char_info_ply(player_t *player)
 {
-    int ply_life = 0;
+    char *life_info = my_strcat_malloc(" - ", my_put_nbr_in_str(player->life));
+    char *name_info = my_strcat_malloc("Exemple", life_info);
+
+    free(life_info);
+    return name_info;
+}
+
+static void show_char_info_ply(player_t **players, game_manager_t *gm)
+{
     char *ply_name = NULL;
     int ply_id = -1;
     scene_t *scene = gm->scenes[gm->scene_id];
 
+    if (scene->sftexts) {
+        free(scene->sftexts);
+        scene->sftexts = NULL;
+    }
     for (int i = 0; players[i]; i++) {
-        ply_life = players[i]->life;
-        ply_name = "Exemple - 56HP";
+        ply_name = get_char_info_ply(players[i]);
         ply_id = i;
-        print_char_infos(ply_id, ply_name, ply_life, scene);
+        print_char_infos_ply(ply_id, ply_name, scene);
+        free(ply_name);
+        ply_name = NULL;
     }
 }
 
-void place_infobar(player_t **players, UN enemy_t **enemies, game_manager_t *gm)
+void place_info_ply(player_t **players, game_manager_t *gm)
 {
-    show_char_info(players, gm);
+    show_char_info_ply(players, gm);
 }

@@ -27,6 +27,12 @@ static void place_enemies(enemy_t **enemies, int nb_enemies)
         enemies[i]->pos = (sfVector2f){offset_x, (delta_y * i) + offset_y};
 }
 
+static void place_infobar(player_t **players, enemy_t **enemies, game_manager_t *gm)
+{
+    place_info_ply(players, gm);
+    place_info_enemies(enemies, gm);
+}
+
 void begin_fight(player_t **players, enemy_t **enemies, game_manager_t *gm)
 {
     int nb_player = count_players(players);

@@ -73,7 +73,8 @@ SRCS	=	src/main.c										\
 			src/create_backgrounds/fight_background.c 		\
 			src/create_players/fight_players.c				\
 			src/create_enemies/fight_ennemies.c				\
-			src/fight/menu_display.c 						\
+			src/fight/menu_display_players.c 				\
+			src/fight/menu_display_enemies.c 				\
 			src/create_buttons/fight_button.c 				\
 
 OBJS	= $(SRCS:.c=.o)

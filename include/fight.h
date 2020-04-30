@@ -20,6 +20,7 @@ typedef struct infobar
     player_t **players;
     menubar_t *menu;
     enemy_t **enemies;
+    sfSprite *sprite;
 } infobar_t;
 
 
