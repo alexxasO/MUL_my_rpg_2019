@@ -1,13 +1,13 @@
 /*
 ** EPITECH PROJECT, 2020
-** pause_menu.c
+** MUL_my_rpg_2019
 ** File description:
-** paus emenu scene
+** Pause Scene
 */
 
 #include "header.h"
 
-void pause_menu_func(game_manager_t *gm)
+void pause_func(game_manager_t *gm)
 {
     scene_t *scene = gm->scenes[gm->scene_id];
 

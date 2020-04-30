@@ -2,7 +2,7 @@
 ** EPITECH PROJECT, 2019
 ** MUL_my_rpg_2019
 ** File description:
-** fight_background.c
+** Fight Background
 */
 
 #include "header.h"

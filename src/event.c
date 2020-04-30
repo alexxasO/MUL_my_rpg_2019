@@ -37,9 +37,10 @@ void handle_event(game_manager_t *gm, sfEvent event)
         if (event.type == sfEvtMouseButtonPressed)
             gm->is_mouse_clicked = sfTrue;
         free(gm->key_pressed);
-        if (event.type == sfEvtKeyPressed)
+        if (event.type == sfEvtKeyPressed) {
             gm->key_pressed = get_key_pressed(gm, event);
-        else
+            break;
+        } else
             gm->key_pressed = my_strdup("none");
     }
 }

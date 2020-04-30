@@ -1,13 +1,13 @@
 /*
 ** EPITECH PROJECT, 2020
-** how_to_cb.c
+** MUL_my_rpg_2019
 ** File description:
-** how to play callback
+** Help callback
 */
 
 #include "header.h"
 
-void how_to_callback(game_manager_t *gm)
+void help_callback(game_manager_t *gm)
 {
     //display_how_to_play(gm->window);
 }

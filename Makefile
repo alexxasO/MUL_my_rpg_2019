@@ -29,7 +29,10 @@ SRCS	=	src/main.c										\
 			src/event.c										\
 			src/draw/draw.c									\
 			src/draw/draw_text.c							\
-			src/destroy.c									\
+			src/destroy/destroy.c							\
+			src/destroy/destroy_button.c					\
+			src/destroy/destroy_text.c						\
+			src/destroy/destroy_save.c						\
 			src/create/create.c 							\
 			src/create/create_text.c 						\
 			src/create/create_window.c						\
@@ -57,6 +60,7 @@ SRCS	=	src/main.c										\
 			src/tools/is_arrow_pressed.c 					\
 			src/callback/quit_cb.c							\
 			src/callback/play_cb.c							\
+			src/callback/create_cb.c						\
 			src/callback/game_cb.c							\
 			src/callback/return_cb.c						\
 			src/callback/new_cb.c							\
@@ -83,6 +87,15 @@ SRCS	=	src/main.c										\
 			src/fight/menu_display.c 						\
 			src/create_buttons/fight_button.c 				\
 			src/tools/write_save_name.c 					\
+			src/scenes/pause.c 								\
+			src/create_backgrounds/pause_background.c		\
+			src/create_buttons/pause_button.c				\
+			src/create_players/pause_player.c				\
+			src/create_enemies/pause_enemy.c				\
+			src/create_texts/pause_text.c					\
+			src/callback/help_cb.c							\
+			src/callback/resume_cb.c						\
+			src/create_texts/fight_text.c					\
 
 OBJS	= $(SRCS:.c=.o)
 

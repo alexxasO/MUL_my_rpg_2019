@@ -27,7 +27,6 @@ void write_save_name(game_manager_t *gm, sfEvent event)
     char key = key_id + 'A';
     char *old_string = my_strdup(gm->scenes[gm->scene_id]->texts[0]->string);
     int old_length = my_strlen(old_string);
-    char *new_string = NULL;
 
     if (event.key.code == 59 && my_strlen(old_string) != 0) {
         gm->scenes[gm->scene_id]->texts[0]->string[old_length - 1] = '\0';

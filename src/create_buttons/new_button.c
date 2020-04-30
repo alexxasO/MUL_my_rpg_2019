@@ -22,7 +22,7 @@ button_t **new_button(void)
     buttons[1] = create_button(right_arrow_pathnames,
     (sfVector2f){1088, 640}, NULL);
     buttons[2] = create_button(create_pathnames,
-    (sfVector2f){704, 896}, NULL);
+    (sfVector2f){704, 896}, &create_callback);
     buttons[3] = NULL;
     return buttons;
 }
