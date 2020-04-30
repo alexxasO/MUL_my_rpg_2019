@@ -29,7 +29,10 @@ SRCS	=	src/main.c										\
 			src/event.c										\
 			src/draw/draw.c									\
 			src/draw/draw_text.c							\
-			src/destroy.c									\
+			src/destroy/destroy.c							\
+			src/destroy/destroy_button.c					\
+			src/destroy/destroy_text.c						\
+			src/destroy/destroy_save.c						\
 			src/create/create.c 							\
 			src/create/create_text.c 						\
 			src/create/create_window.c						\
@@ -57,8 +60,10 @@ SRCS	=	src/main.c										\
 			src/tools/is_arrow_pressed.c 					\
 			src/callback/quit_cb.c							\
 			src/callback/play_cb.c							\
+			src/callback/create_cb.c						\
 			src/callback/game_cb.c							\
 			src/callback/return_cb.c						\
+			src/callback/new_cb.c							\
 			src/tools/handle_buttons.c						\
 			src/tools/check_save.c							\
 			src/tools/get_save_data.c						\
@@ -67,6 +72,12 @@ SRCS	=	src/main.c										\
 			src/create_texts/game_text.c					\
 			src/create_texts/save_text.c					\
 			src/create_texts/start_menu_text.c				\
+			src/scenes/new.c 								\
+			src/create_backgrounds/new_background.c			\
+			src/create_buttons/new_button.c					\
+			src/create_players/new_player.c					\
+			src/create_enemies/new_enemy.c					\
+			src/create_texts/new_text.c						\
 			src/fight/fight_count.c							\
 			src/fight/fight_effects.c 						\
 			src/scenes/fight.c 								\
@@ -76,6 +87,17 @@ SRCS	=	src/main.c										\
 			src/fight/menu_display_players.c 				\
 			src/fight/menu_display_enemies.c 				\
 			src/create_buttons/fight_button.c 				\
+			src/tools/write_save_name.c 					\
+			src/scenes/pause.c 								\
+			src/create_backgrounds/pause_background.c		\
+			src/create_buttons/pause_button.c				\
+			src/create_players/pause_player.c				\
+			src/create_enemies/pause_enemy.c				\
+			src/create_texts/pause_text.c					\
+			src/callback/help_cb.c							\
+			src/callback/resume_cb.c						\
+			src/create_texts/fight_text.c					\
+			src/tools/random_generator.c 					\
 
 OBJS	= $(SRCS:.c=.o)
 

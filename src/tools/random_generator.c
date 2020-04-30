@@ -2,7 +2,7 @@
 ** EPITECH PROJECT, 2019
 ** MUL_my_rpg_2019
 ** File description:
-** tools.c
+** Random number generator
 */
 
 int randomize(int min, int max)

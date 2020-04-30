@@ -14,4 +14,6 @@ void game_func(game_manager_t *gm)
     anim_player(gm, scene->players[0]);
     move_player_and_background(gm, scene->players[0], scene->backgrounds[0]);
     handle_buttons(gm, scene);
+    if (my_strcmp(gm->key_pressed, "esc") == 0)
+        gm->scene_id = PAUSE_ID;
 }

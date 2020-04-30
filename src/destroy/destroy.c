@@ -34,33 +34,13 @@ static void destroy_enemy(enemy_t *enemy)
     sfSprite_destroy(enemy->sprite);
     sfTexture_destroy(enemy->texture);
     sfClock_destroy(enemy->clock);
-    free(enemy->pathname);
+//    free(enemy->pathname);
     if (enemy->sound != NULL) {
         if (sfMusic_getStatus(enemy->sound) != sfStopped)
             sfMusic_stop(enemy->sound);
         sfMusic_destroy(enemy->sound);
     }
     free(enemy);
-}
-
-static void destroy_button(button_t *button)
-{
-    for (size_t i = 0; i < 3; i++) {
-        sfSprite_destroy(button->sprite[i]);
-        sfTexture_destroy(button->texture[i]);
-    }
-    free(button->pathname);
-    free(button->sprite);
-    free(button->texture);
-    free(button);
-}
-
-static void destroy_text(text_t *text)
-{
-    sfFont_destroy(text->font);
-    sfText_destroy(text->text);
-    free(text->string);
-    free(text);
 }
 
 static void destroy_scene(scene_t *scene)
@@ -95,5 +75,9 @@ void destroy_game_manager(game_manager_t *game_manager)
     free(game_manager->scenes);
     sfRenderWindow_destroy(game_manager->window);
     free(game_manager->key_pressed);
+    for (size_t i = 0; i < 3; i++) {
+        destroy_save(game_manager->saves[i]);
+    }
+    free(game_manager->saves);
     free(game_manager);
 }

@@ -16,7 +16,7 @@ static void get_player_from_save(char *player_name, player_t **players)
     filename = my_strcat(filename, player_name);
     filename = my_strcat(filename, ".png");
     players[0] = create_player(filename,
-    (sfVector2f){1200, 800}, NULL, NULL);
+    (sfVector2f){500, 500}, NULL, NULL);
     players[0]->rect = (sfIntRect){0, 0, players[0]->size.x / 7,
     players[0]->size.y / 4};
 }

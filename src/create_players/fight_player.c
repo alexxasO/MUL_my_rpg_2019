@@ -2,12 +2,12 @@
 ** EPITECH PROJECT, 2019
 ** MUL_my_rpg_2019
 ** File description:
-** fight_players.c
+** Fight Player
 */
 
 #include "header.h"
 
-player_t **fight_players(void)
+player_t **fight_player(void)
 {
     player_t **players = malloc(sizeof(player_t *) * 3);
 

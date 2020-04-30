@@ -14,11 +14,3 @@ text_t **game_text(void)
     texts[0] = NULL;
     return texts;
 }
-
-text_t **fight_text(void)
-{
-    text_t **texts = malloc(sizeof(text_t *));
-
-    texts[0] = NULL;
-    return texts;
-}

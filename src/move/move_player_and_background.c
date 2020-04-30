@@ -30,7 +30,7 @@ background_t *background)
 static float *get_add_value(float *add, float time, size_t i)
 {
     float framerate = 0.01;
-    const float coef[] = {0, 5, 0, -5, 5, 0, -5, 0};
+    const float coef[] = {0, 8, 0, -8, 8, 0, -8, 0};
 
     add[0] = coef[i * 2] * time / framerate;
     add[1] = coef[i * 2 + 1] * time / framerate;
@@ -57,11 +57,11 @@ float *add, size_t i)
     sfVector2f b_pos = background->pos;
 
     if (check_side(i, p_pos) == sfTrue) {
-        if (b_pos.x - add[0] > -1152 && b_pos.x - add[0] < 0) {
+        if (b_pos.x - add[0] > -384 && b_pos.x - add[0] < 0) {
             background->pos.x -= add[0];
             player->pos.x -= add[0];
         }
-        if (b_pos.y - add[1] > -1992 && b_pos.y - add[1] < 0) {
+        if (b_pos.y - add[1] > -1224 && b_pos.y - add[1] < 0) {
             background->pos.y -= add[1];
             player->pos.y -= add[1];
         }
@@ -73,7 +73,7 @@ background_t *background)
 {
     float time = sfTime_asSeconds(sfClock_getElapsedTime(player->clock_move));
     const char *keys[] = {"down", "up", "right", "left"};
-    sfImage *limit = sfImage_createFromFile("image/other/level_limit2.png");
+    sfImage *limit = sfImage_createFromFile("image/other/level_limit.png");
     float *add = malloc(sizeof(float) * 2);
 
     for (size_t i = 0; i < 4; i++) {
