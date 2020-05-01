@@ -113,6 +113,8 @@ SRCS	=	src/main.c										\
 			src/create_players/inv_and_stat_player.c		\
 			src/create_enemies/inv_and_stat_enemy.c			\
 			src/create_texts/inv_and_stat_text.c			\
+			src/draw/draw_infobar.c 						\
+			src/create/create_infobar.c						\
 
 OBJS	= $(SRCS:.c=.o)
 

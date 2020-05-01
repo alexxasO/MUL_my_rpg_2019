@@ -10,14 +10,9 @@
 #if !defined(FIGHT)
 #define FIGHT
 
-typedef struct menubar
-{
-    enum modes {DEFAULT, ATTACK, ITEM} mode;
-} menubar_t;
-
 typedef struct infobar
 {
-    menubar_t *menu;
+    enum modes {DEFAULT, ATTACK, ITEM} mode;
     sfSprite **sprites;
     sfText **texts;
 } infobar_t;

@@ -22,12 +22,12 @@ sfText *create_menu_text(char *content, sfVector2f pos)
 
 sfText **place_default_menu()
 {
-    sfText **texts = malloc(sizeof(sfText *) * 4);
+    sfText **texts = malloc(sizeof(sfText *) * 3);
 
-    texts[0] = create_menu_text("Attack", (sfVector2f){SCR_WIDTH / 2 - 3,
-    SCR_HEIGHT - 250});
-    texts[1] = create_menu_text("Item", (sfVector2f){SCR_WIDTH / 2 - 3,
-    SCR_HEIGHT - 225});
+    texts[0] = create_menu_text("Attack", (sfVector2f){SCR_WIDTH / 2 - 50,
+    SCR_HEIGHT - 160});
+    texts[1] = create_menu_text("Item", (sfVector2f){SCR_WIDTH / 2 - 50,
+    SCR_HEIGHT - 160 + 25});
     texts[2] = NULL;
     return texts;
 }
@@ -36,15 +36,13 @@ static void menu_texts(infobar_t *infobar)
 {
     sfText **texts = infobar->texts;
 
-    if (!texts) {
-        texts = malloc(sizeof(sfText *) * 1);
-        texts[0] = NULL;
-    }
-    if (infobar->menu->mode == DEFAULT)
+    if (texts)
+        free(texts);
+    if (infobar->mode == DEFAULT)
         texts = place_default_menu();
-    // if (infobar->menu->mode == ATTACK)
+    // if (infobar->mode == ATTACK)
     //     texts = place_attack_menu();
-    // if (infobar->menu->mode == ITEM)
+    // if (infobar->mode == ITEM)
     //     texts = place_item_menu();
     infobar->texts = texts;
 }
