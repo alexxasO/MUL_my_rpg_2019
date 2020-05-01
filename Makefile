@@ -96,8 +96,7 @@ SRCS	=	src/main.c										\
 			src/callback/help_cb.c							\
 			src/callback/resume_cb.c						\
 			src/create_texts/fight_text.c					\
-			src/tools/random_generator.c					\
-			src/save/update_save_file.c					\
+			src/save/update_save_file.c						\
 			src/save/fulfill_save.c							\
 			src/scenes/help.c								\
 			src/create_backgrounds/help_background.c		\
@@ -111,7 +110,7 @@ SRCS	=	src/main.c										\
 			src/create_players/inv_and_stat_player.c		\
 			src/create_enemies/inv_and_stat_enemy.c			\
 			src/create_texts/inv_and_stat_text.c			\
-			src/spawn_npc.c			\
+			src/move/move_npc.c 							\
 
 OBJS	= $(SRCS:.c=.o)
 

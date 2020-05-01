@@ -9,9 +9,10 @@
 
 player_t **game_player(void)
 {
-    player_t **players = malloc(sizeof(player_t *) * 2);
+    player_t **players = malloc(sizeof(player_t *) * 3);
 
     players[0] = NULL;
     players[1] = NULL;
+    players[2] = NULL;
     return players;
 }

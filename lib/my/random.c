@@ -5,20 +5,31 @@
 ** generate random int or color
 */
 
-#include <SFML/Graphics.h>
-#include <stdlib.h>
-#include <SFML/Graphics/RenderWindow.h>
-#include <SFML/Graphics/Texture.h>
-#include <SFML/Graphics/Sprite.h>
-#include <SFML/Graphics/Export.h>
-#include <time.h>
-
+#include "../../include/header.h"
+/*
 int random_int(int max)
 {
     int i = rand() % max;
-    if (i <= 0)
-        i += random_int(max);
+
+    if (i < 0)
+        i *= -1;
     return i;
+}*/
+
+int random_int(int max)
+{
+    char buf[5];
+    int fd = open("/dev/urandom", O_RDONLY);
+    int random_number = 1;
+
+    read(fd, buf, 5);
+    for (size_t i = 0; i < 5; i++)
+        random_number *= buf[i];
+    if (random_number < 0)
+        random_number *= -1;
+    random_number = random_number % max;
+    close(fd);
+    return random_number;
 }
 
 sfColor rand_colors(void)

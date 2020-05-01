@@ -94,7 +94,6 @@ void draw_scene(game_manager_t *gm, scene_t *scene)
     draw_enemies(gm, scene);
     draw_buttons(gm, scene);
     draw_text(gm, scene);
-    spawn_npc(gm, scene, "image/player/axel.png");
     draw_sftext(gm, scene); //TEMPORAIRE
     sfRenderWindow_display(gm->window);
     sfRenderWindow_clear(gm->window, sfBlack);
