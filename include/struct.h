@@ -131,7 +131,7 @@ typedef struct save_s {
     size_t exp;
     size_t stage;
     char *character;
-    char **inventory;
+    int *inventory;
 } save_t;
 
 struct game_manager_s {

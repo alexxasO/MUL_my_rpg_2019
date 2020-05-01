@@ -16,6 +16,7 @@
 #include <stdio.h>
 #include <math.h>
 #include <time.h>
+#include <stdlib.h>
 #include <stddef.h>
 #include <stdbool.h>
 #include <SFML/Window.h>

@@ -24,6 +24,7 @@ int main(int ac, UN char **av, UN char **env)
             draw_scene(gm, gm->scenes[gm->scene_id]);
         }
     }
+    update_save_file(gm);
     destroy_game_manager(gm);
     return 0;
 }

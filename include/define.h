@@ -11,7 +11,7 @@
 #define SCR_WIDTH 1920
 #define SCR_HEIGHT 1080
 
-#define NB_SCENES 6
+#define NB_SCENES 8
 
 #define START_MENU_ID 0
 #define SAVE_ID 1
@@ -19,5 +19,7 @@
 #define FIGHT_ID 3
 #define NEW_ID 4
 #define PAUSE_ID 5
+#define HELP_ID 6
+#define INV_STAT_ID 7
 
 #endif

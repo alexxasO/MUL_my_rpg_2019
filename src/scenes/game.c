@@ -16,4 +16,6 @@ void game_func(game_manager_t *gm)
     handle_buttons(gm, scene);
     if (my_strcmp(gm->key_pressed, "esc") == 0)
         gm->scene_id = PAUSE_ID;
+    if (my_strcmp(gm->key_pressed, "i") == 0)
+        gm->scene_id = INV_STAT_ID;
 }

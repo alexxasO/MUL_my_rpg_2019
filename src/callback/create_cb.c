@@ -36,5 +36,4 @@ void create_callback(game_manager_t *gm)
     free(gm->scenes[NEW_ID]->texts[0]->string);
     gm->scenes[NEW_ID]->texts[0]->string = my_strdup("");
     game_callback(gm);
-    gm->scene_id = START_MENU_ID;
 }
