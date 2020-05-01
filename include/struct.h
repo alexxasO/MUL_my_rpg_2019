@@ -147,6 +147,7 @@ struct game_manager_s {
     char *key_pressed;
     player_t **player_list;
     enemy_t **enemy_list;
+    infobar_t *fight_bar;
 };
 
 #endif

@@ -17,10 +17,9 @@ typedef struct menubar
 
 typedef struct infobar
 {
-    player_t **players;
     menubar_t *menu;
-    enemy_t **enemies;
-    sfSprite *sprite;
+    sfSprite **sprites;
+    sfText **texts;
 } infobar_t;
 
 

@@ -84,5 +84,6 @@ game_manager_t *create_game_manager(void)
     game_manager->key_pressed = my_strdup("none");
     game_manager->saves = get_all_save();
     game_manager->save_id = 0;
+    game_manager->fight_bar = malloc(sizeof(infobar_t) * 1);
     return game_manager;
 }

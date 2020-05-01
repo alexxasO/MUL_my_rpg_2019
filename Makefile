@@ -85,6 +85,7 @@ SRCS	=	src/main.c										\
 			src/create_players/fight_players.c				\
 			src/create_enemies/fight_enemies.c				\
 			src/fight/menu_display_players.c 				\
+			src/fight/menu_display_menu.c 					\
 			src/fight/menu_display_enemies.c 				\
 			src/create_buttons/fight_button.c 				\
 			src/tools/write_save_name.c 					\

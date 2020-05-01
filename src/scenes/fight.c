@@ -41,7 +41,7 @@ void begin_fight(player_t **players, enemy_t **enemies, game_manager_t *gm)
 
     place_player(players, nb_player);
     place_enemies(enemies, nb_enemy);
-    place_infobar(players, enemies, gm);
+    create_info_bar(gm, gm->fight_bar);
 }
 
 void fight_func(game_manager_t *gm)
