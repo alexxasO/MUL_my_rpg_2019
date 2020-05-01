@@ -12,7 +12,7 @@ int count_players(player_t **fighters)
 {
     int i = 0;
 
-    while(fighters[i]) {
+    while (fighters[i]) {
         i++;
     }
     return i;
@@ -22,7 +22,7 @@ int count_enemies(enemy_t **enemies)
 {
     int i = 0;
 
-    while(enemies[i]) {
+    while (enemies[i]) {
         i++;
     }
     return i;

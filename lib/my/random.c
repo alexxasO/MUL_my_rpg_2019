@@ -19,7 +19,7 @@ int random_int(int max)
     return i;
 }
 
-sfColor rand_colors()
+sfColor rand_colors(void)
 {
     sfColor color;
 

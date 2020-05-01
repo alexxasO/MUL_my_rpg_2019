@@ -5,6 +5,8 @@
 ** Random number generator
 */
 
+#include "header.h"
+
 int randomize(int min, int max)
 {
     int nb = rand() % (max - min + 1) + min;

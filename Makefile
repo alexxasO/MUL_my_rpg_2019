@@ -65,8 +65,8 @@ SRCS	=	src/main.c										\
 			src/callback/return_cb.c						\
 			src/callback/new_cb.c							\
 			src/tools/handle_buttons.c						\
-			src/tools/check_save.c							\
-			src/tools/get_save_data.c						\
+			src/save/check_save.c							\
+			src/save/get_save_data.c						\
 			src/anim/anim_player.c	 						\
 			src/move/move_player_and_background.c			\
 			src/create_texts/game_text.c					\
@@ -86,7 +86,7 @@ SRCS	=	src/main.c										\
 			src/create_enemies/fight_enemy.c				\
 			src/fight/menu_display.c 						\
 			src/create_buttons/fight_button.c 				\
-			src/tools/write_save_name.c 					\
+			src/save/write_save_name.c 						\
 			src/scenes/pause.c 								\
 			src/create_backgrounds/pause_background.c		\
 			src/create_buttons/pause_button.c				\
@@ -97,6 +97,20 @@ SRCS	=	src/main.c										\
 			src/callback/resume_cb.c						\
 			src/create_texts/fight_text.c					\
 			src/tools/random_generator.c 					\
+			src/save/update_save_file.c 					\
+			src/save/fulfill_save.c 						\
+			src/scenes/help.c 								\
+			src/create_backgrounds/help_background.c		\
+			src/create_buttons/help_button.c				\
+			src/create_players/help_player.c				\
+			src/create_enemies/help_enemy.c					\
+			src/create_texts/help_text.c					\
+			src/scenes/inv_and_stat.c 						\
+			src/create_backgrounds/inv_and_stat_background.c\
+			src/create_buttons/inv_and_stat_button.c		\
+			src/create_players/inv_and_stat_player.c		\
+			src/create_enemies/inv_and_stat_enemy.c			\
+			src/create_texts/inv_and_stat_text.c			\
 
 OBJS	= $(SRCS:.c=.o)
 
