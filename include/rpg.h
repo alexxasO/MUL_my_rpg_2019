@@ -44,6 +44,8 @@ background_t **game_background(void);
 background_t **new_background(void);
 background_t **fight_background(void);
 background_t **pause_background(void);
+background_t **help_background(void);
+background_t **inventory_and_status_background(void);
 
 /* PLAYER */
 player_t **start_menu_player(void);
@@ -52,6 +54,8 @@ player_t **game_player(void);
 player_t **new_player(void);
 player_t **fight_player(void);
 player_t **pause_player(void);
+player_t **help_player(void);
+player_t **inventory_and_status_player(void);
 
 /* ENEMY */
 enemy_t **start_menu_enemy(void);
@@ -60,6 +64,8 @@ enemy_t **game_enemy(void);
 enemy_t **new_enemy(void);
 enemy_t **fight_enemy(void);
 enemy_t **pause_enemy(void);
+enemy_t **help_enemy(void);
+enemy_t **inventory_and_status_enemy(void);
 
 /* BUTTON */
 button_t **start_menu_button(void);
@@ -68,6 +74,8 @@ button_t **game_button(void);
 button_t **new_button(void);
 button_t **fight_button(void);
 button_t **pause_button(void);
+button_t **help_button(void);
+button_t **inventory_and_status_button(void);
 
 /* TEXT */
 text_t **start_menu_text(void);
@@ -76,6 +84,8 @@ text_t **game_text(void);
 text_t **new_text(void);
 text_t **fight_text(void);
 text_t **pause_text(void);
+text_t **help_text(void);
+text_t **inventory_and_status_text(void);
 
 /* SCENES */
 void start_menu_func(game_manager_t *gm);
@@ -84,15 +94,22 @@ void game_func(game_manager_t *gm);
 void new_func(game_manager_t *gm);
 void fight_func(game_manager_t *gm);
 void pause_func(game_manager_t *gm);
+void help_func(game_manager_t *gm);
+void inventory_and_status_func(game_manager_t *gm);
 
 /* TOOLS */
 void get_mouse_pos(game_manager_t *gm);
 sfBool is_mouse_over_button(game_manager_t *gm, button_t *button);
 void handle_buttons(game_manager_t *gm, scene_t *scene);
-sfBool check_save(size_t save_nb);
 sfBool is_arrow_pressed(char *key_pressed);
+int randomize(int min, int max);
+
+/* SAVE */
+sfBool check_save(size_t save_nb);
 save_t *get_save_data(size_t save_nb);
 void write_save_name(game_manager_t *gm, sfEvent event);
+void update_save_file(game_manager_t *gm);
+void fulfill_save(save_t *save, char *filename);
 
 /* CALLBACKS */
 void quit_callback(game_manager_t *gm);

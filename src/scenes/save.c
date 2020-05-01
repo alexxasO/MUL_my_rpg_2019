@@ -26,7 +26,7 @@ static void print_save_data(save_t **saves, scene_t *scene)
         level = my_put_nbr_in_str(saves[i]->level);
         stage = my_put_nbr_in_str(saves[i]->stage);
         compare_and_replace(&scene->texts[i * 3]->string, saves[i]->name);
-        scene->texts[i * 3]->pos.x = 400 - 
+        scene->texts[i * 3]->pos.x = 400 -
         my_strlen(scene->texts[i * 3]->string) * 5;
         compare_and_replace(&scene->texts[i * 3 + 1]->string, level);
         compare_and_replace(&scene->texts[i * 3 + 2]->string, stage);

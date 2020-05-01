@@ -9,5 +9,5 @@
 
 void help_callback(game_manager_t *gm)
 {
-    //display_how_to_play(gm->window);
+    gm->scene_id = HELP_ID;
 }

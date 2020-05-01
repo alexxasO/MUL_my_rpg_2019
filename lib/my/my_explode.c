@@ -6,7 +6,7 @@
 */
 
 #include <stdlib.h>
-#include <stdio.h> //debug
+#include <stdio.h>
 
 int my_strlen(char const *str);
 
@@ -20,6 +20,12 @@ static int count_char(char *str, char ch)
         if (str[i] == ch)
             count++;
     return count;
+}
+
+static char **add_null(char **tab, int i)
+{
+    tab[i] = NULL;
+    return tab;
 }
 
 char **my_explode(char *str, char sep)
@@ -43,6 +49,5 @@ char **my_explode(char *str, char sep)
         tab[i][j] = '\0';
         cpy++;
     }
-    tab[i] = NULL;
-    return tab;
+    return add_null(tab, i);
 }
