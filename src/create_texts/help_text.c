@@ -11,25 +11,25 @@ text_t **help_text(void)
 {
     text_t **texts = malloc(sizeof(text_t *) * 2);
     char string[] = "Welcome to The Tower, your objective is\n"\
-    "to reach the last floor of The Tower.\n"\
-    "For that, you will have to fight monsters\n"\
-    "in each stage, to loot items which will\n"\
-    "make you stronger and level-up.\n"\
-    "Be careful, they will be also one boss\n"\
-    "who you need to beat for go to the next\n"\
-    "level, but he will be stronger than the\n"\
-    "other monsters.\n"\
-    "Move around by using the arrow keys, use\n"\
-    "the F key to interact with other people\n"\
-    "and the I key for see your status and\n"\
-    "choose the item in your inventory you\n"\
-    "want to use by clicking on them. Also,\n"\
-    "fight will start when you will touch the\n"\
-    "monsters.\n"\
-    "Good luck and good game !\n";
- 
+        "to reach the last floor of The Tower.\n"\
+        "You will need to fight monsters\n"\
+        "in each stage, to loot items which will\n"\
+        "make you stronger by leveling you up.\n"\
+        "To get to the next floor you'll need to \n"\
+        "fight against the floor boss and win\n"\
+        "be careful tho, he will be stronger than\n"\
+        "the other monsters.\n"\
+        "Move around by using the arrow keys, use\n"\
+        "the F key to interact with other people\n"\
+        "The I key is to open your inventory and\n"\
+        "check your game status, \n"\
+        "there, click on any item to equip it.\n"\
+        "Fights will start when you touch a\n"\
+        "monster.\n"\
+        "Good luck and good game !\n";
+
     texts[0] = create_text(string, 30, sfBlack,
-    (sfVector2f){390, 120});
+                           (sfVector2f){390, 120});
     texts[1] = NULL;
     return texts;
 }
