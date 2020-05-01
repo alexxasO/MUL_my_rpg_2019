@@ -23,6 +23,7 @@ background_t *create_background(char *pathname, sfVector2f pos,
 void (*ptr_move) (struct background_s *, sfVector2f));
 text_t *create_text(char *string, size_t size, sfColor color,
 sfVector2f pos);
+void spawn_npc(game_manager_t *gm, scene_t *scene, char *sprite_path);
 
 /* DESTROY */
 void destroy_game_manager(game_manager_t *game_manager);

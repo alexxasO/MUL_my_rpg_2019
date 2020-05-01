@@ -73,6 +73,20 @@ typedef struct enemy_s {
     fighter_info_t *fighter_info;
 } enemy_t;
 
+typedef struct npc_s {
+    char *pathname;
+    sfSprite *sprite;
+    sfTexture *texture;
+    sfVector2f pos;
+    sfIntRect rect;
+    sfClock *clock;
+    void (*ptr_move) (struct enemy_s *, sfVector2f);
+    void (*ptr_anim) (struct enemy_s *, sfRenderWindow *);
+    sfMusic *sound;
+    sfVector2u size;
+} npc_t;
+
+
 typedef struct player_s {
     char *pathname;
     sfSprite *sprite;
@@ -118,6 +132,7 @@ typedef struct scene_s {
     background_t **backgrounds;
     player_t **players;
     enemy_t **enemies;
+    npc_t **npcs;
     button_t **buttons;
     text_t **texts;
     sfText **sftexts;

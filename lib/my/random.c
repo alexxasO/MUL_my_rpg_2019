@@ -16,6 +16,8 @@
 int random_int(int max)
 {
     int i = rand() % max;
+    if (i <= 0)
+        i += random_int(max);
     return i;
 }
 
