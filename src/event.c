@@ -23,6 +23,8 @@ static char *get_key_pressed(game_manager_t *gm, sfEvent event)
         return my_strdup("i");
     if (event.key.code == sfKeyEscape)
         return my_strdup("esc");
+    if (event.key.code == sfKeyEnter)
+        return my_strdup("enter");
     return my_strdup("none");
 }
 
