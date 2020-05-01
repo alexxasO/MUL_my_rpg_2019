@@ -15,7 +15,7 @@ static void destroy_background(background_t *background)
     free(background);
 }
 
-static void destroy_player(player_t *player)
+void destroy_player(player_t *player)
 {
     sfSprite_destroy(player->sprite);
     sfTexture_destroy(player->texture);

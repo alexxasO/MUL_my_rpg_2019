@@ -29,6 +29,7 @@ void destroy_game_manager(game_manager_t *game_manager);
 void destroy_text(text_t *text);
 void destroy_button(button_t *button);
 void destroy_save(save_t *save);
+void destroy_player(player_t *player);
 
 /* DRAW */
 void draw_scene(game_manager_t *gm, scene_t *scene);
@@ -102,7 +103,6 @@ void get_mouse_pos(game_manager_t *gm);
 sfBool is_mouse_over_button(game_manager_t *gm, button_t *button);
 void handle_buttons(game_manager_t *gm, scene_t *scene);
 sfBool is_arrow_pressed(char *key_pressed);
-int randomize(int min, int max);
 
 /* SAVE */
 sfBool check_save(size_t save_nb);
@@ -138,7 +138,8 @@ void create_infobar(game_manager_t *gm);
 void anim_player(game_manager_t *gm, player_t *player);
 
 /* MOVEMENT */
-void move_player_and_background(game_manager_t *gm, player_t *player,
+void move_all(game_manager_t *gm, player_t **players,
 background_t *background);
+void move_npc(player_t **players, float add_x, float add_y);
 
 #endif

@@ -29,7 +29,7 @@ text_t **help_text(void)
         "Good luck and good game !\n";
 
     texts[0] = create_text(string, 30, sfBlack,
-                           (sfVector2f){390, 120});
+    (sfVector2f){390, 120});
     texts[1] = NULL;
     return texts;
 }

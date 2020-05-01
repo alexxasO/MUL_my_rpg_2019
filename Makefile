@@ -6,7 +6,7 @@
 ##
 
 ECHO =		/bin/echo -e
-CURL = 		/bin/curl
+CURL =		/bin/curl
 ONLINE =	/bin/nm-online
 DEFAULT =	"\033[00m"
 GREEN =		"\033[0;32m"
@@ -15,7 +15,7 @@ TEAL =		"\033[1;36m"
 ORANGE =	"\e[1;33m"
 RED =		"\033[0;31m"
 BRED =		"\033[1;31m"
-FLASH = 	"\e[5;30m"
+FLASH =		"\e[5;30m"
 BYELLOW =	"\e[1;33m"
 BMAGENTA =	"\e[1;35m"
 
@@ -33,31 +33,31 @@ SRCS	=	src/main.c										\
 			src/destroy/destroy_button.c					\
 			src/destroy/destroy_text.c						\
 			src/destroy/destroy_save.c						\
-			src/create/create.c 							\
-			src/create/create_text.c 						\
+			src/create/create.c							\
+			src/create/create_text.c						\
 			src/create/create_window.c						\
 			src/create/create_background.c					\
 			src/create/create_button.c						\
-			src/create/create_enemy.c 						\
-			src/create/create_player.c 						\
-			src/scenes/start_menu.c 						\
+			src/create/create_enemy.c						\
+			src/create/create_player.c						\
+			src/scenes/start_menu.c							\
 			src/create_backgrounds/start_menu_background.c	\
 			src/create_buttons/start_menu_button.c			\
 			src/create_players/start_menu_player.c			\
 			src/create_enemies/start_menu_enemy.c			\
-			src/scenes/save.c 								\
+			src/scenes/save.c								\
 			src/create_backgrounds/save_background.c		\
 			src/create_buttons/save_button.c				\
 			src/create_players/save_player.c				\
 			src/create_enemies/save_enemy.c					\
-			src/scenes/game.c 								\
+			src/scenes/game.c								\
 			src/create_backgrounds/game_background.c		\
 			src/create_buttons/game_button.c				\
 			src/create_players/game_player.c				\
 			src/create_enemies/game_enemy.c					\
 			src/tools/get_mouse_pos.c						\
-			src/tools/is_mouse_over_button.c 				\
-			src/tools/is_arrow_pressed.c 					\
+			src/tools/is_mouse_over_button.c				\
+			src/tools/is_arrow_pressed.c					\
 			src/callback/quit_cb.c							\
 			src/callback/play_cb.c							\
 			src/callback/create_cb.c						\
@@ -67,12 +67,12 @@ SRCS	=	src/main.c										\
 			src/tools/handle_buttons.c						\
 			src/save/check_save.c							\
 			src/save/get_save_data.c						\
-			src/anim/anim_player.c	 						\
+			src/anim/anim_player.c							\
 			src/move/move_player_and_background.c			\
 			src/create_texts/game_text.c					\
 			src/create_texts/save_text.c					\
 			src/create_texts/start_menu_text.c				\
-			src/scenes/new.c 								\
+			src/scenes/new.c								\
 			src/create_backgrounds/new_background.c			\
 			src/create_buttons/new_button.c					\
 			src/create_players/new_player.c					\
@@ -98,16 +98,15 @@ SRCS	=	src/main.c										\
 			src/callback/help_cb.c							\
 			src/callback/resume_cb.c						\
 			src/create_texts/fight_text.c					\
-			src/tools/random_generator.c 					\
-			src/save/update_save_file.c 					\
-			src/save/fulfill_save.c 						\
-			src/scenes/help.c 								\
+			src/save/update_save_file.c						\
+			src/save/fulfill_save.c							\
+			src/scenes/help.c								\
 			src/create_backgrounds/help_background.c		\
 			src/create_buttons/help_button.c				\
 			src/create_players/help_player.c				\
 			src/create_enemies/help_enemy.c					\
 			src/create_texts/help_text.c					\
-			src/scenes/inv_and_stat.c 						\
+			src/scenes/inv_and_stat.c						\
 			src/create_backgrounds/inv_and_stat_background.c\
 			src/create_buttons/inv_and_stat_button.c		\
 			src/create_players/inv_and_stat_player.c		\
@@ -115,6 +114,7 @@ SRCS	=	src/main.c										\
 			src/create_texts/inv_and_stat_text.c			\
 			src/draw/draw_infobar.c 						\
 			src/create/create_infobar.c						\
+			src/move/move_npc.c 							\
 
 OBJS	= $(SRCS:.c=.o)
 
