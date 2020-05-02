@@ -19,8 +19,8 @@ static sfBool check_collision_with_enemies(game_manager_t *gm)
             continue;
         diff_x = player->pos.x - enemies[i]->pos.x;
         diff_y = player->pos.y - enemies[i]->pos.y;
-        if (diff_x < 200 && diff_x > -200 &&
-        diff_y < 200 && diff_y > -200)
+        if (diff_x < 50 && diff_x > -50 &&
+        diff_y < 100 && diff_y > -100)
             return sfTrue;
     }
     return sfFalse;

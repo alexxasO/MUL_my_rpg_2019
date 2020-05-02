@@ -48,6 +48,8 @@ background_t **fight_background(void);
 background_t **pause_background(void);
 background_t **help_background(void);
 background_t **inventory_and_status_background(void);
+background_t **save_multi_background(void);
+background_t **multi_background(void);
 
 /* PLAYER */
 player_t **start_menu_player(void);
@@ -58,6 +60,8 @@ player_t **fight_player(void);
 player_t **pause_player(void);
 player_t **help_player(void);
 player_t **inventory_and_status_player(void);
+player_t **save_multi_player(void);
+player_t **multi_player(void);
 
 /* ENEMY */
 enemy_t **start_menu_enemy(void);
@@ -68,6 +72,8 @@ enemy_t **fight_enemy(void);
 enemy_t **pause_enemy(void);
 enemy_t **help_enemy(void);
 enemy_t **inventory_and_status_enemy(void);
+enemy_t **save_multi_enemy(void);
+enemy_t **multi_enemy(void);
 
 /* BUTTON */
 button_t **start_menu_button(void);
@@ -78,6 +84,8 @@ button_t **fight_button(void);
 button_t **pause_button(void);
 button_t **help_button(void);
 button_t **inventory_and_status_button(void);
+button_t **save_multi_button(void);
+button_t **multi_button(void);
 
 /* TEXT */
 text_t **start_menu_text(void);
@@ -88,6 +96,8 @@ text_t **fight_text(void);
 text_t **pause_text(void);
 text_t **help_text(void);
 text_t **inventory_and_status_text(void);
+text_t **save_multi_text(void);
+text_t **multi_text(void);
 
 /* SCENES */
 void start_menu_func(game_manager_t *gm);
@@ -98,6 +108,8 @@ void fight_func(game_manager_t *gm);
 void pause_func(game_manager_t *gm);
 void help_func(game_manager_t *gm);
 void inventory_and_status_func(game_manager_t *gm);
+void save_multi_func(game_manager_t *gm);
+void multi_func(game_manager_t *gm);
 
 /* TOOLS */
 void get_mouse_pos(game_manager_t *gm);
@@ -129,6 +141,7 @@ void resume_callback(game_manager_t *gm);
 void help_callback(game_manager_t *gm);
 void select_callback(game_manager_t *gm);
 void unselect_callback(game_manager_t *gm);
+void multi_callback(game_manager_t *gm);
 
 /* FIGHT */
 int count_players(player_t **fighters);
