@@ -19,8 +19,10 @@ button_t **start_menu_button(void)
 
     buttons[0] = create_button(play_pathnames,
     (sfVector2f){320, 320}, &play_callback);
-    buttons[1] = create_button(quit_pathnames,
+    buttons[2] = create_button(multi_pathname,
     (sfVector2f){320, 546}, &quit_callback);
-    buttons[2] = NULL;
+    buttons[1] = create_button(quit_pathnames,
+    (sfVector2f){320, 772}, &quit_callback);
+    buttons[3] = NULL;
     return buttons;
 }

@@ -129,6 +129,7 @@ void resume_callback(game_manager_t *gm);
 void help_callback(game_manager_t *gm);
 void select_callback(game_manager_t *gm);
 void unselect_callback(game_manager_t *gm);
+void multi_cb(game_manager_t *gm);
 
 /* FIGHT */
 int count_players(player_t **fighters);
