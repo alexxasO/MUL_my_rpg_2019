@@ -13,6 +13,7 @@
 #include "base.h"
 #include "rpg.h"
 #include "define.h"
+#include "network.h"
 #include "fight.h"
 
 #endif

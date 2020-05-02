@@ -23,6 +23,8 @@
 #define BOLD "\e[01;30m"
 #define FLASH "\e[5;30m"
 
+#include <stdarg.h>
+
 int my_strlen(char const *str);
 int my_putstr(char const *str);
 int my_put_nbr(int nb);
@@ -37,6 +39,9 @@ char *my_strcat(char *dest, char const *src);
 int str_contain(char *str_to_check, char char_to_find);
 int my_getnbr(char const *str);
 char *my_put_nbr_in_str(long long int nb);
+int my_printf(char *s, ...);
+int detect(va_list va, int i, char *s, ...);
+int detect2(va_list va, int i, char *s, ...);
 int random_int(int max);
 
 #endif
