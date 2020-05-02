@@ -13,6 +13,5 @@ void destroy_save(save_t *save)
         return;
     free(save->name);
     free(save->character);
-    free(save->inventory);
     free(save);
 }

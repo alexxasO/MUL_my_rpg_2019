@@ -123,6 +123,7 @@ typedef struct scene_s {
     sfText **sftexts;
     void (*func_ptr)(game_manager_t *);
     sfMusic *music;
+    char *music_pathname;
 } scene_t;
 
 typedef struct save_s {
@@ -131,7 +132,7 @@ typedef struct save_s {
     size_t exp;
     size_t stage;
     char *character;
-    int *inventory;
+    int inventory[12];
 } save_t;
 
 struct game_manager_s {

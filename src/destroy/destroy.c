@@ -21,20 +21,20 @@ void destroy_player(player_t *player)
     sfTexture_destroy(player->texture);
     sfClock_destroy(player->clock_anim);
     sfClock_destroy(player->clock_move);
-    /*if (player->sound != NULL) {
+    if (player->sound != NULL) {
         if (sfMusic_getStatus(player->sound) != sfStopped)
             sfMusic_stop(player->sound);
         sfMusic_destroy(player->sound);
-    }*/
+    }
     free(player);
 }
 
-static void destroy_enemy(enemy_t *enemy)
+void destroy_enemy(enemy_t *enemy)
 {
     sfSprite_destroy(enemy->sprite);
     sfTexture_destroy(enemy->texture);
     sfClock_destroy(enemy->clock);
-//    free(enemy->pathname);
+    free(enemy->pathname);
     if (enemy->sound != NULL) {
         if (sfMusic_getStatus(enemy->sound) != sfStopped)
             sfMusic_stop(enemy->sound);
@@ -60,9 +60,9 @@ static void destroy_scene(scene_t *scene)
     for (int i = 0; scene->texts[i] != NULL; i++)
         destroy_text(scene->texts[i]);
     free(scene->texts);
-//    if (sfMusic_getStatus(scene->music) != sfStopped)
-//        sfMusic_stop(scene->music);
-//    sfMusic_destroy(scene->music);
+    if (sfMusic_getStatus(scene->music) != sfStopped)
+        sfMusic_stop(scene->music);
+    sfMusic_destroy(scene->music);
     free(scene);
 }
 
@@ -75,9 +75,8 @@ void destroy_game_manager(game_manager_t *game_manager)
     free(game_manager->scenes);
     sfRenderWindow_destroy(game_manager->window);
     free(game_manager->key_pressed);
-    for (size_t i = 0; i < 3; i++) {
+    for (size_t i = 0; i < 3; i++)
         destroy_save(game_manager->saves[i]);
-    }
     free(game_manager->saves);
     free(game_manager);
 }

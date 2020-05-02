@@ -19,6 +19,7 @@ int main(int ac, UN char **av, UN char **env)
     while (sfRenderWindow_isOpen(gm->window)) {
         get_mouse_pos(gm);
         handle_event(gm, gm->event);
+//        handle_music(gm);
         if (gm->scenes[gm->scene_id] != NULL) {
             gm->scenes[gm->scene_id]->func_ptr(gm);
             draw_scene(gm, gm->scenes[gm->scene_id]);

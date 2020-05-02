@@ -19,7 +19,8 @@ static save_t *set_new_save_data(game_manager_t *gm, save_t *save)
     save->exp = 0;
     save->stage = 1;
     save->character = my_strdup("axel");
-    save->inventory = NULL;
+    for (size_t i = 0; i < 12; i++)
+        save->inventory[i] = 0;
     return save;
 }
 

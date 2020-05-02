@@ -21,14 +21,17 @@ void fulfill_save(save_t *save, char *filename)
     char *level = my_put_nbr_in_str(save->level);
     char *stage = my_put_nbr_in_str(save->stage);
     char *exp = my_put_nbr_in_str(save->exp);
-//    int inventory_len = my_arraylen(save->inventory);
+    char *inv = NULL;
 
     write_and_add_newline(fd, save->name, name_len);
     write_and_add_newline(fd, level, my_strlen(level));
     write_and_add_newline(fd, stage, my_strlen(stage));
     write_and_add_newline(fd, exp, my_strlen(exp));
     write_and_add_newline(fd, save->character, char_len);
-    // for (int i = 0; save->inventory[i]; i++)
-    //  write(fd, save->inventory[i], (my_strlen(save->inventory[i]));
+    for (size_t i = 0; i < 12; i++) {
+        inv = my_put_nbr_in_str(save->inventory[i]);
+        write(fd, inv, 1);
+    }
+    write(fd, "\n", 1);
     close(fd);
 }

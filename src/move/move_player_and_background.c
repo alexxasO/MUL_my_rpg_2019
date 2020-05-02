@@ -50,9 +50,11 @@ static sfBool check_side(size_t i, sfVector2f p_pos)
     return sfFalse;
 }
 
-static void move_background(player_t **players, background_t *background,
+static void move_background(game_manager_t *gm, background_t *background,
 float *add, size_t i)
 {
+    player_t **players = gm->scenes[gm->scene_id]->players;
+    enemy_t **enemies = gm->scenes[gm->scene_id]->enemies;
     sfVector2f p_pos = players[0]->pos;
     sfVector2f b_pos = background->pos;
 
@@ -60,12 +62,12 @@ float *add, size_t i)
         if (b_pos.x - add[0] > -384 && b_pos.x - add[0] < 0) {
             background->pos.x -= add[0];
             players[0]->pos.x -= add[0];
-            move_npc(players, add[0], 0);
+            move_npc_and_enemy(players, add[0], 0, enemies);
         }
         if (b_pos.y - add[1] > -1224 && b_pos.y - add[1] < 0) {
             background->pos.y -= add[1];
             players[0]->pos.y -= add[1];
-            move_npc(players, 0, add[1]);
+            move_npc_and_enemy(players, 0, add[1], enemies);
         }
     }
 }
@@ -84,7 +86,7 @@ background_t *background)
         && check_limit(limit, players[0], add, background) == sfTrue) {
             players[0]->pos.x += add[0];
             players[0]->pos.y += add[1];
-            move_background(players, background, add, i);
+            move_background(gm, background, add, i);
         }
     }
     sfClock_restart(players[0]->clock_move);

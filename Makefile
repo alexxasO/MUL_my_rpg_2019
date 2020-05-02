@@ -64,7 +64,11 @@ SRCS	=	src/main.c										\
 			src/callback/game_cb.c							\
 			src/callback/return_cb.c						\
 			src/callback/new_cb.c							\
+			src/callback/select_cb.c						\
+			src/callback/unselect_cb.c						\
 			src/tools/handle_buttons.c						\
+			src/tools/add_select_button.c					\
+			src/tools/add_unselect_button.c					\
 			src/save/check_save.c							\
 			src/save/get_save_data.c						\
 			src/anim/anim_player.c							\
@@ -110,7 +114,12 @@ SRCS	=	src/main.c										\
 			src/create_players/inv_and_stat_player.c		\
 			src/create_enemies/inv_and_stat_enemy.c			\
 			src/create_texts/inv_and_stat_text.c			\
-			src/move/move_npc.c 							\
+			src/move/move_npc_and_enemy.c 					\
+			src/music.c										\
+			src/tools/update_stat.c 						\
+			src/tools/set_npc.c 							\
+			src/tools/set_enemy.c 							\
+			src/tools/get_random_pos.c 						\
 
 OBJS	= $(SRCS:.c=.o)
 

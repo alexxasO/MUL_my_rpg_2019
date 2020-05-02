@@ -30,6 +30,7 @@ void destroy_text(text_t *text);
 void destroy_button(button_t *button);
 void destroy_save(save_t *save);
 void destroy_player(player_t *player);
+void destroy_enemy(enemy_t *enemy);
 
 /* DRAW */
 void draw_scene(game_manager_t *gm, scene_t *scene);
@@ -103,6 +104,12 @@ void get_mouse_pos(game_manager_t *gm);
 sfBool is_mouse_over_button(game_manager_t *gm, button_t *button);
 void handle_buttons(game_manager_t *gm, scene_t *scene);
 sfBool is_arrow_pressed(char *key_pressed);
+void update_stat(size_t item_id, player_t **players, int coef);
+void add_select_button(size_t i, scene_t *scene);
+void add_unselect_button(size_t i, scene_t *scene);
+sfVector2f get_random_pos(void);
+void set_npc(player_t **players, background_t *background);
+void set_enemy(enemy_t **enemies, background_t *background);
 
 /* SAVE */
 sfBool check_save(size_t save_nb);
@@ -120,6 +127,8 @@ void new_callback(game_manager_t *gm);
 void create_callback(game_manager_t *gm);
 void resume_callback(game_manager_t *gm);
 void help_callback(game_manager_t *gm);
+void select_callback(game_manager_t *gm);
+void unselect_callback(game_manager_t *gm);
 
 /* FIGHT */
 int count_players(player_t **fighters);
@@ -132,6 +141,10 @@ void anim_player(game_manager_t *gm, player_t *player);
 /* MOVEMENT */
 void move_all(game_manager_t *gm, player_t **players,
 background_t *background);
-void move_npc(player_t **players, float add_x, float add_y);
+void move_npc_and_enemy(player_t **players, float add_x, float add_y,
+enemy_t **enemies);
+
+/* MUSIC */
+void handle_music(game_manager_t *gm);
 
 #endif

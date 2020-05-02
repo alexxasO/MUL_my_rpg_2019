@@ -7,7 +7,9 @@
 
 #include "header.h"
 
-const char *music[] = {NULL};
+const char *music[] = {"music/menu_music.ogg", "music/menu_music.ogg",
+"music/tower_music.ogg", "music/fight_music.ogg", "music/menu_music.ogg",
+"music/tower_music.ogg", "music/tower_music.ogg", "music/tower_music.ogg"};
 
 static void get_func_ptr_and_game_object_ext(scene_t **scenes, size_t i)
 {
@@ -53,6 +55,7 @@ static scene_t **create_scenes(int nb_scenes)
         scenes[i] = malloc(sizeof(scene_t));
         if (music[i] != NULL) {
             scenes[i]->music = sfMusic_createFromFile(music[i]);
+            scenes[i]->music_pathname = my_strdup(music[i]);
             sfMusic_setLoop(scenes[i]->music, sfTrue);
         }
         get_func_ptr_and_game_object(scenes, i);

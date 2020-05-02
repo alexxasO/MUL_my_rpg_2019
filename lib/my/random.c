@@ -6,27 +6,22 @@
 */
 
 #include "../../include/header.h"
-/*
-int random_int(int max)
-{
-    int i = rand() % max;
-
-    if (i < 0)
-        i *= -1;
-    return i;
-}*/
 
 int random_int(int max)
 {
-    char buf[5];
+    char buf[100];
     int fd = open("/dev/urandom", O_RDONLY);
-    int random_number = 1;
+    int random_number = 0;
 
-    read(fd, buf, 5);
-    for (size_t i = 0; i < 5; i++)
-        random_number *= buf[i];
-    if (random_number < 0)
-        random_number *= -1;
+    read(fd, buf, 100);
+    for (size_t i = 0; i < 100; i++) {
+        if (buf[i] == 0)
+            continue;
+        if (buf[i] > 0)
+            random_number += buf[i];
+        else
+            random_number += buf[i] * -1;
+    }
     random_number = random_number % max;
     close(fd);
     return random_number;

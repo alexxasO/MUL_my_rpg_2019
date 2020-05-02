@@ -9,8 +9,9 @@
 
 button_t **inventory_and_status_button(void)
 {
-    button_t **buttons = malloc(sizeof(button_t *));
+    button_t **buttons = malloc(sizeof(button_t *) * 13);
 
-    buttons[0] = NULL;
+    for (size_t i = 0; i < 13; i++)
+        buttons[i] = NULL;
     return buttons;
 }
