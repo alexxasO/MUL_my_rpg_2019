@@ -29,13 +29,15 @@ SRC	=	my_putchar.c	\
 		str_contain.c	\
 		my_isalpha.c	\
 		my_getnbr.c		\
+		my_printf.c			\
+		my_printf_detect.c	\
 		my_put_nbr_in_str.c	\
-		random.c
+		random.c			\
 
 
 OBJ	=	$(SRC:.c=.o)
 
-CFLAGS = -g
+CFLAGS = -g -I ../../include
 
 MY	=	my.h
 

@@ -76,6 +76,8 @@ SRCS	=	src/main.c										\
 			src/create_texts/game_text.c					\
 			src/create_texts/save_text.c					\
 			src/create_texts/start_menu_text.c				\
+			src/network/manage_data.c						\
+			src/network/laucnh_serv.c						\
 			src/scenes/new.c								\
 			src/create_backgrounds/new_background.c			\
 			src/create_buttons/new_button.c					\
@@ -128,7 +130,7 @@ LIB = lib/libmy.a
 CFLAGS = -I ./include/
 CFLAGS += -Wall -Wextra
 CFLAGS += -L./lib -lmy -g
-CSFML += -l csfml-system -l csfml-window -l csfml-graphics -l csfml-audio
+CSFML += -l csfml-system -l csfml-window -l csfml-graphics -l csfml-audio -l csfml-network
 
 all: $(NAME)
 
