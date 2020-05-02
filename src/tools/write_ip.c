@@ -33,7 +33,7 @@ void write_ip(game_manager_t *gm, sfEvent event)
         free(old_string);
         return;
     }
-    if (key_id < 0 || key_id > 25) {
+    if (((key_id < 26) || (key_id > 35)) && (key_id != 50)) {
         free(old_string);
         return;
     }
