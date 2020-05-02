@@ -10,7 +10,7 @@
 sfVector2f get_random_pos(void)
 {
     sfImage *limit = sfImage_createFromFile("image/other/level_limit.png");
-    unsigned int x = random_int(2000) + 100;
+    unsigned int x = random_int(1500) + 500;
     unsigned int y = random_int(2000) + 100;
     sfColor px_color = sfImage_getPixel(limit, x, y);
     sfVector2f pos;

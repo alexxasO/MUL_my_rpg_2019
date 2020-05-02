@@ -7,6 +7,23 @@
 
 #include "header.h"
 
+static sfBool check_collision_with_enemies(game_manager_t *gm)
+{
+    player_t *player = gm->scenes[gm->scene_id]->players[0];
+    enemy_t **enemies = gm->scenes[gm->scene_id]->enemies;
+    float diff_x = 0;
+    float diff_y = 0;
+    
+    for (size_t i = 0; i < 6; i++) {
+        diff_x = player->pos.x - enemies[i]->pos.x;
+        diff_y = player->pos.y - enemies[i]->pos.y;
+        if (diff_x < 200 && diff_x > -200 &&
+        diff_y < 200 && diff_y > -200)
+            return sfTrue;
+    }
+    return sfFalse;
+}
+
 void game_func(game_manager_t *gm)
 {
     scene_t *scene = gm->scenes[gm->scene_id];
@@ -18,4 +35,6 @@ void game_func(game_manager_t *gm)
         gm->scene_id = PAUSE_ID;
     if (my_strcmp(gm->key_pressed, "i") == 0)
         gm->scene_id = INV_STAT_ID;
+    if (check_collision_with_enemies(gm) == sfTrue)
+        gm->scene_id = FIGHT_ID;
 }
