@@ -13,7 +13,7 @@ void (*ptr_anim) (struct enemy_s *, sfRenderWindow *))
 {
     enemy_t *enemy = malloc(sizeof(enemy_t));
 
-    enemy->pathname = pathname;
+    enemy->pathname = my_strdup(pathname);
     enemy->texture = sfTexture_createFromFile(enemy->pathname, NULL);
     enemy->sprite = sfSprite_create();
     sfSprite_setTexture(enemy->sprite, enemy->texture, sfFalse);
@@ -24,5 +24,6 @@ void (*ptr_anim) (struct enemy_s *, sfRenderWindow *))
     enemy->ptr_move = ptr_move;
     enemy->ptr_anim = ptr_anim;
     enemy->sound = NULL;
+    enemy->fighter_info = malloc(sizeof(fighter_info_t));
     return enemy;
 }

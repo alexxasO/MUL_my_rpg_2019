@@ -42,5 +42,6 @@ char *my_put_nbr_in_str(long long int nb);
 int my_printf(char *s, ...);
 int detect(va_list va, int i, char *s, ...);
 int detect2(va_list va, int i, char *s, ...);
+int random_int(int max);
 
 #endif

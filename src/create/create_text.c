@@ -14,7 +14,7 @@ sfVector2f pos)
 
     text->string = my_strdup(string);
     text->text = sfText_create();
-    text->font = sfFont_createFromFile("font/Comic Book.otf");
+    text->font = sfFont_createFromFile("font/Astrolab.ttf");
     text->size = size;
     text->color = color;
     text->pos = pos;

@@ -24,6 +24,9 @@ static void get_name_level_stage_and_char(FILE *file, save_t *save)
     getline(&buf, &n, file);
     save->character = my_strdup(buf);
     save->character[my_strlen(save->character) - 1] = '\0';
+    getline(&buf, &n, file);
+    for (size_t i = 0; i < 12; i++)
+        save->inventory[i] = buf[i] - '0';
     free(buf);
 }
 
@@ -36,8 +39,6 @@ save_t *get_save_data(size_t save_nb)
     filename[9] = 49 + save_nb;
     file = fopen(filename, "r");
     get_name_level_stage_and_char(file, save);
-    //GET INVENTORY
-    save->inventory = NULL;
     fclose(file);
     return save;
 }

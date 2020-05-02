@@ -21,11 +21,13 @@ static void print_save_data(save_t **saves, scene_t *scene)
     char *stage = NULL;
 
     for (size_t i = 0; i < 3; i++) {
-        if (check_save(i) == sfFalse)
+        if (saves[i] == NULL)
             continue;
         level = my_put_nbr_in_str(saves[i]->level);
         stage = my_put_nbr_in_str(saves[i]->stage);
         compare_and_replace(&scene->texts[i * 3]->string, saves[i]->name);
+        scene->texts[i * 3]->pos.x = 400 -
+        my_strlen(scene->texts[i * 3]->string) * 5;
         compare_and_replace(&scene->texts[i * 3 + 1]->string, level);
         compare_and_replace(&scene->texts[i * 3 + 2]->string, stage);
         free(level);
@@ -39,7 +41,7 @@ void save_func(game_manager_t *gm)
 
     print_save_data(gm->saves, scene);
     handle_buttons(gm, scene);
-    for (size_t i = 0; scene->buttons[i]; i++)
+    for (size_t i = 0; i < 3; i++)
         if (scene->buttons[i]->state == 2)
             gm->save_id = i;
 }

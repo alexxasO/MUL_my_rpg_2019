@@ -15,21 +15,21 @@ static void destroy_background(background_t *background)
     free(background);
 }
 
-static void destroy_player(player_t *player)
+void destroy_player(player_t *player)
 {
     sfSprite_destroy(player->sprite);
     sfTexture_destroy(player->texture);
     sfClock_destroy(player->clock_anim);
     sfClock_destroy(player->clock_move);
-    /*if (player->sound != NULL) {
+    if (player->sound != NULL) {
         if (sfMusic_getStatus(player->sound) != sfStopped)
             sfMusic_stop(player->sound);
         sfMusic_destroy(player->sound);
-    }*/
+    }
     free(player);
 }
 
-static void destroy_enemy(enemy_t *enemy)
+void destroy_enemy(enemy_t *enemy)
 {
     sfSprite_destroy(enemy->sprite);
     sfTexture_destroy(enemy->texture);
@@ -41,26 +41,6 @@ static void destroy_enemy(enemy_t *enemy)
         sfMusic_destroy(enemy->sound);
     }
     free(enemy);
-}
-
-static void destroy_button(button_t *button)
-{
-    for (size_t i = 0; i < 3; i++) {
-        sfSprite_destroy(button->sprite[i]);
-        sfTexture_destroy(button->texture[i]);
-    }
-    free(button->pathname);
-    free(button->sprite);
-    free(button->texture);
-    free(button);
-}
-
-static void destroy_text(text_t *text)
-{
-    sfFont_destroy(text->font);
-    sfText_destroy(text->text);
-    free(text->string);
-    free(text);
 }
 
 static void destroy_scene(scene_t *scene)
@@ -80,9 +60,9 @@ static void destroy_scene(scene_t *scene)
     for (int i = 0; scene->texts[i] != NULL; i++)
         destroy_text(scene->texts[i]);
     free(scene->texts);
-//    if (sfMusic_getStatus(scene->music) != sfStopped)
-//        sfMusic_stop(scene->music);
-//    sfMusic_destroy(scene->music);
+    if (sfMusic_getStatus(scene->music) != sfStopped)
+        sfMusic_stop(scene->music);
+    sfMusic_destroy(scene->music);
     free(scene);
 }
 
@@ -95,5 +75,8 @@ void destroy_game_manager(game_manager_t *game_manager)
     free(game_manager->scenes);
     sfRenderWindow_destroy(game_manager->window);
     free(game_manager->key_pressed);
+    for (size_t i = 0; i < 3; i++)
+        destroy_save(game_manager->saves[i]);
+    free(game_manager->saves);
     free(game_manager);
 }

@@ -43,10 +43,16 @@ static void draw_players(game_manager_t *gm, scene_t *scene)
 static void draw_enemies(game_manager_t *gm, scene_t *scene)
 {
     sfSprite *sprite = NULL;
+    sfIntRect rect;
+    sfVector2f pos;
 
     if (scene->enemies != NULL) {
         for (size_t i = 0; scene->enemies[i]; i++) {
             sprite = scene->enemies[i]->sprite;
+            pos = scene->enemies[i]->pos;
+            rect = scene->enemies[i]->rect;
+            sfSprite_setTextureRect(sprite, rect);
+            sfSprite_setPosition(sprite, pos);
             sfRenderWindow_drawSprite(gm->window, sprite, NULL);
         }
     }
@@ -69,6 +75,18 @@ static void draw_buttons(game_manager_t *gm, scene_t *scene)
     }
 }
 
+static void draw_sftext(game_manager_t *gm, scene_t *scene)
+{
+    sfText *text = NULL;
+
+    if (scene->sftexts != NULL) {
+        for (size_t i = 0; scene->sftexts[i]; i++) {
+            text = scene->sftexts[i];
+            sfRenderWindow_drawText(gm->window, text, NULL);
+        }
+    }
+}
+
 void draw_scene(game_manager_t *gm, scene_t *scene)
 {
     draw_backgrounds(gm, scene);
@@ -76,6 +94,7 @@ void draw_scene(game_manager_t *gm, scene_t *scene)
     draw_enemies(gm, scene);
     draw_buttons(gm, scene);
     draw_text(gm, scene);
+    draw_sftext(gm, scene); //TEMPORAIRE
     sfRenderWindow_display(gm->window);
     sfRenderWindow_clear(gm->window, sfBlack);
 }

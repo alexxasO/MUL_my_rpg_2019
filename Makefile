@@ -6,7 +6,7 @@
 ##
 
 ECHO =		/bin/echo -e
-CURL = 		/bin/curl
+CURL =		/bin/curl
 ONLINE =	/bin/nm-online
 DEFAULT =	"\033[00m"
 GREEN =		"\033[0;32m"
@@ -15,7 +15,7 @@ TEAL =		"\033[1;36m"
 ORANGE =	"\e[1;33m"
 RED =		"\033[0;31m"
 BRED =		"\033[1;31m"
-FLASH = 	"\e[5;30m"
+FLASH =		"\e[5;30m"
 BYELLOW =	"\e[1;33m"
 BMAGENTA =	"\e[1;35m"
 
@@ -29,46 +29,99 @@ SRCS	=	src/main.c										\
 			src/event.c										\
 			src/draw/draw.c									\
 			src/draw/draw_text.c							\
-			src/destroy.c									\
-			src/create/create.c 							\
-			src/create/create_text.c 						\
+			src/destroy/destroy.c							\
+			src/destroy/destroy_button.c					\
+			src/destroy/destroy_text.c						\
+			src/destroy/destroy_save.c						\
+			src/create/create.c							\
+			src/create/create_text.c						\
 			src/create/create_window.c						\
 			src/create/create_background.c					\
 			src/create/create_button.c						\
-			src/create/create_enemy.c 						\
-			src/create/create_player.c 						\
-			src/scenes/start_menu.c 						\
+			src/create/create_enemy.c						\
+			src/create/create_player.c						\
+			src/scenes/start_menu.c							\
 			src/create_backgrounds/start_menu_background.c	\
 			src/create_buttons/start_menu_button.c			\
 			src/create_players/start_menu_player.c			\
 			src/create_enemies/start_menu_enemy.c			\
-			src/scenes/save.c 								\
+			src/scenes/save.c								\
 			src/create_backgrounds/save_background.c		\
 			src/create_buttons/save_button.c				\
 			src/create_players/save_player.c				\
 			src/create_enemies/save_enemy.c					\
-			src/scenes/game.c 								\
+			src/scenes/game.c								\
 			src/create_backgrounds/game_background.c		\
 			src/create_buttons/game_button.c				\
 			src/create_players/game_player.c				\
 			src/create_enemies/game_enemy.c					\
 			src/tools/get_mouse_pos.c						\
-			src/tools/is_mouse_over_button.c 				\
-			src/tools/is_arrow_pressed.c 					\
+			src/tools/is_mouse_over_button.c				\
+			src/tools/is_arrow_pressed.c					\
 			src/callback/quit_cb.c							\
 			src/callback/play_cb.c							\
+			src/callback/create_cb.c						\
 			src/callback/game_cb.c							\
 			src/callback/return_cb.c						\
+			src/callback/new_cb.c							\
+			src/callback/select_cb.c						\
+			src/callback/unselect_cb.c						\
 			src/tools/handle_buttons.c						\
-			src/tools/check_save.c							\
-			src/tools/get_save_data.c						\
-			src/anim/anim_player.c	 						\
+			src/tools/add_select_button.c					\
+			src/tools/add_unselect_button.c					\
+			src/save/check_save.c							\
+			src/save/get_save_data.c						\
+			src/anim/anim_player.c							\
 			src/move/move_player_and_background.c			\
 			src/create_texts/game_text.c					\
 			src/create_texts/save_text.c					\
 			src/create_texts/start_menu_text.c				\
 			src/network/manage_data.c						\
 			src/network/laucnh_serv.c						\
+			src/scenes/new.c								\
+			src/create_backgrounds/new_background.c			\
+			src/create_buttons/new_button.c					\
+			src/create_players/new_player.c					\
+			src/create_enemies/new_enemy.c					\
+			src/create_texts/new_text.c						\
+			src/fight/fight_count.c							\
+			src/fight/fight_effects.c						\
+			src/scenes/fight.c								\
+			src/create_backgrounds/fight_background.c		\
+			src/create_players/fight_player.c				\
+			src/create_enemies/fight_enemy.c				\
+			src/fight/menu_display.c						\
+			src/create_buttons/fight_button.c				\
+			src/save/write_save_name.c						\
+			src/scenes/pause.c								\
+			src/create_backgrounds/pause_background.c		\
+			src/create_buttons/pause_button.c				\
+			src/create_players/pause_player.c				\
+			src/create_enemies/pause_enemy.c				\
+			src/create_texts/pause_text.c					\
+			src/callback/help_cb.c							\
+			src/callback/resume_cb.c						\
+			src/create_texts/fight_text.c					\
+			src/save/update_save_file.c						\
+			src/save/fulfill_save.c							\
+			src/scenes/help.c								\
+			src/create_backgrounds/help_background.c		\
+			src/create_buttons/help_button.c				\
+			src/create_players/help_player.c				\
+			src/create_enemies/help_enemy.c					\
+			src/create_texts/help_text.c					\
+			src/scenes/inv_and_stat.c						\
+			src/create_backgrounds/inv_and_stat_background.c\
+			src/create_buttons/inv_and_stat_button.c		\
+			src/create_players/inv_and_stat_player.c		\
+			src/create_enemies/inv_and_stat_enemy.c			\
+			src/create_texts/inv_and_stat_text.c			\
+			src/move/move_npc_and_enemy.c 					\
+			src/music.c										\
+			src/tools/update_stat.c 						\
+			src/tools/set_npc.c 							\
+			src/tools/set_enemy.c 							\
+			src/tools/get_random_pos.c 						\
 
 OBJS	= $(SRCS:.c=.o)
 
