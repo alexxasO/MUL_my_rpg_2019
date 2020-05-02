@@ -9,12 +9,12 @@
 
 text_t **inventory_and_status_text(void)
 {
-    text_t **texts = malloc(sizeof(text_t *) * 5);
+    text_t **texts = malloc(sizeof(text_t *) * 6);
 
-    for (size_t i = 0; i < 4; i++) {
+    for (size_t i = 0; i < 5; i++) {
         texts[i] = create_text("", 30, sfBlack,
-        (sfVector2f){1700, 345 + i * 193});
+        (sfVector2f){1700, 345 + i * 145});
     }
-    texts[4] = NULL;
+    texts[5] = NULL;
     return texts;
 }

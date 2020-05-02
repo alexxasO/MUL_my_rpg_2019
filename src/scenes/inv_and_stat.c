@@ -21,15 +21,18 @@ static void print_stats(player_t **players, scene_t *scene)
     char *life = my_put_nbr_in_str(players[0]->max_life);
     char *attack = my_put_nbr_in_str(players[0]->attack);
     char *defense = my_put_nbr_in_str(players[0]->defense);
+    char *speed = my_put_nbr_in_str(players[0]->fighter_info->speed);
 
     compare_and_replace(&scene->texts[0]->string, level);
     compare_and_replace(&scene->texts[1]->string, life);
     compare_and_replace(&scene->texts[2]->string, attack);
     compare_and_replace(&scene->texts[3]->string, defense);
+    compare_and_replace(&scene->texts[4]->string, speed);
     free(level);
     free(life);
     free(attack);
     free(defense);
+    free(speed);
 }
 
 void inventory_and_status_func(game_manager_t *gm)

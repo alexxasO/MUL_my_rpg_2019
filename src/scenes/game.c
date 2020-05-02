@@ -15,6 +15,8 @@ static sfBool check_collision_with_enemies(game_manager_t *gm)
     float diff_y = 0;
     
     for (size_t i = 0; i < 6; i++) {
+        if (enemies[i] == NULL)
+            continue;
         diff_x = player->pos.x - enemies[i]->pos.x;
         diff_y = player->pos.y - enemies[i]->pos.y;
         if (diff_x < 200 && diff_x > -200 &&
@@ -31,10 +33,14 @@ void game_func(game_manager_t *gm)
     anim_player(gm, scene->players[0]);
     move_all(gm, scene->players, scene->backgrounds[0]);
     handle_buttons(gm, scene);
-    if (my_strcmp(gm->key_pressed, "esc") == 0)
+    if (my_strcmp(gm->key_pressed, "esc") == 0) {
         gm->scene_id = PAUSE_ID;
-    if (my_strcmp(gm->key_pressed, "i") == 0)
+        return;
+    }
+    if (my_strcmp(gm->key_pressed, "i") == 0) {
         gm->scene_id = INV_STAT_ID;
+        return;
+    }
     if (check_collision_with_enemies(gm) == sfTrue)
         gm->scene_id = FIGHT_ID;
 }

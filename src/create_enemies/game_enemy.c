@@ -9,7 +9,7 @@
 
 enemy_t **game_enemy(void)
 {
-    enemy_t **enemies = malloc(sizeof(enemy_t *) * 6);
+    enemy_t **enemies = malloc(sizeof(enemy_t *) * 7);
 
     enemies[0] = NULL;
     enemies[1] = NULL;
