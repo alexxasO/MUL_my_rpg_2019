@@ -130,9 +130,10 @@ void place_info_ply(player_t **players, game_manager_t *gm);
 void place_info_enemies(enemy_t **enemies, game_manager_t *gm);
 button_t **fight_button(void);
 text_t **fight_text(void);
-void create_info_bar(game_manager_t *gm, infobar_t *infobar);
+void create_info_bar(game_manager_t *gm, infobar_t *infobar, int turn);
 void draw_infobar(game_manager_t *gm, scene_t *scene);
 void create_infobar(game_manager_t *gm);
+void begin_fight(player_t **players, enemy_t **enemies, game_manager_t *gm);
 
 /* ANIMATION */
 void anim_player(game_manager_t *gm, player_t *player);

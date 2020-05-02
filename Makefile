@@ -115,6 +115,7 @@ SRCS	=	src/main.c										\
 			src/draw/draw_infobar.c 						\
 			src/create/create_infobar.c						\
 			src/move/move_npc.c 							\
+			src/fight/fight_scene.c 						\
 
 OBJS	= $(SRCS:.c=.o)
 

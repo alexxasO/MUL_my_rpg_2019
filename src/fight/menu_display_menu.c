@@ -32,7 +32,44 @@ sfText **place_default_menu()
     return texts;
 }
 
-static void menu_texts(infobar_t *infobar)
+sfText **place_attack_menu(game_manager_t *gm, int turn)
+{
+    scene_t *scene = gm->scenes[gm->scene_id];
+    sfText **texts = malloc(sizeof(sfText *) * 5);
+    fighter_info_t *fighter = gm->player_list[turn]->fighter_info;
+
+    texts[0] = create_menu_text(fighter->attacks[0]->name,
+    (sfVector2f){SCR_WIDTH / 2 - 50, SCR_HEIGHT - 160});
+    texts[1] = create_menu_text(fighter->attacks[1]->name,
+    (sfVector2f){SCR_WIDTH / 2 - 50, SCR_HEIGHT - 160 + 25 * 1});
+    texts[2] = create_menu_text(fighter->attacks[2]->name,
+    (sfVector2f){SCR_WIDTH / 2 - 50, SCR_HEIGHT - 160 + 25 * 2});
+    texts[3] = create_menu_text(fighter->attacks[3]->name,
+    (sfVector2f){SCR_WIDTH / 2 - 50, SCR_HEIGHT - 160 + 25 * 3});
+    return texts;
+}
+
+static void set_menu_mode(sfText *txt, infobar_t *infobar)
+{
+    if (sfText_getString(txt) == "Attack")
+        infobar->mode = ATTACK;
+    if (sfText_getString(txt) == "Menu")
+        infobar->mode = DEFAULT;
+}
+
+static void change_info_mode(infobar_t *infobar)
+{
+    sfSprite *arrow = infobar->sprites[1];
+    sfText *txt;
+
+    for (int i = 0; infobar->texts[i]; i++) {
+        txt = infobar->texts[i];
+        if (sfSprite_getPosition(arrow).y == sfText_getPosition(txt).y)
+            set_menu_mode(txt, infobar);
+    }
+}
+
+static void menu_texts(infobar_t *infobar, game_manager_t *gm, int turn)
 {
     sfText **texts = infobar->texts;
 
@@ -40,15 +77,17 @@ static void menu_texts(infobar_t *infobar)
         free(texts);
     if (infobar->mode == DEFAULT)
         texts = place_default_menu();
-    // if (infobar->mode == ATTACK)
-    //     texts = place_attack_menu();
+    if (infobar->mode == ATTACK)
+        texts = place_attack_menu(gm, turn);
     // if (infobar->mode == ITEM)
     //     texts = place_item_menu();
+    if (!my_strcmp(gm->key_pressed, "enter") && infobar->mode == DEFAULT)
+        change_info_mode(infobar);
     infobar->texts = texts;
 }
 
-void create_info_bar(UN game_manager_t *gm, infobar_t *infobar)
+void create_info_bar(game_manager_t *gm, infobar_t *infobar, int turn)
 {
     //TODO : créer le sprite de la barre
-    menu_texts(infobar);
+    menu_texts(infobar, gm, turn);
 }

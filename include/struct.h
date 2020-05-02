@@ -18,6 +18,7 @@ typedef struct attack {
     int defense_dmg;
     int damage_dmg;
     char *path_to_icon;
+    char *name;
 } attack_t;
 
 typedef struct player_object {
@@ -34,12 +35,8 @@ typedef struct fighter_info {
     int life;
     sfSprite *sprite;
     sfTexture *texture;
-    attack_t *attacks;
+    attack_t **attacks;
     inv_object_t *object;
-    //ptr anim
-    //attack anim
-    //idle anim
-    //death/dead anim
     int speed;
     int damage_mod;
     int defense_mod;
