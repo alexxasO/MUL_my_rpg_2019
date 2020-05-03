@@ -26,6 +26,8 @@ void handle_music(game_manager_t *gm)
     scene_t *scene = gm->scenes[gm->scene_id];
     float volume = gm->volume;
 
+    if (scene->music_pathname == NULL)
+        return;
     if (first == 1) {
         music_pathname = scene->music_pathname;
         sfMusic_play(scene->music);

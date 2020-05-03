@@ -8,8 +8,8 @@
 #ifndef NET_H_
 #define NET_H_
 
-#define REC_SIZE 20
-#define PORT 4998
+#define REC_SIZE 40
+#define PORT 5000
 #define IP_SERV "127.0.0.1"
 
 typedef struct {

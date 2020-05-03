@@ -26,5 +26,20 @@ void validate_ip_cb(game_manager_t *gm)
     gm->scenes[gm->scene_id]->texts[1]->string =
     my_strdup("Connected to server\nWaiting for enemy");
     if (waiting_for_connexion(gm) == true)
-        return;
+        gm->scene_id = CHAT_ID;
+}
+
+void chat_cb(game_manager_t *gm)
+{
+    send_packages(&gm->client, gm->scenes[gm->scene_id]->texts[0]->string);
+}
+
+void refresh_cb(game_manager_t *gm)
+{
+    char * tmp = receive_packages(&gm->client);
+
+    if (tmp) {
+        free(gm->scenes[gm->scene_id]->texts[1]->string);
+        gm->scenes[gm->scene_id]->texts[1]->string = my_strdup(tmp);
+    }
 }

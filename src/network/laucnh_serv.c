@@ -77,7 +77,8 @@ void launch_serv(game_manager_t *gm)
     host_soket_and_listener(gm->client.ip , gm->client.port, &serv);
     sfTcpSocket_setBlocking(serv.cli_a.sok, sfFalse);
     sfTcpSocket_setBlocking(serv.cli_b.sok, sfFalse);
-    data_management(&serv);
+    while (1)
+        data_management(&serv);
     sfTcpSocket_destroy(serv.cli_a.sok);
     sfTcpSocket_destroy(serv.cli_b.sok);
     sfTcpSocket_destroy(gm->client.sok);

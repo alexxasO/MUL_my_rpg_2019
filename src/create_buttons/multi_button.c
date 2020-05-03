@@ -34,3 +34,20 @@ button_t **ip_button(void)
     buttons[1] = NULL;
     return buttons;
 }
+
+button_t **chat_button(void)
+{
+    button_t **buttons = malloc(sizeof(button_t *) * 3);
+    char *host_pathnames[] = {"image/button/send.png",
+    "image/button/send_over.png", "image/button/send_clicked.png"};
+    char *refresh_pathnames[] = {"image/button/left_arrow.png",
+    "image/button/left_arrow_over.png",
+    "image/button/left_arrow_clicked.png"};
+
+    buttons[0] = create_button(host_pathnames,
+    (sfVector2f){700, 800}, &chat_cb);
+    buttons[1] = create_button(refresh_pathnames,
+    (sfVector2f){1300, 800}, &refresh_cb);
+    buttons[2] = NULL;
+    return buttons;
+}

@@ -7,7 +7,7 @@
 
 #include "header.h"
 
-background_t **sett_background(void)
+background_t **sett_back(void)
 {
     background_t **backgrounds = malloc(sizeof(background_t *) * 2);
 
