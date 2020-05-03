@@ -30,14 +30,12 @@ static int end_fight(player_t **players, enemy_t **enemies)
 }
 
 static void enemy_turn(enemy_t **enemies, player_t **players,
-game_manager_t *gm, int nb_ply)
+UN game_manager_t *gm, int nb_ply)
 {
     int ply_id = 0;
     int attack_id = 0;
-    int attack_nb = 0;
 
     for (int i = 0; enemies[i]; i++) {
-        attack_nb = 0;
         ply_id = random_int(nb_ply);
         attack_id = random_int(4);
         attack_fighter(enemies[i]->fighter_info, players[ply_id]->fighter_info,

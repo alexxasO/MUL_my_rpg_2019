@@ -25,8 +25,8 @@ void create_client_socket(client_t *client)
     sfTime time = sfSeconds(15.0);
     sfSocketStatus status;
 
-    while ((status = sfTcpSocket_connect(client->sok, client->ip, client->port, time) != sfSocketDone));
-
+    while ((status = sfTcpSocket_connect(client->sok, client->ip,
+    client->port, time) != sfSocketDone));
 }
 
 void send_packages(client_t *client, char *pack)
