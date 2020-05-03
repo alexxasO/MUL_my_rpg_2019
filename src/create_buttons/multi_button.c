@@ -30,7 +30,7 @@ button_t **ip_button(void)
     "image/button/host_over.png", "image/button/host_clicked.png"};
 
     buttons[0] = create_button(host_pathnames,
-    (sfVector2f){320, 320}, NULL);
+    (sfVector2f){700, 520}, NULL);
     buttons[1] = NULL;
     return buttons;
 }
