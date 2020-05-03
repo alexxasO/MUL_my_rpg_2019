@@ -7,13 +7,6 @@
 
 #include "fight.h"
 
-void apply_objects_effect(inv_object_t *obj, fighter_info_t *fighter)
-{
-    fighter->life = fighter->life + obj->life_effect;
-    fighter->defense_mod = fighter->defense_mod + obj->defense_boost;
-    fighter->damage_mod = fighter->damage_mod + obj->damage_boost;
-}
-
 void attack_fighter(fighter_info_t *attacker, fighter_info_t *victim,
 attack_t *attack)
 {
