@@ -11,7 +11,7 @@ text_t **game_text(void)
 {
     text_t **texts = malloc(sizeof(text_t *) * 2);
 
-    texts[0] = create_text("", 30, sfWhite,
+    texts[0] = create_text("", 15, sfWhite,
     (sfVector2f){1000, 950});
     texts[1] = NULL;
     return texts;

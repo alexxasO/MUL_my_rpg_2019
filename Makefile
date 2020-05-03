@@ -145,6 +145,7 @@ SRCS	=	src/main.c										\
 			src/create_enemies/sett_enemy.c					\
 			src/create_texts/sett_text.c					\
 			src/callback/sett_cb.c							\
+			src/tools/dialog.c								\
 
 OBJS	= $(SRCS:.c=.o)
 

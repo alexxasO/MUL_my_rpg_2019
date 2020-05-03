@@ -1,8 +1,8 @@
 /*
 ** EPITECH PROJECT, 2020
-** check_inventory.c
+** MUL_my_rpg_2019
 ** File description:
-** check inventory to change stats
+** Update stat
 */
 
 #include "header.h"

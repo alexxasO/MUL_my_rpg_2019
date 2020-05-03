@@ -137,6 +137,8 @@ sfVector2f get_random_pos(void);
 void set_npc(player_t **players, background_t *background);
 void set_enemy(enemy_t **enemies, background_t *background);
 void write_ip(game_manager_t *gm, sfEvent event);
+void display_dialog(game_manager_t *gm, size_t npc_id);
+void erase_dialog(game_manager_t *gm);
 
 /* SAVE */
 sfBool check_save(size_t save_nb);
