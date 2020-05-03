@@ -62,6 +62,7 @@ player_t **help_player(void);
 player_t **inventory_and_status_player(void);
 player_t **save_multi_player(void);
 player_t **multi_player(void);
+player_t **ip_multi_player(void);
 
 /* ENEMY */
 enemy_t **start_menu_enemy(void);
@@ -74,6 +75,7 @@ enemy_t **help_enemy(void);
 enemy_t **inventory_and_status_enemy(void);
 enemy_t **save_multi_enemy(void);
 enemy_t **multi_enemy(void);
+enemy_t **ip_enemy(void);
 
 /* BUTTON */
 button_t **start_menu_button(void);
@@ -86,6 +88,7 @@ button_t **help_button(void);
 button_t **inventory_and_status_button(void);
 button_t **save_multi_button(void);
 button_t **multi_button(void);
+button_t **ip_button(void);
 
 /* TEXT */
 text_t **start_menu_text(void);
@@ -98,6 +101,7 @@ text_t **help_text(void);
 text_t **inventory_and_status_text(void);
 text_t **save_multi_text(void);
 text_t **multi_text(void);
+text_t **ip_text(void);
 
 /* SCENES */
 void start_menu_func(game_manager_t *gm);
@@ -110,6 +114,8 @@ void help_func(game_manager_t *gm);
 void inventory_and_status_func(game_manager_t *gm);
 void save_multi_func(game_manager_t *gm);
 void multi_func(game_manager_t *gm);
+void ip_func(game_manager_t *gm);
+void write_ip(game_manager_t *gm, sfEvent event);
 
 /* TOOLS */
 void get_mouse_pos(game_manager_t *gm);
@@ -143,6 +149,7 @@ void select_callback(game_manager_t *gm);
 void unselect_callback(game_manager_t *gm);
 void multi_callback(game_manager_t *gm);
 void play_multi_callback(game_manager_t *gm);
+void play_multi_id_callback(game_manager_t *gm);
 
 /* FIGHT */
 int count_players(player_t **fighters);
@@ -160,5 +167,8 @@ enemy_t **enemies);
 
 /* MUSIC */
 void handle_music(game_manager_t *gm);
+
+/* NETWORK */
+void launch_serv(game_manager_t *gm);
 
 #endif

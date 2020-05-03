@@ -23,6 +23,9 @@
 #define BOLD "\e[01;30m"
 #define FLASH "\e[5;30m"
 
+#include <sys/stat.h>
+#include <fcntl.h>
+#include <stddef.h>
 #include <stdarg.h>
 
 int my_strlen(char const *str);

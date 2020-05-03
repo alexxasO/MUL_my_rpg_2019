@@ -5,7 +5,7 @@
 ** generate random int or color
 */
 
-#include "../../include/header.h"
+#include "header.h"
 
 int random_int(int max)
 {

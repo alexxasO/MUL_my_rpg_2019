@@ -136,6 +136,7 @@ SRCS	=	src/main.c										\
 			src/create_players/multi_player.c				\
 			src/create_enemies/multi_enemy.c				\
 			src/create_texts/multi_text.c					\
+			src/tools/write_ip.c								\
 
 OBJS	= $(SRCS:.c=.o)
 
