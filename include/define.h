@@ -11,7 +11,7 @@
 #define SCR_WIDTH 1920
 #define SCR_HEIGHT 1080
 
-#define NB_SCENES 12
+#define NB_SCENES 13
 
 #define START_MENU_ID 0
 #define SAVE_ID 1
@@ -25,5 +25,6 @@
 #define MULTI_ID 9
 #define SETT_ID 10
 #define MULTI_IP_ID 11
+#define CHAT_ID 12
 
 #endif

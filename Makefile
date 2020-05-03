@@ -80,6 +80,7 @@ SRCS	=	src/main.c										\
 			src/create_texts/start_menu_text.c				\
 			src/network/manage_data.c						\
 			src/network/laucnh_serv.c						\
+			src/network/manage_accept.c						\
 			src/scenes/new.c								\
 			src/create_backgrounds/new_background.c			\
 			src/create_buttons/new_button.c					\

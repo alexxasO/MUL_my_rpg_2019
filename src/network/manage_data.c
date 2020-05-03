@@ -25,7 +25,8 @@ void create_client_socket(client_t *client)
     sfTime time = sfSeconds(15.0);
     sfSocketStatus status;
 
-    status = sfTcpSocket_connect(client->sok, client->ip, client->port, time);
+    while ((status = sfTcpSocket_connect(client->sok, client->ip, client->port, time) != sfSocketDone));
+
 }
 
 void send_packages(client_t *client, char *pack)
@@ -53,12 +54,10 @@ char *receive_packages(client_t *client)
     return NULL;
 }
 
-client_t *init_socket(client_t *client)
+client_t *init_socket(client_t *client, char *ip)
 {
-    //sfTime time = sfSeconds(15.0);
     client->sok = sfTcpSocket_create();
-    //client->ip = sfIpAddress_getPublicAddress(time);
-    client->ip = sfIpAddress_LocalHost;
+    client->ip = sfIpAddress_fromString(ip);
     client->port = PORT;
     return client;
 }

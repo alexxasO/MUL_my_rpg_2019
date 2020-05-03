@@ -22,3 +22,11 @@ enemy_t **ip_enemy(void)
     enemies[0] = NULL;
     return enemies;
 }
+
+enemy_t **chat_enemy(void)
+{
+    enemy_t **enemies = malloc(sizeof(enemy_t *));
+
+    enemies[0] = NULL;
+    return enemies;
+}

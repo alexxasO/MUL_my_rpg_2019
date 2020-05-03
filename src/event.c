@@ -11,8 +11,10 @@ static char *get_key_pressed(game_manager_t *gm, sfEvent event)
 {
     if (gm->scene_id == NEW_ID)
         write_save_name(gm, event);
-    if (gm->scene_id == MULTI_ID)
+    if (gm->scene_id == MULTI_IP_ID)
         write_ip(gm, event);
+    if (gm->scene_id == CHAT_ID)
+        write_save_name(gm, event);
     if (event.key.code == sfKeyLeft)
         return my_strdup("left");
     if (event.key.code == sfKeyRight)

@@ -22,3 +22,11 @@ player_t **ip_multi_player(void)
     players[0] = NULL;
     return players;
 }
+
+player_t **chat_player(void)
+{
+    player_t **players = malloc(sizeof(player_t *));
+
+    players[0] = NULL;
+    return players;
+}
