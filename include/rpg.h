@@ -52,6 +52,7 @@ background_t **help_background(void);
 background_t **inventory_and_status_background(void);
 background_t **save_multi_background(void);
 background_t **multi_background(void);
+background_t **sett_background(void);
 background_t **ip_background(void);
 
 /* PLAYER */
@@ -65,6 +66,7 @@ player_t **help_player(void);
 player_t **inventory_and_status_player(void);
 player_t **save_multi_player(void);
 player_t **multi_player(void);
+player_t **sett_player(void);
 player_t **ip_multi_player(void);
 
 /* ENEMY */
@@ -78,6 +80,7 @@ enemy_t **help_enemy(void);
 enemy_t **inventory_and_status_enemy(void);
 enemy_t **save_multi_enemy(void);
 enemy_t **multi_enemy(void);
+enemy_t **sett_enemy(void);
 enemy_t **ip_enemy(void);
 
 /* BUTTON */
@@ -91,6 +94,7 @@ button_t **help_button(void);
 button_t **inventory_and_status_button(void);
 button_t **save_multi_button(void);
 button_t **multi_button(void);
+button_t **sett_button(void);
 button_t **ip_button(void);
 
 /* TEXT */
@@ -104,6 +108,7 @@ text_t **help_text(void);
 text_t **inventory_and_status_text(void);
 text_t **save_multi_text(void);
 text_t **multi_text(void);
+text_t **sett_text(void);
 text_t **ip_text(void);
 
 /* SCENES */
@@ -117,8 +122,8 @@ void help_func(game_manager_t *gm);
 void inventory_and_status_func(game_manager_t *gm);
 void save_multi_func(game_manager_t *gm);
 void multi_func(game_manager_t *gm);
+void sett_func(game_manager_t *gm);
 void ip_func(game_manager_t *gm);
-void write_ip(game_manager_t *gm, sfEvent event);
 
 /* TOOLS */
 void get_mouse_pos(game_manager_t *gm);
@@ -131,6 +136,7 @@ void add_unselect_button(size_t i, scene_t *scene);
 sfVector2f get_random_pos(void);
 void set_npc(player_t **players, background_t *background);
 void set_enemy(enemy_t **enemies, background_t *background);
+void write_ip(game_manager_t *gm, sfEvent event);
 
 /* SAVE */
 sfBool check_save(size_t save_nb);
@@ -152,6 +158,7 @@ void select_callback(game_manager_t *gm);
 void unselect_callback(game_manager_t *gm);
 void multi_callback(game_manager_t *gm);
 void play_multi_callback(game_manager_t *gm);
+void sett_callback(game_manager_t *gm);
 void play_multi_id_callback(game_manager_t *gm);
 
 /* FIGHT */

@@ -10,19 +10,23 @@
 const char *music[] = {"music/menu_music.ogg", "music/menu_music.ogg",
 "music/tower_music.ogg", "music/fight_music.ogg", "music/menu_music.ogg",
 "music/tower_music.ogg", "music/tower_music.ogg", "music/tower_music.ogg",
-"music/menu_music.ogg", "music/menu_music.ogg"};
+"music/menu_music.ogg", "music/menu_music.ogg", "music/menu_music.ogg",
+"music/menu_music.ogg"};
 
 static void get_func_ptr_and_game_object_ext(scene_t **scenes, size_t i)
 {
     player_t **(*player_func_ptr[])(void) = {&start_menu_player, &save_player,
     &game_player, &fight_player, &new_player, &pause_player, &help_player,
-    &inventory_and_status_player, &save_multi_player, &multi_player};
+    &inventory_and_status_player, &save_multi_player, &multi_player,
+    &sett_player, &ip_multi_player};
     enemy_t **(*enemy_func_ptr[])(void) = {&start_menu_enemy, &save_enemy,
     &game_enemy, &fight_enemy, &new_enemy, &pause_enemy, &help_enemy,
-    &inventory_and_status_enemy, &save_multi_enemy, &multi_enemy, &ip_enemy};
+    &inventory_and_status_enemy, &save_multi_enemy, &multi_enemy,
+    &sett_enemy, &ip_enemy};
     text_t **(*text_func_ptr[])(void) = {&start_menu_text, &save_text,
     &game_text, &fight_text, &new_text, &pause_text, &help_text,
-    &inventory_and_status_text, &save_multi_text, &multi_text, &ip_text};
+    &inventory_and_status_text, &save_multi_text, &multi_text,
+    &sett_text, &ip_text};
 
     scenes[i]->players = player_func_ptr[i]();
     scenes[i]->enemies = enemy_func_ptr[i]();
@@ -35,16 +39,15 @@ static void get_func_ptr_and_game_object(scene_t **scenes, size_t i)
     void (*scene_func_ptr[])(game_manager_t *) = {&start_menu_func,
     &save_func, &game_func, &fight_func, &new_func, &pause_func,
     &help_func, &inventory_and_status_func, &save_multi_func,
-    &multi_func, &ip_func};
+    &multi_func, &sett_func, &ip_func};
     button_t **(*button_func_ptr[])(void) = {&start_menu_button,
     &save_button, &game_button, &fight_button, &new_button, &pause_button,
     &help_button, &inventory_and_status_button, &save_multi_button,
-    &multi_button, &ip_button};
+    &multi_button, &sett_button, &ip_button};
     background_t **(*background_func_ptr[])(void) = {&start_menu_background,
     &save_background, &game_background, &fight_background, &new_background,
     &pause_background, &help_background, &inventory_and_status_background,
-    &save_multi_background, &multi_background, &ip_background};
-
+    &save_multi_background, &multi_background, &sett_background, &ip_background};
     scenes[i]->func_ptr = scene_func_ptr[i];
     scenes[i]->buttons = button_func_ptr[i]();
     scenes[i]->backgrounds = background_func_ptr[i]();
@@ -96,5 +99,6 @@ game_manager_t *create_game_manager(void)
     game_manager->key_pressed = my_strdup("none");
     game_manager->saves = get_all_save();
     game_manager->save_id = 0;
+    game_manager->volume = 100;
     return game_manager;
 }

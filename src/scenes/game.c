@@ -17,8 +17,10 @@ static int check_collision_with_enemies(game_manager_t *gm)
     for (size_t i = 0; i < 6; i++) {
         if (enemies[i] == NULL)
             continue;
-        diff_x = player->pos.x - enemies[i]->pos.x;
-        diff_y = player->pos.y - enemies[i]->pos.y;
+        diff_x = player->pos.x + player->rect.width / 2;
+        diff_x -= enemies[i]->pos.x + enemies[i]->rect.width / 2;
+        diff_y = player->pos.y + player->rect.height / 2;
+        diff_y -= enemies[i]->pos.y + enemies[i]->rect.height / 2;
         if (diff_x < 50 && diff_x > -50 &&
         diff_y < 100 && diff_y > -100)
             return i;

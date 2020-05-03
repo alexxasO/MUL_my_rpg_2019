@@ -149,6 +149,7 @@ struct game_manager_s {
     char *key_pressed;
     player_t **player_list;
     enemy_t **enemy_list;
+    size_t volume;
     serv_t serv;
     client_t client;
 };

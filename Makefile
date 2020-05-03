@@ -138,6 +138,13 @@ SRCS	=	src/main.c										\
 			src/create_texts/multi_text.c					\
 			src/tools/write_ip.c 							\
 			src/draw/draw_entities.c 						\
+			src/scenes/sett.c								\
+			src/create_backgrounds/sett_background.c		\
+			src/create_buttons/sett_button.c				\
+			src/create_players/sett_player.c				\
+			src/create_enemies/sett_enemy.c					\
+			src/create_texts/sett_text.c					\
+			src/callback/sett_cb.c							\
 
 OBJS	= $(SRCS:.c=.o)
 

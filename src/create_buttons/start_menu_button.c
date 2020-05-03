@@ -22,7 +22,7 @@ button_t **start_menu_button(void)
     buttons[0] = create_button(play_pathnames,
     (sfVector2f){320, 320}, &play_callback);
     buttons[1] = create_button(sett_pathnames,
-    (sfVector2f){10, 768}, NULL);
+    (sfVector2f){10, 768}, &sett_callback);
     buttons[2] = create_button(multi_pathnames,
     (sfVector2f){256, 544}, &play_multi_callback);
     buttons[3] = create_button(quit_pathnames,
