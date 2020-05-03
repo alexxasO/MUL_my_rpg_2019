@@ -43,7 +43,7 @@ static void get_func_ptr_and_game_object(scene_t **scenes, size_t i)
     background_t **(*background_func_ptr[])(void) = {&start_menu_background,
     &save_background, &game_background, &fight_background, &new_background,
     &pause_background, &help_background, &inventory_and_status_background,
-    &save_multi_background, &multi_background, &multi_background};
+    &save_multi_background, &multi_background, &ip_background};
 
     scenes[i]->func_ptr = scene_func_ptr[i];
     scenes[i]->buttons = button_func_ptr[i]();

@@ -52,6 +52,7 @@ background_t **help_background(void);
 background_t **inventory_and_status_background(void);
 background_t **save_multi_background(void);
 background_t **multi_background(void);
+background_t **ip_background(void);
 
 /* PLAYER */
 player_t **start_menu_player(void);
