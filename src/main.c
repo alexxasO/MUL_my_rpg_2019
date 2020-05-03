@@ -13,7 +13,7 @@ void launch_game(game_manager_t *gm)
     while (sfRenderWindow_isOpen(gm->window)) {
         get_mouse_pos(gm);
         handle_event(gm, gm->event);
-//        handle_music(gm);
+        handle_music(gm);
         if (gm->scenes[gm->scene_id] != NULL) {
             gm->scenes[gm->scene_id]->func_ptr(gm);
             draw_scene(gm, gm->scenes[gm->scene_id]);

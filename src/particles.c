@@ -8,7 +8,8 @@
 #include "header.h"
 #include "particles.h"
 
-static framebuffer *framebuffer_create(int width, int height) {
+static framebuffer *framebuffer_create(int width, int height)
+{
     framebuffer *fb = malloc(sizeof(framebuffer));
 
     fb->width = width;
@@ -29,7 +30,8 @@ static void set_pixel(framebuffer *fb, int x, int y, sfColor color)
     }
 }
 
-static sfColor pick_random_color_hoven() {
+static sfColor pick_random_color_hoven(void)
+{
     int r = randomize(0, 255);
     int g = randomize(0, 255);
     int b = randomize(0, 255);
@@ -37,7 +39,6 @@ static sfColor pick_random_color_hoven() {
     return color;
 }
 
-//TODO function to draw particles just like the hoven shown by kyllian
 void draw_hoven_particles(sfVector2f *pos, sfVector2f *size,
 sfRenderWindow *win)
 {

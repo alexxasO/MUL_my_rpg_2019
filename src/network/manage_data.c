@@ -15,7 +15,8 @@ void get_infos(client_t *cli)
         cli->ip = sfTcpSocket_getRemoteAddress(cli->sok);
         cli->port = sfTcpSocket_getRemotePort(cli->sok);
         sfIpAddress_toString(cli->ip, cli->ip_s);
-        my_printf("Client from ip : %s port %i connected\n", cli->ip_s, cli->port);
+        my_printf("Client from ip : %s port %i connected\n",
+        cli->ip_s, cli->port);
     }
 }
 
@@ -45,7 +46,8 @@ char *receive_packages(client_t *client)
     size_t size;
 
     data = malloc(sizeof(char) * REC_SIZE);
-    if (sfTcpSocket_receive(client->sok, data, REC_SIZE, &size) == sfSocketDone) {
+    if (sfTcpSocket_receive(client->sok, data, REC_SIZE,
+    &size) == sfSocketDone) {
         return data;
     }
     return NULL;

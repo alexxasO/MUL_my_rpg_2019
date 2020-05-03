@@ -7,11 +7,12 @@
 
 #include "header.h"
 
-static void destroy_background(background_t *background)
+void destroy_background(background_t *background)
 {
     sfSprite_destroy(background->sprite);
     sfTexture_destroy(background->texture);
     sfClock_destroy(background->clock);
+    free(background->pathname);
     free(background);
 }
 

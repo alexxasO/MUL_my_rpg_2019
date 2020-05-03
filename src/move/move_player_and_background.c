@@ -75,7 +75,8 @@ float *add, size_t i)
 void move_all(game_manager_t *gm, player_t **players,
 background_t *background)
 {
-    float time = sfTime_asSeconds(sfClock_getElapsedTime(players[0]->clock_move));
+    float time = sfTime_asSeconds(sfClock_getElapsedTime(
+    players[0]->clock_move));
     const char *keys[] = {"down", "up", "right", "left"};
     sfImage *limit = sfImage_createFromFile("image/other/level_limit.png");
     float *add = malloc(sizeof(float) * 2);

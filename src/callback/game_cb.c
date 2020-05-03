@@ -21,6 +21,25 @@ static void get_player_from_save(char *player_name, player_t **players)
     players[0]->size.y / 4};
 }
 
+static void set_background(background_t **backgrounds, size_t stage)
+{
+    char *stage_str = my_put_nbr_in_str(stage);
+    char *pathname = malloc(sizeof(char) * (27 + my_strlen(stage_str)));
+
+    pathname[0] = '\0';
+    pathname = my_strcat(pathname, "image/background/level");
+    pathname = my_strcat(pathname, stage_str);
+    pathname = my_strcat(pathname, ".png");
+    if (backgrounds[0] != NULL) {
+        destroy_background(backgrounds[0]);
+        backgrounds[0] = NULL;
+        backgrounds[0] = create_background(pathname,
+        (sfVector2f){0, -800}, NULL);
+    }
+    free(pathname);
+    free(stage_str);
+}
+
 void game_callback(game_manager_t *gm)
 {
     scene_t *scene = gm->scenes[GAME_ID];
@@ -38,4 +57,5 @@ void game_callback(game_manager_t *gm)
             update_stat(i, scene->players, 1);
     set_npc(scene->players, scene->backgrounds[0]);
     set_enemy(scene->enemies, scene->backgrounds[0]);
+    set_background(scene->backgrounds, save->stage);
 }

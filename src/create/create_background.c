@@ -13,7 +13,7 @@ void (*ptr_move) (struct background_s *, sfVector2f))
     background_t *background = malloc(sizeof(background_t));
     sfVector2u size;
 
-    background->pathname = pathname;
+    background->pathname = my_strdup(pathname);
     background->texture = sfTexture_createFromFile(background->pathname, NULL);
     background->sprite = sfSprite_create();
     sfSprite_setTexture(background->sprite, background->texture, sfFalse);

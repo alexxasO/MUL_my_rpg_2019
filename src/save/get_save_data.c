@@ -18,9 +18,9 @@ static void get_name_level_stage_and_char(FILE *file, save_t *save)
     getline(&buf, &n, file);
     save->level = my_getnbr(buf);
     getline(&buf, &n, file);
-    save->exp = my_getnbr(buf);
-    getline(&buf, &n, file);
     save->stage = my_getnbr(buf);
+    getline(&buf, &n, file);
+    save->exp = my_getnbr(buf);
     getline(&buf, &n, file);
     save->character = my_strdup(buf);
     save->character[my_strlen(save->character) - 1] = '\0';

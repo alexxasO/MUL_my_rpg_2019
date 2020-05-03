@@ -31,10 +31,12 @@ void destroy_button(button_t *button);
 void destroy_save(save_t *save);
 void destroy_player(player_t *player);
 void destroy_enemy(enemy_t *enemy);
+void destroy_background(background_t *background);
 
 /* DRAW */
 void draw_scene(game_manager_t *gm, scene_t *scene);
 void draw_text(game_manager_t *gm, scene_t *scene);
+void draw_entities(game_manager_t *gm, scene_t *scene);
 
 /* EVENT */
 void handle_event(game_manager_t *gm, sfEvent event);

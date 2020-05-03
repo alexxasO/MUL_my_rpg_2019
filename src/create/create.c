@@ -27,7 +27,7 @@ static void get_func_ptr_and_game_object_ext(scene_t **scenes, size_t i)
     scenes[i]->players = player_func_ptr[i]();
     scenes[i]->enemies = enemy_func_ptr[i]();
     scenes[i]->texts = text_func_ptr[i]();
-    scenes[i]->sftexts = NULL; // TEMPORAIRE
+    scenes[i]->sftexts = NULL;
 }
 
 static void get_func_ptr_and_game_object(scene_t **scenes, size_t i)

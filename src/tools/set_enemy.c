@@ -7,7 +7,7 @@
 
 #include "header.h"
 
-static char *get_random_enemy_pathname(void)
+static char *get_random_enemy_pathname(size_t i)
 {
     char *pathnames[] = {"image/enemy/zombie.png",
     "image/enemy/no_head.png", "image/enemy/watcher.png",
@@ -16,10 +16,13 @@ static char *get_random_enemy_pathname(void)
     "image/enemy/bloubi_violet.png", "image/enemy/bloubi_vert.png",
     "image/enemy/bloubi_rouge.png", "image/enemy/bloubi_rose.png",
     "image/enemy/bloubi_orange.png", "image/enemy/bloubi_marron.png",
-    "image/enemy/bloubi_jaune.png", "image/enemy/bloubi_bleu.png",
-    "image/enemy/bloubi_ultima_magica_perfecta_lumina.png"};
+    "image/enemy/bloubi_jaune.png", "image/enemy/bloubi_bleu.png"};
+    char *boss_pathname[] = {"image/enemy/bloubi_ultima_"\
+    "magica_perfecta_lumina.png"};
 
-    return pathnames[random_int(16)];
+    if (i != 5)
+        return pathnames[random_int(15)];
+    return boss_pathname[0];
 }
 
 void set_enemy(enemy_t **enemies, background_t *background)
@@ -34,8 +37,8 @@ void set_enemy(enemy_t **enemies, background_t *background)
         while (pos.x == -1)
             pos = get_random_pos();
         if (i == 5)
-            pos = (sfVector2f){1400, 1200};
-        enemies[i] = create_enemy(get_random_enemy_pathname(),
+            pos = (sfVector2f){2000, 1400};
+        enemies[i] = create_enemy(get_random_enemy_pathname(i),
         pos, NULL, NULL);
         enemies[i]->pos.x += background->pos.x - enemies[i]->rect.width / 2;
         enemies[i]->pos.y += background->pos.y - enemies[i]->rect.height;

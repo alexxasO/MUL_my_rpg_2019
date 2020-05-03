@@ -13,7 +13,8 @@ button_t **new_button(void)
     char *left_arrow_pathnames[] = {"image/button/left_arrow.png",
     "image/button/left_arrow_over.png", "image/button/left_arrow_clicked.png"};
     char *right_arrow_pathnames[] = {"image/button/right_arrow.png",
-    "image/button/right_arrow_over.png", "image/button/right_arrow_clicked.png"};
+    "image/button/right_arrow_over.png",
+    "image/button/right_arrow_clicked.png"};
     char *create_pathnames[] = {"image/button/create.png",
     "image/button/create_over.png", "image/button/create_clicked.png"};
 

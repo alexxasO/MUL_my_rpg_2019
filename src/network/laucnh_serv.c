@@ -7,7 +7,6 @@
 
 #include "header.h"
 
-
 int host_soket_and_listener(sfIpAddress ip, unsigned short port, serv_t *serv)
 {
     sfTcpListener *listener = sfTcpListener_create();
@@ -27,7 +26,7 @@ int host_soket_and_listener(sfIpAddress ip, unsigned short port, serv_t *serv)
     }
     get_infos(&serv->cli_b);
     sfTcpListener_destroy(listener);
-    return 0; 
+    return 0;
 }
 
 void transmit_data(char who, serv_t *serv, char *data)
@@ -69,7 +68,8 @@ void launch_serv(client_t *client)
 
     client = init_socket(client);
     sfIpAddress_toString(client->ip, ip);
-    my_printf("Welcome !\nHost the best RPG on our server\nIp : %s\nPort : %i\n", ip, client->port);
+    my_printf("Welcome !\nHost the best RPG on our server\n");
+    my_printf("Ip : %s\nPort : %i\n", ip, client->port);
     host_soket_and_listener(client->ip, client->port, &serv);
     sfTcpSocket_setBlocking(serv.cli_a.sok, sfFalse);
     sfTcpSocket_setBlocking(serv.cli_b.sok, sfFalse);
