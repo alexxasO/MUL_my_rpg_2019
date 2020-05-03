@@ -35,6 +35,5 @@ void update_stat(size_t item_id, player_t **players, int coef)
     players[0]->max_life += value[item_id * 4] * coef;
     players[0]->attack += value[item_id * 4 + 1] * coef;
     players[0]->defense += value[item_id * 4 + 2] * coef;
-    players[0]->fighter_info->speed += value[item_id * 4 + 3] * coef;
     free(value);
 }

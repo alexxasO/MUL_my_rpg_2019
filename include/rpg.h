@@ -185,6 +185,7 @@ void change_selector_up(infobar_t *infobar);
 void change_selector_down(infobar_t *infobar);
 void attack_fighter(fighter_info_t *attacker, fighter_info_t *victim,
 attack_t *attack);
+void setup_fight(game_manager_t *gm, int enemy_id);
 
 /* ANIMATION */
 void anim_player(game_manager_t *gm, player_t *player);

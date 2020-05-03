@@ -28,30 +28,6 @@ static int check_collision_with_enemies(game_manager_t *gm)
     return -1;
 }
 
-static void setup_for_fight(game_manager_t *gm, int enemy_id)
-{
-    scene_t *scene = gm->scenes[gm->scene_id];
-    char boss_music[] = "music/boss_music.ogg";
-    char fight_music[] = "music/fight_music.ogg";
-    
-    if (enemy_id == 5 && my_strcmp(scene->music_pathname, boss_music) != 0) {
-        if (sfMusic_getStatus(scene->music) != sfStopped)
-            sfMusic_stop(scene->music);
-        sfMusic_destroy(scene->music);
-        scene->music = sfMusic_createFromFile(boss_music);
-        scene->music_pathname = my_strdup(boss_music);
-        sfMusic_setLoop(scene->music, sfTrue);
-    } else if (enemy_id == 5 &&
-    my_strcmp(scene->music_pathname, fight_music) != 0) {
-        if (sfMusic_getStatus(scene->music) != sfStopped)
-            sfMusic_stop(scene->music);
-        sfMusic_destroy(scene->music);
-        scene->music = sfMusic_createFromFile(fight_music);
-        scene->music_pathname = my_strdup(fight_music);
-        sfMusic_setLoop(scene->music, sfTrue);
-    }
-}
-
 static void check_collision_with_npcs(game_manager_t *gm)
 {
     player_t *player = gm->scenes[gm->scene_id]->players[0];
@@ -95,6 +71,6 @@ void game_func(game_manager_t *gm)
     enemy_id = check_collision_with_enemies(gm);
     if (enemy_id != -1) {
         gm->scene_id = FIGHT_ID;
-        setup_for_fight(gm, enemy_id);
+        setup_fight(gm, enemy_id);
     }
 }

@@ -21,7 +21,7 @@ static void print_stats(player_t **players, scene_t *scene)
     char *life = my_put_nbr_in_str(players[0]->max_life);
     char *attack = my_put_nbr_in_str(players[0]->attack);
     char *defense = my_put_nbr_in_str(players[0]->defense);
-    char *speed = my_put_nbr_in_str(players[0]->fighter_info->speed);
+    char *speed = my_put_nbr_in_str(10);
 
     compare_and_replace(&scene->texts[0]->string, level);
     compare_and_replace(&scene->texts[1]->string, life);

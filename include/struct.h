@@ -21,22 +21,12 @@ typedef struct attack {
     char *name;
 } attack_t;
 
-typedef struct player_object {
-    bool is_attack;
-    int life_effect;
-    int damage_boost;
-    int defense_boost;
-    int speed_boost;
-    char *path_to_icons;
-} inv_object_t;
-
 typedef struct fighter_info {
     char *path_to_spritesheet;
     int life;
     sfSprite *sprite;
     sfTexture *texture;
     attack_t **attacks;
-    inv_object_t *object;
     int damage_mod;
     int defense_mod;
     char *name;

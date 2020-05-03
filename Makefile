@@ -154,6 +154,7 @@ SRCS	=	src/main.c										\
 			src/fight/menu_display_sprites.c 				\
 			src/fight/place_fight_text.c 					\
 			src/fight/menu_selector.c	 					\
+			src/fight/setup_fight.c							\
 
 OBJS	= $(SRCS:.c=.o)
 
