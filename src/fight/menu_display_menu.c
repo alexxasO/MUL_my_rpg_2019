@@ -10,7 +10,6 @@
 static void set_menu_mode(sfText *txt, infobar_t *infobar)
 {
     if (!my_strcmp(sfText_getString(txt), "Attack")) {
-        printf("attack oui tout a fait\n");
         infobar->mode = ATTACK;
     }
     if (!my_strcmp(sfText_getString(txt), "Menu"))
@@ -25,7 +24,6 @@ static void change_info_mode(infobar_t *infobar)
     for (int i = 0; infobar->texts[i]; i++) {
         txt = infobar->texts[i];
         if (sfSprite_getPosition(arrow).y + 15 == sfText_getPosition(txt).y) {
-            printf("oui !\n");
             set_menu_mode(txt, infobar);
         }
     }
@@ -58,14 +56,12 @@ void apply_attack(infobar_t *info, game_manager_t *gm, int *turn) {
     enemy->life = enemy->fighter_info->life;
     info->mode = DEFAULT;
     *turn = *turn + 1;
-    printf("j'add turn %d\nadresse : %p\n", *turn, turn);
 }
 
 static void interpret_key(infobar_t *infobar, game_manager_t *gm, int *turn)
 {
     if (!my_strcmp(gm->key_pressed, "enter") && infobar->mode == SELECTOR) {
         apply_attack(infobar, gm, turn);
-        printf("JE SUIS TURN ET JE SUIS CON %d\n", *turn);
     }
     if (!my_strcmp(gm->key_pressed, "enter") && infobar->mode == ATTACK) {
         infobar->mode = SELECTOR;
@@ -93,7 +89,6 @@ static void menu_texts(infobar_t *infobar, game_manager_t *gm, int *turn)
         texts = place_target_menu(gm);
     infobar->texts = texts;
     interpret_key(infobar, gm, turn);
-    printf("JE SUIS TOUJOURS STUPIDE %d\n", *turn);
 }
 
 void create_info_bar(game_manager_t *gm, infobar_t *infobar, int *turn)
