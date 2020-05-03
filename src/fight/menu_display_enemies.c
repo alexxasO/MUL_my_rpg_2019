@@ -32,10 +32,10 @@ static void print_char_infos(int id, char *name, scene_t *scene, int start)
     free(scene_texts);
 }
 
-static char *get_char_info(enemy_t *player)
+static char *get_char_info(enemy_t *enemy)
 {
-    char *life_info = my_strcat_malloc(" - ", my_put_nbr_in_str(player->life));
-    char *name_info = my_strcat_malloc("Exemple", life_info);
+    char *life_info = my_strcat_malloc(" - ", my_put_nbr_in_str(enemy->life));
+    char *name_info = my_strcat_malloc(enemy->fighter_info->name, life_info);
 
     free(life_info);
     return name_info;

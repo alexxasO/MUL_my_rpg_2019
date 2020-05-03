@@ -35,7 +35,7 @@ static void print_char_infos_ply(int id, char *name, scene_t *scene)
 static char *get_char_info_ply(player_t *player)
 {
     char *life_info = my_strcat_malloc(" - ", my_put_nbr_in_str(player->life));
-    char *name_info = my_strcat_malloc("Exemple", life_info);
+    char *name_info = my_strcat_malloc(player->fighter_info->name, life_info);
 
     free(life_info);
     return name_info;

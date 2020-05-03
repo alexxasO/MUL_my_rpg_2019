@@ -49,3 +49,18 @@ sfText **place_attack_menu(game_manager_t *gm, int turn)
     texts[4] = NULL;
     return texts;
 }
+
+sfText **place_target_menu(game_manager_t *gm, int turn)
+{
+    scene_t *scene = gm->scenes[gm->scene_id];
+    sfText **texts;
+    int i = 0;
+
+    texts = malloc(sizeof(sfText *) * (count_enemies(gm->enemy_list) + 1));
+    for (; gm->enemy_list[i]; i++) {
+        texts[i] = create_menu_text(gm->enemy_list[i]->fighter_info->name,
+        (sfVector2f){SCR_WIDTH / 2 - 50, SCR_HEIGHT - 160 + 25 * i});
+        texts[i + 1] = NULL;
+    }
+    return texts;
+}

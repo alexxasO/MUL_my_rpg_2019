@@ -41,6 +41,7 @@ typedef struct fighter_info {
     int damage_mod;
     int defense_mod;
     int speed_mod;
+    char *name;
 } fighter_info_t;
 
 typedef struct button {

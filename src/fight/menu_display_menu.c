@@ -31,8 +31,25 @@ static void change_info_mode(infobar_t *infobar)
     }
 }
 
-static void interpret_key(infobar_t *infobar, game_manager_t *gm)
+static void stock_attack(infobar_t *infobar, game_manager_t *gm, int turn)
 {
+    sfVector2f arrow_pos = sfSprite_getPosition(infobar->sprites[1]);
+    int selected_id = 0;
+    player_t *ply = gm->player_list[turn];
+
+    for (int i = 0; infobar->texts[i]; i++) {
+        if (sfText_getPosition(infobar->texts[i]).y == arrow_pos.y + 15)
+            selected_id = i;
+    }
+    infobar->attack_selected = ply->fighter_info->attacks[selected_id];
+}
+
+static void interpret_key(infobar_t *infobar, game_manager_t *gm, int turn)
+{
+    if (!my_strcmp(gm->key_pressed, "enter") && infobar->mode == ATTACK) {
+        infobar->mode = SELECTOR;
+        stock_attack(infobar, gm, turn);
+    }
     if (!my_strcmp(gm->key_pressed, "enter") && infobar->mode == DEFAULT)
         change_info_mode(infobar);
 //     if (!my_strcmp(gm->key_pressed, "up"))
@@ -51,10 +68,10 @@ static void menu_texts(infobar_t *infobar, game_manager_t *gm, int turn)
         texts = place_default_menu();
     if (infobar->mode == ATTACK)
         texts = place_attack_menu(gm, turn);
-    // if (infobar->mode == SELECTOR)
-    //     texts = place_char_menu();
+    if (infobar->mode == SELECTOR)
+        texts = place_target_menu(gm, turn);
     infobar->texts = texts;
-    interpret_key(infobar, gm);
+    interpret_key(infobar, gm, turn);
 }
 
 void create_info_bar(game_manager_t *gm, infobar_t *infobar, int turn)

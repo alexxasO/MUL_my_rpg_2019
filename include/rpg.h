@@ -138,6 +138,7 @@ sfText **place_attack_menu(game_manager_t *gm, int turn);
 sfText **place_default_menu();
 sfText *create_menu_text(char *content, sfVector2f pos);
 void menu_info_sprites(infobar_t *infobar, game_manager_t *gm);
+sfText **place_target_menu(game_manager_t *gm, int turn);
 
 /* ANIMATION */
 void anim_player(game_manager_t *gm, player_t *player);
