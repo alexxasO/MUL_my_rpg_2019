@@ -10,7 +10,7 @@
 static char *get_random_npc_pathname(void)
 {
     char *pathnames[] = {"image/npc/grey.png",
-    "image/npc/void.png", "image/npc/silios.png",
+    "image/npc/void.png", "image/npc/zilios.png",
     "image/npc/sharp.png", "image/npc/sarah.png",
     "image/npc/ralem.png", "image/npc/rarrior.png",
     "image/npc/nig.png", "image/npc/liam.png",

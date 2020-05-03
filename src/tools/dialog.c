@@ -136,7 +136,7 @@ static const char *choose_dialog(int npc_num)
     nig_dialog, liam_dialog, ian_dialog, guard_dialog, klive_dialog,
     blouik_dialog, alexia_dialog, achille_dialog};
 
-    return dialog[npc_num][random_int(15)];
+    return dialog[npc_num][random_int(5)];
 }
 
 void display_dialog(game_manager_t *gm, size_t npc_id)
