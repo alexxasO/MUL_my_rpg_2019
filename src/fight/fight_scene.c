@@ -56,6 +56,23 @@ static int end_fight(player_t **players, enemy_t **enemies)
     return 0;
 }
 
+static void enemy_turn(enemy_t **enemies, player_t **players,
+game_manager_t *gm, int nb_ply)
+{
+    int ply_id = 0;
+    int attack_id = 0;
+    int attack_nb = 0;
+
+    for (int i = 0; enemies[i]; i++) {
+        attack_nb = 0;
+        for (; enemies[i]->fighter_info->attacks[attack_nb]; attack_nb++);
+        ply_id = random_int(nb_ply);
+        attack_id = random_int(attack_nb);
+        attack_fighter(enemies[i]->fighter_info, players[ply_id]->fighter_info,
+        enemies[i]->fighter_info->attacks[attack_id]);
+    }
+}
+
 void begin_fight(player_t **players, enemy_t **enemies, game_manager_t *gm)
 {
     int nb_player = count_players(players);
@@ -66,4 +83,9 @@ void begin_fight(player_t **players, enemy_t **enemies, game_manager_t *gm)
     place_enemies(enemies, nb_enemy);
     place_infobar_texts(players, enemies, gm);
     create_info_bar(gm, gm->fight_bar, turn);
+    turn++;
+    if (turn >= nb_player) {
+        turn = 0;
+        enemy_turn(enemies, players, gm, nb_player);
+    }
 }

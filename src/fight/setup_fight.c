@@ -12,7 +12,7 @@ static void setup_music(game_manager_t *gm, int enemy_id)
     scene_t *scene = gm->scenes[gm->scene_id];
     char boss_music[] = "music/boss_music.ogg";
     char fight_music[] = "music/fight_music.ogg";
-    
+
     if (enemy_id == 5 && my_strcmp(scene->music_pathname, boss_music) != 0) {
         if (sfMusic_getStatus(scene->music) != sfStopped)
             sfMusic_stop(scene->music);
@@ -40,6 +40,7 @@ static attack_t **setup_attack(void)
     char *attack_name[] = {"Punch", "Big eye", "Analyse", "Boost"};
 
     for (size_t i = 0; i < 4; i++) {
+        attacks[i] = malloc(sizeof(attack_t));
         attacks[i]->dmg = dmg[i];
         attacks[i]->damage_dmg = damage_dmg[i];
         attacks[i]->defense_dmg = defense_dmg[i];
