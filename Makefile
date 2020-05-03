@@ -33,7 +33,7 @@ SRCS	=	src/main.c										\
 			src/destroy/destroy_button.c					\
 			src/destroy/destroy_text.c						\
 			src/destroy/destroy_save.c						\
-			src/create/create.c							\
+			src/create/create.c								\
 			src/create/create_text.c						\
 			src/create/create_window.c						\
 			src/create/create_background.c					\
@@ -116,6 +116,8 @@ SRCS	=	src/main.c										\
 			src/create/create_infobar.c						\
 			src/move/move_npc.c 							\
 			src/fight/fight_scene.c 						\
+			src/fight/menu_display_sprites.c 				\
+			src/fight/place_fight_text.c 					\
 
 OBJS	= $(SRCS:.c=.o)
 

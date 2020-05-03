@@ -134,6 +134,10 @@ void create_info_bar(game_manager_t *gm, infobar_t *infobar, int turn);
 void draw_infobar(game_manager_t *gm, scene_t *scene);
 void create_infobar(game_manager_t *gm);
 void begin_fight(player_t **players, enemy_t **enemies, game_manager_t *gm);
+sfText **place_attack_menu(game_manager_t *gm, int turn);
+sfText **place_default_menu();
+sfText *create_menu_text(char *content, sfVector2f pos);
+void menu_info_sprites(infobar_t *infobar, game_manager_t *gm);
 
 /* ANIMATION */
 void anim_player(game_manager_t *gm, player_t *player);

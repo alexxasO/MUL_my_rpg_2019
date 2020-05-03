@@ -13,13 +13,18 @@ static void create_fighter_info(player_t *player) // just for tests
     attack_t *attackb = malloc(sizeof(attack_t) * 1);
     attack_t *attackc = malloc(sizeof(attack_t) * 1);
     attack_t *attackd = malloc(sizeof(attack_t) * 1);
-    attack_t *attacks[] = {attacka, attackb, attackc, attackd};
+    attack_t **attacks = malloc(sizeof(attack_t *) * 5);
 
-    attacka->name ="testa";
-    attackb->name ="testb";
-    attackc->name ="testc";
-    attackd->name ="testd";
+    attacks[0] = malloc(sizeof(attack_t));
+    attacks[1] = malloc(sizeof(attack_t));
+    attacks[2] = malloc(sizeof(attack_t));
+    attacks[3] = malloc(sizeof(attack_t));
+    attacks[0]->name ="testa";
+    attacks[1]->name ="testb";
+    attacks[2]->name ="testc";
+    attacks[3]->name ="testd";
     player->fighter_info->attacks = attacks;
+    printf("attack 0 : %s\n", player->fighter_info->attacks[0]->name);
 }
 
 player_t **fight_player(void)
@@ -40,5 +45,6 @@ player_t **fight_player(void)
     players[1]->fighter_info->sprite = players[0]->sprite;
     players[1]->life = 48;
     players[2] = NULL;
+    printf("attack 0 : %s\n", players[0]->fighter_info->attacks[0]->name);
     return players;
 }

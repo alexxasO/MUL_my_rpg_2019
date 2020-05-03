@@ -12,7 +12,7 @@ static void draw_infobar_text(game_manager_t *gm, infobar_t *infobar)
     sfText *text = NULL;
 
     if (infobar->texts != NULL) {
-        for (int i = 0; infobar->texts[i]; i++) {
+        for (int i = 0; infobar->texts[i] != NULL; i++) {
             text = infobar->texts[i];
             sfRenderWindow_drawText(gm->window, text, NULL);
         }
