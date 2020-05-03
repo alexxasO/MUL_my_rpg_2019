@@ -86,7 +86,7 @@ static void menu_texts(infobar_t *infobar, game_manager_t *gm, int turn)
     if (infobar->mode == ATTACK)
         texts = place_attack_menu(gm, turn);
     if (infobar->mode == SELECTOR)
-        texts = place_target_menu(gm, turn);
+        texts = place_target_menu(gm);
     infobar->texts = texts;
     interpret_key(infobar, gm, turn);
 }
