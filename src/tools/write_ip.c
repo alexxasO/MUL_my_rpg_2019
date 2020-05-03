@@ -21,10 +21,32 @@ static void add_letter(game_manager_t *gm, char *old_string, char key)
     free(old_string);
 }
 
+char modify_key(int key_id)
+{
+    char key;
+
+    if (key_id == 48)
+        key_id = (-1);
+    if (key_id > 25 && key_id < 74) {
+        if (key_id == 51)
+            key_id -= 21;
+        if (key_id == 56)
+            key_id -= 24;
+        key_id += 49;
+    }
+    if (key_id == (-1))
+        key = key_id + 47;
+    else if (key_id < 26)
+        key = key_id + 'A';
+    else
+        key = key_id - 27;
+    return key;
+}
+
 void write_ip(game_manager_t *gm, sfEvent event)
 {
     int key_id = event.key.code;
-    char key = key_id + 22;
+    char key = modify_key(key_id);
     char *old_string = my_strdup(gm->scenes[gm->scene_id]->texts[0]->string);
     int old_length = my_strlen(old_string);
 
@@ -33,10 +55,5 @@ void write_ip(game_manager_t *gm, sfEvent event)
         free(old_string);
         return;
     }
-    printf("%i\n", key_id);
-    // if (((key_id < sfKeyNum0) || (key_id > sfKeyNum9)) && (key_id != sfKeyPeriod)) {
-    //     free(old_string);
-    //     return;
-    // }
     add_letter(gm, old_string, key);
 }
