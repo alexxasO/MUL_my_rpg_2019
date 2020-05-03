@@ -45,6 +45,23 @@ game_manager_t *gm, int nb_ply)
     }
 }
 
+static void win_func(game_manager_t *gm)
+{
+    int nb = random_int(12);
+
+    gm->saves[gm->save_id]->exp = gm->saves[gm->save_id]->exp + 10;
+    if (gm->saves[gm->save_id]->exp > 100) {
+        gm->saves[gm->save_id]->exp = 0;
+        gm->saves[gm->save_id]->level = gm->saves[gm->save_id]->level + 1;
+    }
+    if (!my_strcmp(gm->scenes[gm->scene_id]->music_pathname,
+    "music/boss_music.ogg"))
+    gm->saves[gm->save_id]->stage = gm->saves[gm->save_id]->stage + 1;
+    if (gm->saves[gm->save_id]->inventory[nb] == 0)
+        gm->saves[gm->save_id]->inventory[nb] = 1;
+    game_callback(gm);
+}
+
 void begin_fight(player_t **players, enemy_t **enemies, game_manager_t *gm)
 {
     int nb_player = count_players(players);
@@ -62,15 +79,7 @@ void begin_fight(player_t **players, enemy_t **enemies, game_manager_t *gm)
     create_info_bar(gm, gm->fight_bar, &turn);
     win = end_fight(players, enemies);
     if (win == 1) {
-        gm->saves[gm->save_id]->exp = gm->saves[gm->save_id]->exp + 10;
-        if (gm->saves[gm->save_id]->exp > 100) {
-            gm->saves[gm->save_id]->exp = 0;
-            gm->saves[gm->save_id]->level = gm->saves[gm->save_id]->level + 1;
-        }
-        if (!my_strcmp(gm->scenes[gm->scene_id]->music_pathname,
-        "music/boss_music.ogg"))
-            gm->saves[gm->save_id]->stage = gm->saves[gm->save_id]->stage + 1;
-        game_callback(gm);
+        win_func(gm);
     } else if (win == -1)
         gm->scene_id = START_MENU_ID;
 }

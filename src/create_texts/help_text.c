@@ -19,8 +19,7 @@ text_t **help_text(void)
         "fight against the floor boss and win\n"\
         "be careful tho, he will be stronger than\n"\
         "the other monsters.\n"\
-        "Move around by using the arrow keys, use\n"\
-        "the F key to interact with other people\n"\
+        "Move around by using the arrow keys.\n"\
         "The I key is to open your inventory and\n"\
         "check your game status, \n"\
         "there, click on any item to equip it.\n"\
