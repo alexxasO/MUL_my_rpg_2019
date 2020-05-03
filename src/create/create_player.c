@@ -18,6 +18,7 @@ void (*ptr_anim) (struct player_s *, sfRenderWindow *))
     player->sprite = sfSprite_create();
     sfSprite_setTexture(player->sprite, player->texture, sfFalse);
     player->pos = pos;
+    player->life = 100;
     player->size = sfTexture_getSize(sfSprite_getTexture(player->sprite));
     player->rect = (sfIntRect){0, 0, player->size.x, player->size.y};
     player->clock_move = sfClock_create();

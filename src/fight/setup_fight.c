@@ -33,7 +33,7 @@ static void setup_music(game_manager_t *gm, int enemy_id)
 
 static attack_t **setup_attack(void)
 {
-    attack_t **attacks = malloc(sizeof(attack_t *) * 4);
+    attack_t **attacks = malloc(sizeof(attack_t *) * 5);
     int dmg[] = {10, 0, 0, 0};
     int damage_dmg[] = {0, 10, 0, -5};
     int defense_dmg[] = {0, 0, 10, -5};
@@ -47,6 +47,7 @@ static attack_t **setup_attack(void)
         attacks[i]->path_to_icon = NULL;
         attacks[i]->name = attack_name[i];
     }
+    attacks[4] = NULL;
     return attacks;
 }
 

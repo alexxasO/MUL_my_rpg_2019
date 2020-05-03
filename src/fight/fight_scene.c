@@ -65,9 +65,11 @@ game_manager_t *gm, int nb_ply)
 
     for (int i = 0; enemies[i]; i++) {
         attack_nb = 0;
-        for (; enemies[i]->fighter_info->attacks[attack_nb]; attack_nb++);
+        // for (; enemies[i]->fighter_info->attacks[attack_nb]; attack_nb++)
+        //     printf("attack_nb : %d\n", attack_nb);
         ply_id = random_int(nb_ply);
-        attack_id = random_int(attack_nb);
+        attack_id = random_int(4);
+        printf("aid : %d\neny : %p, fi : %p, efias : %p\npfi : %p\n", attack_id, enemies, enemies[i]->fighter_info, enemies[i]->fighter_info->attacks[0], players[ply_id]->fighter_info);
         attack_fighter(enemies[i]->fighter_info, players[ply_id]->fighter_info,
         enemies[i]->fighter_info->attacks[attack_id]);
     }
