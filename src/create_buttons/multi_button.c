@@ -18,7 +18,7 @@ button_t **multi_button(void)
     buttons[0] = create_button(host_pathnames,
     (sfVector2f){320, 320}, &launch_serv);
     buttons[1] = create_button(join_pathnames,
-    (sfVector2f){1050, 320}, NULL);
+    (sfVector2f){1050, 320}, &play_multi_id_callback);
     buttons[2] = NULL;
     return buttons;
 }
