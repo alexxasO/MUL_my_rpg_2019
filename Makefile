@@ -87,15 +87,17 @@ SRCS	=	src/main.c										\
 			src/create_enemies/new_enemy.c					\
 			src/create_texts/new_text.c						\
 			src/fight/fight_count.c							\
-			src/fight/fight_effects.c						\
-			src/scenes/fight.c								\
-			src/create_backgrounds/fight_background.c		\
-			src/create_players/fight_player.c				\
-			src/create_enemies/fight_enemy.c				\
-			src/fight/menu_display.c						\
-			src/create_buttons/fight_button.c				\
-			src/save/write_save_name.c						\
-			src/scenes/pause.c								\
+			src/fight/fight_effects.c 						\
+			src/scenes/fight.c 								\
+			src/create_backgrounds/fight_background.c 		\
+			src/create_players/fight_players.c				\
+			src/create_enemies/fight_enemies.c				\
+			src/fight/menu_display_players.c 				\
+			src/fight/menu_display_menu.c 					\
+			src/fight/menu_display_enemies.c 				\
+			src/create_buttons/fight_button.c 				\
+			src/save/write_save_name.c 						\
+			src/scenes/pause.c 								\
 			src/create_backgrounds/pause_background.c		\
 			src/create_buttons/pause_button.c				\
 			src/create_players/pause_player.c				\
@@ -146,6 +148,12 @@ SRCS	=	src/main.c										\
 			src/create_texts/sett_text.c					\
 			src/callback/sett_cb.c							\
 			src/tools/dialog.c								\
+			src/draw/draw_infobar.c 						\
+			src/create/create_infobar.c						\
+			src/fight/fight_scene.c 						\
+			src/fight/menu_display_sprites.c 				\
+			src/fight/place_fight_text.c 					\
+			src/fight/menu_selector.c	 					\
 
 OBJS	= $(SRCS:.c=.o)
 

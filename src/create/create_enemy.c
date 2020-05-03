@@ -25,5 +25,6 @@ void (*ptr_anim) (struct enemy_s *, sfRenderWindow *))
     enemy->ptr_anim = ptr_anim;
     enemy->sound = NULL;
     enemy->fighter_info = malloc(sizeof(fighter_info_t));
+    enemy->fighter_info->name = "Unamed";
     return enemy;
 }

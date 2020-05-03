@@ -100,5 +100,6 @@ game_manager_t *create_game_manager(void)
     game_manager->saves = get_all_save();
     game_manager->save_id = 0;
     game_manager->volume = 100;
+    create_infobar(game_manager);
     return game_manager;
 }

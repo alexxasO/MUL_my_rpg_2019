@@ -57,7 +57,8 @@ void draw_scene(game_manager_t *gm, scene_t *scene)
     draw_entities(gm, scene);
     draw_buttons(gm, scene);
     draw_text(gm, scene);
-    draw_sftext(gm, scene);
+    draw_infobar(gm, scene);
+    draw_sftext(gm, scene); //TEMPORAIRE
     sfRenderWindow_display(gm->window);
     sfRenderWindow_clear(gm->window, sfBlack);
 }

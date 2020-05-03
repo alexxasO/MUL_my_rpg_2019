@@ -166,7 +166,25 @@ void play_multi_id_callback(game_manager_t *gm);
 /* FIGHT */
 int count_players(player_t **fighters);
 int count_enemies(enemy_t **enemies);
-void place_infobar(player_t **players, enemy_t **enemies, game_manager_t *gm);
+player_t **fight_players(void);
+enemy_t **fight_enemy(void);
+void place_info_ply(player_t **players, game_manager_t *gm);
+void place_info_enemies(enemy_t **enemies, game_manager_t *gm);
+button_t **fight_button(void);
+text_t **fight_text(void);
+void create_info_bar(game_manager_t *gm, infobar_t *infobar, int turn);
+void draw_infobar(game_manager_t *gm, scene_t *scene);
+void create_infobar(game_manager_t *gm);
+void begin_fight(player_t **players, enemy_t **enemies, game_manager_t *gm);
+sfText **place_attack_menu(game_manager_t *gm, int turn);
+sfText **place_default_menu();
+sfText *create_menu_text(char *content, sfVector2f pos);
+void menu_info_sprites(infobar_t *infobar, game_manager_t *gm);
+sfText **place_target_menu(game_manager_t *gm, int turn);
+void change_selector_up(infobar_t *infobar);
+void change_selector_down(infobar_t *infobar);
+void attack_fighter(fighter_info_t *attacker, fighter_info_t *victim,
+attack_t *attack);
 
 /* ANIMATION */
 void anim_player(game_manager_t *gm, player_t *player);

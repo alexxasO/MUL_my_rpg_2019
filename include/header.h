@@ -9,6 +9,7 @@
 #define HEADER_H
 
 #include "includes.h"
+#include "fight.h"
 #include "struct.h"
 #include "base.h"
 #include "rpg.h"
