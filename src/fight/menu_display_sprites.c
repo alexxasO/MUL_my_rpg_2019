@@ -9,7 +9,6 @@
 
 static void create_info_sprite(infobar_t *infobar)
 {
-    printf("oui en effet !\n");
     sfSprite *bar = sfSprite_create();
     sfSprite *arrow = sfSprite_create();
     sfTexture *arrow_texture = sfTexture_createFromFile("image/other/arrow.png",
@@ -26,7 +25,7 @@ static void create_info_sprite(infobar_t *infobar)
     infobar->sprites[2] = NULL;
 }
 
-void menu_info_sprites(infobar_t *infobar, game_manager_t *gm)
+void menu_info_sprites(infobar_t *infobar, UN game_manager_t *gm)
 {
     sfSprite **sprite = infobar->sprites;
 

@@ -19,7 +19,7 @@ static void draw_infobar_text(game_manager_t *gm, infobar_t *infobar)
     }
 }
 
-void draw_infobar(game_manager_t *gm, scene_t *scene)
+void draw_infobar(game_manager_t *gm, UN scene_t *scene)
 {
     sfSprite *sprite = NULL;
 

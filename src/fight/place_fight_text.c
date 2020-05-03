@@ -34,7 +34,6 @@ sfText **place_default_menu()
 
 sfText **place_attack_menu(game_manager_t *gm, int turn)
 {
-    scene_t *scene = gm->scenes[gm->scene_id];
     sfText **texts = malloc(sizeof(sfText *) * 5);
     fighter_info_t *fighter = gm->player_list[turn]->fighter_info;
 
@@ -50,9 +49,8 @@ sfText **place_attack_menu(game_manager_t *gm, int turn)
     return texts;
 }
 
-sfText **place_target_menu(game_manager_t *gm, int turn)
+sfText **place_target_menu(game_manager_t *gm)
 {
-    scene_t *scene = gm->scenes[gm->scene_id];
     sfText **texts;
     int i = 0;
 
