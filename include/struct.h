@@ -9,6 +9,7 @@
 #define STRUCT_H
 
 #include "includes.h"
+#include "network.h"
 
 typedef struct game_manager_s game_manager_t;
 
@@ -149,6 +150,8 @@ struct game_manager_s {
     player_t **player_list;
     enemy_t **enemy_list;
     size_t volume;
+    serv_t serv;
+    client_t client;
 };
 
 #endif

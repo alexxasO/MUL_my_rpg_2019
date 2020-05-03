@@ -23,7 +23,6 @@ typedef struct {
     client_t cli_b;
 } serv_t;
 
-void launch_serv(client_t *client);
 void data_management(serv_t *serv, client_t *client);
 void transmit_data(char who, serv_t *serv, char *data);
 int host_soket_and_listener(sfIpAddress ip, unsigned short port, serv_t *serv);
