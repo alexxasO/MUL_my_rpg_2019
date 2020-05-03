@@ -7,6 +7,13 @@
 
 #include "header.h"
 
+static sfText **set_to_null(sfText **scene_texts)
+{
+    scene_texts = malloc(sizeof(sfText *) * 1);
+    scene_texts[0] = NULL;
+    return scene_texts;
+}
+
 static void print_char_infos(int id, char *name, scene_t *scene, int start)
 {
     sfText *text = sfText_create();
@@ -14,10 +21,8 @@ static void print_char_infos(int id, char *name, scene_t *scene, int start)
     sfText **new_scene_texts =  malloc(sizeof(sfText *) * (id + 2));
     sfFont *font = sfFont_createFromFile("font/Astrolab.ttf");
 
-    if (scene_texts == NULL) {
-        scene_texts = malloc(sizeof(sfText *) * 1);
-        scene_texts[0] = NULL;
-    }
+    if (scene_texts == NULL)
+        scene_texts = set_to_null(scene_texts);
     sfText_setColor(text, sfWhite);
     sfText_setCharacterSize(text, 20);
     sfText_setString(text, name);

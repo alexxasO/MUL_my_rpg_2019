@@ -186,6 +186,11 @@ void change_selector_down(infobar_t *infobar);
 void attack_fighter(fighter_info_t *attacker, fighter_info_t *victim,
 attack_t *attack);
 void setup_fight(game_manager_t *gm, int enemy_id);
+void place_player(player_t **players, int nb_players);
+void place_enemies(enemy_t **enemies, int nb_enemies);
+void place_infobar_texts(player_t **players, enemy_t **enemies,
+game_manager_t *gm);
+void interpret_key(infobar_t *infobar, game_manager_t *gm, int *turn);
 
 /* ANIMATION */
 void anim_player(game_manager_t *gm, player_t *player);

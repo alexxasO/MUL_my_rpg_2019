@@ -67,7 +67,7 @@ static void setup_player(game_manager_t *gm)
         fplayers[i]->fighter_info->path_to_spritesheet = players[i]->pathname;
         fplayers[i]->fighter_info->damage_mod = players[i]->attack;
         fplayers[i]->fighter_info->defense_mod = players[i]->defense;
-        fplayers[i]->fighter_info->name = "TO FULLFILL";
+        fplayers[i]->fighter_info->name = "Axel";
         fplayers[i]->fighter_info->attacks = setup_attack();
     }
 }
@@ -86,7 +86,7 @@ static void setup_enemy(game_manager_t *gm, int enemy_id)
         fenemies[i]->fighter_info->path_to_spritesheet = enemy->pathname;
         fenemies[i]->fighter_info->damage_mod = 10;
         fenemies[i]->fighter_info->defense_mod = 10;
-        fenemies[i]->fighter_info->name = "TO FULLFILL";
+        fenemies[i]->fighter_info->name = "Enemy";
         fenemies[i]->fighter_info->attacks = setup_attack();
     }
 }
@@ -102,6 +102,6 @@ void setup_fight(game_manager_t *gm, int enemy_id)
         destroy_background(backgrounds[0]);
         backgrounds[0] = create_background(
         gm->scenes[GAME_ID]->backgrounds[0]->pathname,
-        (sfVector2f){-500, -500}, NULL);
+        (sfVector2f){-162, -612}, NULL);
     }
 }

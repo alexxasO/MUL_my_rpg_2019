@@ -151,7 +151,9 @@ SRCS	=	src/main.c										\
 			src/draw/draw_infobar.c 						\
 			src/create/create_infobar.c						\
 			src/fight/fight_scene.c 						\
+			src/fight/fight_scene_ext.c 					\
 			src/fight/menu_display_sprites.c 				\
+			src/fight/menu_display_menu_ext.c 				\
 			src/fight/place_fight_text.c 					\
 			src/fight/menu_selector.c	 					\
 			src/fight/setup_fight.c							\
