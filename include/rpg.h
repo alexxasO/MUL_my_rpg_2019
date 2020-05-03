@@ -160,6 +160,7 @@ void multi_callback(game_manager_t *gm);
 void play_multi_callback(game_manager_t *gm);
 void sett_callback(game_manager_t *gm);
 void play_multi_id_callback(game_manager_t *gm);
+void validate_ip_cb(game_manager_t *gm);
 
 /* FIGHT */
 int count_players(player_t **fighters);
@@ -180,5 +181,6 @@ void handle_music(game_manager_t *gm);
 
 /* NETWORK */
 void launch_serv(game_manager_t *gm);
+bool waiting_for_connexion(game_manager_t *gm);
 
 #endif

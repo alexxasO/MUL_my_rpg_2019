@@ -26,11 +26,11 @@ button_t **multi_button(void)
 button_t **ip_button(void)
 {
     button_t **buttons = malloc(sizeof(button_t *) * 2);
-    char *host_pathnames[] = {"image/button/host.png",
-    "image/button/host_over.png", "image/button/host_clicked.png"};
+    char *host_pathnames[] = {"image/button/join.png",
+    "image/button/join_over.png", "image/button/join_clicked.png"};
 
     buttons[0] = create_button(host_pathnames,
-    (sfVector2f){700, 520}, NULL);
+    (sfVector2f){700, 520}, &validate_ip_cb);
     buttons[1] = NULL;
     return buttons;
 }
