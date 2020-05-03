@@ -63,13 +63,14 @@ game_manager_t *gm, int nb_ply)
     int attack_id = 0;
     int attack_nb = 0;
 
+    printf("avant turn\n");
     for (int i = 0; enemies[i]; i++) {
         attack_nb = 0;
         // for (; enemies[i]->fighter_info->attacks[attack_nb]; attack_nb++)
         //     printf("attack_nb : %d\n", attack_nb);
         ply_id = random_int(nb_ply);
         attack_id = random_int(4);
-        printf("aid : %d\neny : %p, fi : %p, efias : %p\npfi : %p\n", attack_id, enemies, enemies[i]->fighter_info, enemies[i]->fighter_info->attacks[0], players[ply_id]->fighter_info);
+        printf("l'ennemy attack dmg : %d\nattack id : %d\n", enemies[i]->fighter_info->attacks[attack_id]->dmg, attack_id);
         attack_fighter(enemies[i]->fighter_info, players[ply_id]->fighter_info,
         enemies[i]->fighter_info->attacks[attack_id]);
     }
@@ -81,13 +82,13 @@ void begin_fight(player_t **players, enemy_t **enemies, game_manager_t *gm)
     int nb_enemy = count_enemies(enemies);
     int turn = 0;
 
-    place_player(players, nb_player);
-    place_enemies(enemies, nb_enemy);
-    place_infobar_texts(players, enemies, gm);
-    create_info_bar(gm, gm->fight_bar, turn);
-    turn++;
+    printf("turn : %d\nadresse 1 %p\n", turn, &turn);
     if (turn >= nb_player) {
         turn = 0;
         enemy_turn(enemies, players, gm, nb_player);
     }
+    place_player(players, nb_player);
+    place_enemies(enemies, nb_enemy);
+    place_infobar_texts(players, enemies, gm);
+    create_info_bar(gm, gm->fight_bar, &turn);
 }

@@ -80,8 +80,6 @@ static void setup_enemy(game_manager_t *gm, int enemy_id)
     for (size_t i = 0; i < 1; i++) {
         fenemies[i] = create_enemy(enemy->pathname,
         (sfVector2f){100, 500}, NULL, NULL);
-        fenemies[i]->rect = (sfIntRect){0, 0, fenemies[i]->size.x / 7,
-        fenemies[i]->size.y / 4};
         fenemies[i]->fighter_info->sprite = enemy->sprite;
         fenemies[i]->fighter_info->texture = enemy->texture;
         fenemies[i]->fighter_info->life = 50;
