@@ -139,6 +139,10 @@ sfText **place_default_menu();
 sfText *create_menu_text(char *content, sfVector2f pos);
 void menu_info_sprites(infobar_t *infobar, game_manager_t *gm);
 sfText **place_target_menu(game_manager_t *gm, int turn);
+void change_selector_up(infobar_t *infobar);
+void change_selector_down(infobar_t *infobar);
+void attack_fighter(fighter_info_t *attacker, fighter_info_t *victim,
+attack_t *attack);
 
 /* ANIMATION */
 void anim_player(game_manager_t *gm, player_t *player);

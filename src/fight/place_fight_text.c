@@ -26,7 +26,7 @@ sfText **place_default_menu()
 
     texts[0] = create_menu_text("Attack", (sfVector2f){SCR_WIDTH / 2 - 50,
     SCR_HEIGHT - 160});
-    texts[1] = create_menu_text("Item", (sfVector2f){SCR_WIDTH / 2 - 50,
+    texts[1] = create_menu_text("Menu", (sfVector2f){SCR_WIDTH / 2 - 50,
     SCR_HEIGHT - 160 + 25});
     texts[2] = NULL;
     return texts;

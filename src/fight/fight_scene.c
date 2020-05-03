@@ -34,6 +34,28 @@ game_manager_t *gm)
     place_info_enemies(enemies, gm);
 }
 
+static int end_fight(player_t **players, enemy_t **enemies)
+{
+    int nb_ply = count_players(players);
+    int nb_eny = count_enemies(enemies);
+    int count = 0;
+
+    for (int i = 0; players[i]; i++) {
+        if (players[i]->life <= 0)
+            count++;
+    }
+    if (count >= nb_ply)
+        return -1;
+    count = 0;
+    for (int i = 0; enemies[i]; i++) {
+        if (enemies[i]->life <= 0)
+            count++;
+    }
+    if (count >= nb_eny)
+        return 1;
+    return 0;
+}
+
 void begin_fight(player_t **players, enemy_t **enemies, game_manager_t *gm)
 {
     int nb_player = count_players(players);

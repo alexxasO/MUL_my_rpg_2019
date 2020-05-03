@@ -14,7 +14,6 @@ typedef struct game_manager_s game_manager_t;
 
 typedef struct attack {
     int dmg;
-    int speed_dmg;
     int defense_dmg;
     int damage_dmg;
     char *path_to_icon;
@@ -37,10 +36,8 @@ typedef struct fighter_info {
     sfTexture *texture;
     attack_t **attacks;
     inv_object_t *object;
-    int speed;
     int damage_mod;
     int defense_mod;
-    int speed_mod;
     char *name;
 } fighter_info_t;
 
