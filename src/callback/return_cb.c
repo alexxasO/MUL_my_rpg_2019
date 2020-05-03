@@ -15,4 +15,6 @@ void return_callback(game_manager_t *gm)
         gm->scene_id = START_MENU_ID;
     if (gm->scene_id == HELP_ID)
         gm->scene_id = PAUSE_ID;
+    if (gm->scene_id == SETT_ID)
+        gm->scene_id = START_MENU_ID;
 }

@@ -11,7 +11,7 @@
 #define SCR_WIDTH 1920
 #define SCR_HEIGHT 1080
 
-#define NB_SCENES 10
+#define NB_SCENES 11
 
 #define START_MENU_ID 0
 #define SAVE_ID 1
@@ -23,5 +23,6 @@
 #define INV_STAT_ID 7
 #define SAVE_MULTI_ID 8
 #define MULTI_ID 9
+#define SETT_ID 10
 
 #endif
