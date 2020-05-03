@@ -23,5 +23,6 @@
 #define INV_STAT_ID 7
 #define SAVE_MULTI_ID 8
 #define MULTI_ID 9
+#define MULTI_IP_ID 10
 
 #endif

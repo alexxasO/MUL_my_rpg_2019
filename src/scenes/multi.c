@@ -13,3 +13,10 @@ void multi_func(game_manager_t *gm)
 
     handle_buttons(gm, scene);
 }
+
+void ip_func(game_manager_t *gm)
+{
+    scene_t *scene = gm->scenes[gm->scene_id];
+
+    handle_buttons(gm, scene);
+}

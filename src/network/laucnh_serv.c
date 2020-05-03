@@ -61,20 +61,22 @@ void data_management(serv_t *serv, client_t *client)
     transmit_data(who, serv, data);
 }
 
-void launch_serv(client_t *client)
+void launch_serv(game_manager_t *gm)
 {
     serv_t serv;
     char ip[16];
 
-    client = init_socket(client);
-    sfIpAddress_toString(client->ip, ip);
-    my_printf("Welcome !\nHost the best RPG on our server\n");
-    my_printf("Ip : %s\nPort : %i\n", ip, client->port);
-    host_soket_and_listener(client->ip, client->port, &serv);
+    if (gm->window)
+        sfRenderWindow_close(gm->window);
+    init_socket(&gm->client);
+    sfIpAddress_toString(gm->client.ip, ip);
+    my_printf("Welcome !\nHost the best RPG on our server\nIp : %s\nPort :\
+    %i\n", ip, gm->client.port);
+    host_soket_and_listener(gm->client.ip , gm->client.port, &serv);
     sfTcpSocket_setBlocking(serv.cli_a.sok, sfFalse);
     sfTcpSocket_setBlocking(serv.cli_b.sok, sfFalse);
-    data_management(&serv, client);
+    data_management(&serv, &gm->client);
     sfTcpSocket_destroy(serv.cli_a.sok);
     sfTcpSocket_destroy(serv.cli_b.sok);
-    sfTcpSocket_destroy(client->sok);
+    sfTcpSocket_destroy(gm->client.sok);
 }
