@@ -10,6 +10,8 @@
 void move_npc_and_enemy(player_t **players, float add_x, float add_y,
 enemy_t **enemies)
 {
+    if (players[1] == NULL || enemies[0] == NULL)
+        return;
     for (size_t i = 1; i < 3; i++) {
         players[i]->pos.x -= add_x;
         players[i]->pos.y -= add_y;

@@ -54,7 +54,9 @@ void game_callback(game_manager_t *gm)
     for (size_t i = 0; i < 12; i++)
         if (save->inventory[i] == 2)
             update_stat(i, scene->players, 1);
-    set_npc(scene->players, scene->backgrounds[0]);
-    set_enemy(scene->enemies, scene->backgrounds[0]);
+    if (save->stage != 10) {
+        set_npc(scene->players, scene->backgrounds[0]);
+        set_enemy(scene->enemies, scene->backgrounds[0]);
+    }
     set_background(scene->backgrounds, save->stage);
 }

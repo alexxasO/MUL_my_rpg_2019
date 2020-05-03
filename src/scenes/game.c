@@ -51,6 +51,19 @@ static void check_collision_with_npcs(game_manager_t *gm)
     erase_dialog(gm);
 }
 
+static sfBool check_key_pressed(game_manager_t *gm)
+{
+    if (my_strcmp(gm->key_pressed, "esc") == 0) {
+        gm->scene_id = PAUSE_ID;
+        return sfTrue;
+    }
+    if (my_strcmp(gm->key_pressed, "i") == 0) {
+        gm->scene_id = INV_STAT_ID;
+        return sfTrue;
+    }
+    return sfFalse;
+}
+
 void game_func(game_manager_t *gm)
 {
     scene_t *scene = gm->scenes[gm->scene_id];
@@ -59,14 +72,8 @@ void game_func(game_manager_t *gm)
     anim_player(gm, scene->players[0]);
     move_all(gm, scene->players, scene->backgrounds[0]);
     handle_buttons(gm, scene);
-    if (my_strcmp(gm->key_pressed, "esc") == 0) {
-        gm->scene_id = PAUSE_ID;
+    if (check_key_pressed(gm) == sfTrue)
         return;
-    }
-    if (my_strcmp(gm->key_pressed, "i") == 0) {
-        gm->scene_id = INV_STAT_ID;
-        return;
-    }
     check_collision_with_npcs(gm);
     enemy_id = check_collision_with_enemies(gm);
     if (enemy_id != -1) {
