@@ -60,6 +60,10 @@ void apply_attack(infobar_t *info, game_manager_t *gm, int *turn) {
 
 void interpret_key(infobar_t *infobar, game_manager_t *gm, int *turn)
 {
+    if (!my_strcmp(gm->key_pressed, "enter")) {
+        sfSprite_setPosition(infobar->sprites[1],
+        (sfVector2f){SCR_WIDTH / 2 - 100, (SCR_HEIGHT - 160) - 15});
+    }
     if (!my_strcmp(gm->key_pressed, "enter") && infobar->mode == SELECTOR) {
         apply_attack(infobar, gm, turn);
     }
